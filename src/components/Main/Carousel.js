@@ -129,7 +129,8 @@ const StyledSlider = styled(Slider)`
     }
   }
   .slick-active {
-    //포커스 카드 개수 1개 일때는 current와 동일
+    //포커스 카드 개수 1개 일때는 current가 덮어씀
+    //포커스된 카드들 (pc는 3개, 모바일은 1개))
     width: 270px;
 
     height: 370px;
