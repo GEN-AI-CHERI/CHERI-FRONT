@@ -37,7 +37,7 @@ const settings = {
   accessivility: true,
   variableWidth: true,
   draggable: false,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 3000,
   centerMode: true,
   centerPadding: "50px", //디폴트값
@@ -111,15 +111,15 @@ const StyledSlider = styled(Slider)`
     //각 카드 스타일링
     display: flex;
     align-items: center;
+    justify-content: center;
     //카드 사이 간격
-    padding: 0 0.5rem;
 
-    width: 220px;
+    width: 270px; //얘가 통일 돼야 정렬됨
     height: 370px;
     //자식인 Card 컴포넌트
     div {
-      width: 220px;
-      height: 330px;
+      width: 240px;
+      height: 332px;
       border-radius: 35px;
       background: lightgray 50% / cover no-repeat;
     }
@@ -129,23 +129,27 @@ const StyledSlider = styled(Slider)`
     }
   }
   .slick-active {
-    //포커스 된 카드들 (pc 기준 3개, 모바일 기준 1개)
-    width: 240px;
+    //포커스 카드 개수 1개 일때는 current와 동일
+    width: 270px;
+
     height: 370px;
+
     div {
-      width: 240px;
-      height: 345px;
+      width: 250px;
+      height: 352px;
       border-radius: 35px;
       background: lightgray 50% / cover no-repeat;
     }
   }
   .slick-current {
     //가운데 카드 하나
-    width: 260px;
+    width: 270px;
+
     height: 370px;
+
     div {
       width: 260px;
-      height: 369.5px;
+      height: 370px;
       border-radius: 35px;
       background: lightgray 50% / cover no-repeat;
     }
