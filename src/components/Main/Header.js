@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import logo from "../../assets/common/logo.png";
 import { styled } from "styled-components";
 import { useState } from "react";
@@ -43,41 +43,72 @@ const Header = () => {
   const [language, setLanguage] = useState("English");
 
   return (
-    <div>
-      <img src={logo} alt="" width={"38px"} height={"32px"} />
-      <LanDropdown $isOpen={isOpen ? "true" : "false"}>
-        <div>
-          {isOpen ? (
-            <div className="open">
-              <Languages
-                className="lan"
-                setLanguage={setLanguage}
-                currentLan={language}
-                setIsOpen={setIsOpen}
-                isOpen={isOpen}
-              />
-              <div className="arrow" onClick={() => setIsOpen(!isOpen)}>
-                <img src={upArrow} alt="" />
+    <Wrapper>
+      <div className="logo">
+        <img src={logo} alt="" width={"38px"} height={"32px"} />
+      </div>
+
+      <div className="dropdownNprofile">
+        <LanDropdown $isOpen={isOpen ? "true" : "false"}>
+          <div>
+            {isOpen ? (
+              <div className="open">
+                <Languages
+                  className="lan"
+                  setLanguage={setLanguage}
+                  currentLan={language}
+                  setIsOpen={setIsOpen}
+                  isOpen={isOpen}
+                />
+                <div className="arrow" onClick={() => setIsOpen(!isOpen)}>
+                  <img src={upArrow} alt="" />
+                </div>
               </div>
-            </div>
-          ) : (
-            <div className="close" onClick={() => setIsOpen(!isOpen)}>
-              <div className="lan">{language}</div>
-              <div className="arrow">
-                <img src={downArrow} alt="" />
+            ) : (
+              <div className="close" onClick={() => setIsOpen(!isOpen)}>
+                <div className="lan">{language}</div>
+                <div className="arrow">
+                  <img src={downArrow} alt="" />
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
+        </LanDropdown>
+
+        <div className="profile">
+          <Profile>
+            <img src={avatar} alt="" />
+          </Profile>
         </div>
-      </LanDropdown>
-      <Profile>
-        <img src={avatar} alt="" />
-      </Profile>
-    </div>
+      </div>
+    </Wrapper>
   );
 };
 
 export default Header;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    margin-left: 19.5px;
+  }
+
+  .dropdownNprofile {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+
+    .profile {
+      margin-left: 15px;
+    }
+  }
+`;
 
 const LanDropdown = styled.ul`
   padding: 0;
