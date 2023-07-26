@@ -60,6 +60,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
+
+  margin-top: 15px;
+  margin-bottom: 50.5px;
 `;
 
 const Card = styled.div`
