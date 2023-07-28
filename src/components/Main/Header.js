@@ -135,17 +135,13 @@ const LanDropdown = styled.ul`
   margin-top: ${(props) => (props.$isOpen === "true" ? "55px" : "")};
 
   .close {
-    width: 89px;
     display: flex;
     margin-top: 7px;
-    margin-left: 40px;
   }
   .open {
-    width: 89px;
     display: flex;
     margin-top: 7px;
     display: flex;
-    margin-left: 40px;
 
     li {
       height: 18px;
