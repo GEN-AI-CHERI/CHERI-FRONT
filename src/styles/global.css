@@ -1,5 +1,6 @@
 html,
 body {
+  font-family: "Cygre";
   margin: 0;
   width: 100%;
   min-height: 100%;
@@ -7,14 +8,17 @@ body {
 }
 
 #root {
+  font-family: "Cygre";
   margin: 0;
   width: 100%;
   min-height: 100%;
 }
 html {
+  font-family: "Cygre";
   font-size: 14px;
 
   @media (min-width: 768px) {
+    font-family: "Cygre";
     font-size: 16px;
   }
 }
