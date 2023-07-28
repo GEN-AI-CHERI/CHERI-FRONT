@@ -114,6 +114,7 @@ const LanDropdown = styled.ul`
   padding: 0;
   margin: 0;
   width: 89px;
+  z-index: 1;
 
   border-radius: 20px;
   border: 1px solid #353535;
@@ -131,6 +132,8 @@ const LanDropdown = styled.ul`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-top: ${(props) => (props.$isOpen === "true" ? "55px" : "")};
+
   .close {
     width: 89px;
     display: flex;
