@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import ex from "../../assets/destination/ex.png";
 import bookmark from "../../assets/destination/Bookmark.png";
+import Check from "../../assets/destination/send.png";
 import { useState } from "react";
 
 const Card = () => {
@@ -23,11 +24,17 @@ const Card = () => {
           <Num>108</Num>
           <Line> | </Line>
           <Summary> The capital of South Korea</Summary>
+          {isSelect && <CheckIcon src={Check} />}
         </Row>
       </TextContainer>
     </Container>
   );
 };
+
+const CheckIcon = styled.img`
+  width: 2rem;
+  margin-left: 3.4rem;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -51,7 +58,7 @@ const Container = styled.div`
 const Img = styled.img`
   width: 21.8rem;
   height: 11rem;
-  margin-top: -19px;
+  margin-top: -12px;
   align-self: center;
 `;
 

@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const Button = () => {
+const Button = ({ next }) => {
   const navigate = useNavigate();
 
   const handleNavigatePrev = () => {
@@ -9,7 +9,7 @@ const Button = () => {
   };
 
   const handleNavigateNext = () => {
-    navigate("/themes");
+    navigate(`/${next}`);
   };
 
   return (

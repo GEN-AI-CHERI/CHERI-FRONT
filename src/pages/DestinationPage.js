@@ -14,7 +14,7 @@ const DestinationPage = () => {
         <Card />
         <Card />
       </CardContainer>
-      <Button />
+      <Button next="themes" />
     </>
   );
 };
@@ -23,6 +23,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
 `;
 
 export default DestinationPage;
