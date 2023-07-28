@@ -5,9 +5,10 @@ import Slider from "react-slick";
 import { styled } from "styled-components";
 import { useState } from "react";
 
+//뷰포트 480-577px에서 마지막 카드 보여줄 때 작은 오류 있음
 const Carousel = () => {
   //요소 네개 이상이어야 정상 작동
-  const [dest, setDest] = useState(["a", "b", "c", "d"]);
+  const [dest, setDest] = useState(["a", "b", "c", "d", "e", "f", "g"]);
 
   return (
     <Wrapper>
@@ -74,6 +75,8 @@ const Card = styled.div`
   }
 `;
 const StyledSlider = styled(Slider)`
+  height: 370px;
+
   .slick-prev {
     width: 2rem;
     height: 2rem;
@@ -101,11 +104,13 @@ const StyledSlider = styled(Slider)`
     display: block;
     margin: 0;
     width: 100vw;
+    height: 370px;
     overflow: hidden;
   }
   .slick-track {
     top: 0;
     left: 0;
+    height: 370px;
     display: block;
     margin-left: auto;
     margin-right: auto;
