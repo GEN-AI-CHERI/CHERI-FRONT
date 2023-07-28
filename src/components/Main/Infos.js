@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import gptXcheri from "../../assets/main/gptXcheri.png";
 import check from "../../assets/main/check.png";
 import directionImg from "../../assets/main/directionImg.png";
-
+import Footer from "./Footer";
 const Infos = () => {
   return (
     <>
@@ -74,6 +74,7 @@ const Infos = () => {
             </div>
           </div>
         </Destinations>
+        <Footer />
       </Bottom>
     </>
   );
@@ -90,6 +91,7 @@ const Bottom = styled.div`
 `;
 const Top = styled.div`
   width: 100vw;
+
   @media (min-height: 799) {
     position: absolute;
     top: 500px;
