@@ -1,5 +1,11 @@
+import { Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage";
 function App() {
-  return <div>initial settings</div>;
+  return (
+    <Routes>
+      <Route path="/main" element={<MainPage />} />
+    </Routes>
+  );
 }
 
 export default App;

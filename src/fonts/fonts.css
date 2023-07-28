@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Cygre";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./Cygre-BoldIt-BF63eeebf93545d.ttf");
+}
+@font-face {
+  font-family: "Cygre";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./Cygre-Regular-BF63eeebf4df0b6.ttf") format("woff");
+}
