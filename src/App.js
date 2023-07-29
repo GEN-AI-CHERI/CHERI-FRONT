@@ -4,6 +4,8 @@ import DestinationPage from "./pages/DestinationPage";
 import ThemePage from "./pages/ThemePage";
 import PeriodPage from "./pages/PeriodPage";
 import PartyPage from "./pages/PartyPage";
+import ThemePage2 from "./pages/ThemePage2";
+import PeriodPage2 from "./pages/PeriodPage2";
 
 function App() {
   return (
@@ -12,9 +14,9 @@ function App() {
       <Route path="/destination" element={<DestinationPage />} />
       <Route path="/themes" element={<ThemePage />} />
       <Route path="/period" element={<PeriodPage />} />
-      <Route path="/themes2" element={<ThemePage />} />
+      <Route path="/themes2" element={<ThemePage2 />} />
       <Route path="/party" element={<PartyPage />} />
-      <Route path="/period2" element={<PeriodPage />} />
+      <Route path="/period2" element={<PeriodPage2 />} />
     </Routes>
   );
 }
