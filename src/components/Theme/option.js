@@ -47,4 +47,5 @@ const CheckIcon = styled.img`
   margin: 0;
   margin-right: 5px;
 `;
+
 export default Option;
