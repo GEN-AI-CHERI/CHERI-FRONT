@@ -4,7 +4,7 @@ import Button from "../components/Destination/Button";
 import Calendar from "../components/Period/Calendar";
 import Age from "../components/Period/Age";
 
-const Period = () => {
+const PeriodPage = () => {
   return (
     <>
       <ShortHeader />
@@ -16,4 +16,4 @@ const Period = () => {
   );
 };
 
-export default Period;
+export default PeriodPage;
