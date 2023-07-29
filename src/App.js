@@ -6,6 +6,7 @@ import PeriodPage from "./pages/PeriodPage";
 import PartyPage from "./pages/PartyPage";
 import ThemePage2 from "./pages/ThemePage2";
 import PeriodPage2 from "./pages/PeriodPage2";
+import ResultPage from "./pages/ResultPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/themes2" element={<ThemePage2 />} />
       <Route path="/party" element={<PartyPage />} />
       <Route path="/period2" element={<PeriodPage2 />} />
+      <Route path="/result" element={<ResultPage />} />
     </Routes>
   );
 }
