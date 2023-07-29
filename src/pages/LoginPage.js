@@ -24,7 +24,7 @@ const LoginPage = () => {
           navigate("/signup");
         }}
       >
-        Sign up here
+        Click here to sign up
       </div>
     </Wrapper>
   );
