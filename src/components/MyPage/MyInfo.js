@@ -13,6 +13,8 @@ const MyInfo = ({ isLogin, nickname }) => {
           <div className="title">Hello Stranger!</div>
         )}
         {isLogin ? (
+          <div className="subtitle">Welcome Back!</div>
+        ) : (
           <div
             onClick={() => {
               navigate("./login");
@@ -21,8 +23,6 @@ const MyInfo = ({ isLogin, nickname }) => {
           >
             Click here to login
           </div>
-        ) : (
-          <div className="subtitle">Welcome Back!</div>
         )}
       </div>
       <div className="profile">
