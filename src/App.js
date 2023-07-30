@@ -9,6 +9,7 @@ import PeriodPage2 from "./pages/PeriodPage2";
 import ResultPage from "./pages/ResultPage";
 import ChatPage from "./pages/ChatPage";
 import ItineraryPage from "./pages/ItineraryPage";
+import MapPage from "./pages/MapPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/result" element={<ResultPage />} />
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/itinerary" element={<ItineraryPage />} />
+      <Route path="/map" element={<MapPage />} />
     </Routes>
   );
 }
