@@ -11,6 +11,7 @@ import ThemePage2 from "./pages/ThemePage2";
 import PeriodPage2 from "./pages/PeriodPage2";
 import ResultPage from "./pages/ResultPage";
 import MyPage from "./pages/MyPage";
+import DetailedDestPage from "./pages/DetailedDestPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path="/period2" element={<PeriodPage2 />} />
       <Route path="/result" element={<ResultPage />} />
       <Route path="/mypage" element={<MyPage />} />
+      <Route path="/detail" element={<DetailedDestPage />} />
     </Routes>
   );
 }
