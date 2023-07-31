@@ -17,7 +17,7 @@ const Info = () => {
 
 export default Info;
 const Wrapper = styled.div`
-  padding: 0 1.5rem;
+  padding: 1.8rem 1.5rem;
   text-align: justify;
   .title {
     color: #121212;
