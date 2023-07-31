@@ -40,27 +40,24 @@ const settings = {
   autoplay: false,
   autoplaySpeed: 3000,
   centerMode: true,
-  centerPadding: "50px", //디폴트값
+  centerPadding: "5px", //디폴트값
   pauseOnHover: true, // hover시 정지
   //화면 넓이에 따른 반응형 옵션
   responsive: [
     {
-      breakpoint: 480,
+      //뷰포트 너비 910 전까지 적용
+      breakpoint: 910,
       settings: {
         slidesToShow: 1,
-        centerMode: true,
-        centerPadding: "50px",
       },
     },
   ],
 };
 
 const Wrapper = styled.div`
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  margin: auto;
+  width: 100%;
 
+  overflow: hidden;
   margin-top: 15px;
   margin-bottom: 50.5px;
 `;
@@ -74,16 +71,17 @@ const Card = styled.div`
   }
 `;
 const StyledSlider = styled(Slider)`
+  width: 100%;
   .slick-prev {
     width: 2rem;
     height: 2rem;
-    left: 4rem;
+    left: 1rem;
     z-index: 1;
   }
   .slick-next {
     width: 2rem;
     height: 2rem;
-    right: 4rem;
+    right: 1rem;
   }
   .slick-prev:before {
     font-size: 2rem;
@@ -97,19 +95,10 @@ const StyledSlider = styled(Slider)`
   }
   .slick-list {
     //화면에 보여지는 부분
-    position: relative;
-    display: block;
+
     margin: 0;
-    width: 100vw;
-    overflow: hidden;
   }
-  .slick-track {
-    top: 0;
-    left: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   .slick-slide {
     //각 카드 스타일링
     display: flex;
