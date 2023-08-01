@@ -1,8 +1,10 @@
 import { styled } from "styled-components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Route = () => {
 const [selected,setSelected] = useState(false);
+const navigate = useNavigate();
 
   return <Container onClick={() => setSelected(!selected)} selected={selected}>
     <Time>2hr 45min</Time>
@@ -11,7 +13,7 @@ const [selected,setSelected] = useState(false);
 <P>Example Bus Terminal</P>
 <Transportation>Train 567 | 1hr 23min</Transportation>
 <P>Jeonju Hanok Village</P>
-<Details>Details</Details>
+<Details onClick={() => navigate('/detail-result')}>Details</Details>
   </Container>;
 };
 
@@ -48,6 +50,7 @@ const Details = styled.p`
 margin: 0;
 font-size: 0.8rem;
 margin-left: 13.5rem;
+cursor: pointer;
 `
 
 export default Route;
