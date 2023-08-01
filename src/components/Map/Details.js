@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import redo from "../../assets/map/Redo.png";
 import ex from "../../assets/map/ex.png";
 import { useNavigate } from "react-router-dom";
+import Search from "../MapResult/Search";
 
 const Details = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Details = () => {
         <Img src={ex} />
         <Img src={ex} />
       </ImgContainer>
-      <Btn onClick={() => navigate("/route")}>
+      <Btn onClick={() => navigate("/map-result")}>
         Get Directions <Redo src={redo} />
       </Btn>
     </Container>

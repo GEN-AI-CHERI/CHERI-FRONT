@@ -10,6 +10,7 @@ import ResultPage from "./pages/ResultPage";
 import ChatPage from "./pages/ChatPage";
 import ItineraryPage from "./pages/ItineraryPage";
 import MapPage from "./pages/MapPage";
+import MapResultPage from "./pages/MapResultPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/itinerary" element={<ItineraryPage />} />
       <Route path="/map" element={<MapPage />} />
+      <Route path="/map-result" element={<MapResultPage />} />
     </Routes>
   );
 }
