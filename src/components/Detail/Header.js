@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import back from "../../assets/result/back.png";
 import scrap from "../../assets/detail/scrap.png";
+import unscrap from "../../assets/detail/unscrap.png";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
-  const handleScrap = () => {};
+  const [isScrap, setIsScrap] = useState(false);
+
+  const handleScrap = () => {
+    setIsScrap(!isScrap);
+  };
   return (
     <Wrapper>
       <div className="btns">
         <img className="back" alt="" src={back} onClick={() => navigate(-1)} />
-        <img className="scrap" alt="" src={scrap} onClick={handleScrap} />
+        {isScrap ? (
+          <img className="scrap" alt="" src={scrap} onClick={handleScrap} />
+        ) : (
+          <img className="scrap" alt="" src={unscrap} onClick={handleScrap} />
+        )}
       </div>
       <img className="image" alt="" src={""} />
     </Wrapper>
