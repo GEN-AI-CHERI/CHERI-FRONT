@@ -7,10 +7,12 @@ export const postSignUp = async (email, password) => {
       email: email,
       password: password,
     });
-
     console.log(res);
+
+    return res.data;
   } catch (err) {
     console.log(err);
+    throw err;
   }
 };
 

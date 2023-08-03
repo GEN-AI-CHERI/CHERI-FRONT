@@ -12,9 +12,13 @@ const SignUpPage = () => {
     password: "",
     confirmPassword: "",
   });
-
+  const [isError, setIsError] = useState(false);
   const { email, password, confirmPassword } = inputs;
-  const handleSignUp = () => {
+
+  const showErrMsg = () => {
+    setIsError(true);
+  };
+  const handleSignUp = async () => {
     if (
       confirmPassword &&
       password &&
@@ -22,12 +26,17 @@ const SignUpPage = () => {
       confirmPassword === password &&
       email.includes("@")
     ) {
-      //post 요청보내기
-      postSignUp(email, confirmPassword);
-      setInputs({ email: "", password: "", confirmPassword: "" });
+      try {
+        const res = await postSignUp(email, confirmPassword);
+        setInputs({ email: "", password: "", confirmPassword: "" });
+        navigate("/login");
+      } catch (err) {
+        showErrMsg();
+      }
     }
   };
   const handleChange = (e) => {
+    setIsError(false);
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
   };
@@ -74,6 +83,7 @@ const SignUpPage = () => {
           *The password confirmation does not match
         </div>
       )}
+      {isError && <div className="invalidMsg">*The account alreay exists</div>}
       <div className="bottom">
         <Btn onClick={handleSignUp}>Sign Up</Btn>
         <div
