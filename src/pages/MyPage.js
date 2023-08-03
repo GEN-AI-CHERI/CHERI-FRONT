@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import backBtn from "../assets/mypage/backBtn.png";
 import { styled } from "styled-components";
 import MyInfo from "../components/MyPage/MyInfo";
 import ScrapCarousel from "../components/MyPage/ScrapCarousel";
 import Item from "../components/MyPage/Item";
 import { useNavigate } from "react-router-dom";
+import { getMyInfo } from "../api/members";
 const MyPage = () => {
   const isLogin = true;
   const navigate = useNavigate();
+
+  const getMyInfoData = async () => {
+    const res = await getMyInfo();
+  };
+  useEffect(() => {
+    const data = getMyInfoData();
+  }, []);
   return (
     <>
       <Back

@@ -3,22 +3,35 @@ import PlainHeader from "../components/PlainHeder";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { postSignIn } from "../api/member";
+import { postSignIn } from "../api/members";
 const LoginPage = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
+  const [isError, setIsError] = useState(false);
   const { email, password } = inputs;
-  const handleLogin = () => {
+
+  const showErrMsg = () => {
+    setIsError(true);
+  };
+  const handleLogin = async () => {
     if (email && password) {
-      postSignIn(email, password);
-      setInputs({ email: "", password: "" });
+      try {
+        const data = await postSignIn(email, password);
+        localStorage.setItem("cheritoken", data.access_token);
+        navigate("/main");
+
+        setInputs({ email: "", password: "" });
+      } catch (err) {
+        showErrMsg();
+      }
     }
   };
 
   const handleChange = (e) => {
+    setIsError(false);
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
   };
@@ -47,15 +60,19 @@ const LoginPage = () => {
           autoComplete="off"
         />
       </Form>
-
-      <Btn onClick={handleLogin}>Login</Btn>
-      <div
-        className="toSignup"
-        onClick={() => {
-          navigate("/signup");
-        }}
-      >
-        Click here to sign up
+      {isError && (
+        <div className="invalidMsg">*Your email or password is not valid</div>
+      )}
+      <div className="bottom">
+        <Btn onClick={handleLogin}>Login</Btn>
+        <div
+          className="toSignup"
+          onClick={() => {
+            navigate("/signup");
+          }}
+        >
+          Click here to sign up
+        </div>
       </div>
     </Wrapper>
   );
@@ -68,6 +85,18 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .invalidMsg {
+    width: 80%;
+    @media (min-width: 768px) {
+      max-width: 40%;
+    }
+    padding-left: 20px;
+    margin-top: 12px;
+    color: #d90000;
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
   .title {
     color: #353535;
     font-size: 2.2rem;
@@ -113,7 +142,6 @@ const Form = styled.form`
     max-width: 40%;
   }
   height: 8rem;
-  margin-bottom: 4rem;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
