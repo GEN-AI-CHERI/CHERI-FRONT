@@ -2,8 +2,26 @@ import React from "react";
 import PlainHeader from "../components/PlainHeder";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { postSignIn } from "../api/member";
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = inputs;
+  const handleLogin = () => {
+    if (email && password) {
+      postSignIn(email, password);
+      setInputs({ email: "", password: "" });
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
+  };
   return (
     <Wrapper>
       <div className="header">
@@ -12,14 +30,27 @@ const LoginPage = () => {
         <div className="subtitle">Welcome Back</div>
       </div>
       <Form>
-        <input placeholder="Email" />
+        <input
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          value={email}
+          autoComplete="off"
+        />
         <div className="line" />
-        <input placeholder="Password" type="password" />
+        <input
+          name="password"
+          placeholder="Password"
+          type="password"
+          onChange={handleChange}
+          value={password}
+          autoComplete="off"
+        />
       </Form>
 
-      <Btn>Login</Btn>
+      <Btn onClick={handleLogin}>Login</Btn>
       <div
-        className="toLogin"
+        className="toSignup"
         onClick={() => {
           navigate("/signup");
         }}
@@ -54,7 +85,7 @@ const Wrapper = styled.div`
     line-height: 192.023%;
     padding-left: 2.2rem;
   }
-  .toLogin {
+  .toSignup {
     margin-top: 23px;
     color: #b7b7b7;
     text-align: center;
@@ -71,7 +102,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
   margin-top: 15vh;
   padding: 0.8rem;
   border-radius: 9px;
