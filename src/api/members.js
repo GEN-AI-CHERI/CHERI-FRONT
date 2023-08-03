@@ -35,10 +35,9 @@ export const postSignIn = async (email, password) => {
 export const getMyInfo = async () => {
   try {
     const res = await client.get("members/me");
-    console.log(res);
 
     return res.data;
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };

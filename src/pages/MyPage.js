@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import backBtn from "../assets/mypage/backBtn.png";
 import { styled } from "styled-components";
 import MyInfo from "../components/MyPage/MyInfo";
@@ -7,14 +7,23 @@ import Item from "../components/MyPage/Item";
 import { useNavigate } from "react-router-dom";
 import { getMyInfo } from "../api/members";
 const MyPage = () => {
-  const isLogin = true;
+  const [userInfo, setUserInfo] = useState({});
+  const [rooms, setRooms] = useState([]);
+  const [scraps, setScraps] = useState([]);
+  const [destinations, setDestinations] = useState([]);
   const navigate = useNavigate();
 
   const getMyInfoData = async () => {
-    const res = await getMyInfo();
+    try {
+      const res = await getMyInfo();
+      setUserInfo(res.member);
+      setRooms(res.room_list);
+      setScraps([]);
+      setDestinations([]);
+    } catch (err) {}
   };
   useEffect(() => {
-    const data = getMyInfoData();
+    getMyInfoData();
   }, []);
   return (
     <>
@@ -26,30 +35,34 @@ const MyPage = () => {
         <img src={backBtn} alt="" />
       </Back>
       <Wrapper>
-        <MyInfo isLogin={false} nickname={"nickname"} />
-
+        {userInfo.email ? (
+          <MyInfo
+            nickname={userInfo.email.substring(0, userInfo.email.indexOf("@"))}
+          />
+        ) : (
+          <MyInfo nickname={null} />
+        )}
         <div className="storage">
           <div className="subject">Scrap</div>
-          {isLogin ? (
+          {scraps.length ? (
             <div className="list">
               <ScrapCarousel />
             </div>
           ) : (
-            <div className="null" />
+            <div className="null">No data</div>
           )}
-
           <div className="subject">Travel Itinerary </div>
-          {isLogin ? (
+          {rooms.length ? (
             <div className="list">
-              <Item subject={0} period={"07.21 ~ 08.19"} place={"Seoul"} />
-              <Item subject={0} period={"07.21 ~ 08.19"} place={"Seoul"} />
-              <Item subject={0} period={"07.21 ~ 08.19"} place={"Seoul"} />
+              {rooms.map(() => (
+                <Item subject={0} period={"07.21 ~ 08.19"} place={"Seoul"} />
+              ))}
             </div>
           ) : (
-            <div className="null" />
+            <div className="null">No data</div>
           )}
           <div className="subject">Recommended Destination</div>
-          {isLogin ? (
+          {destinations.length ? (
             <div className="list">
               <Item
                 subject={1}
@@ -68,7 +81,7 @@ const MyPage = () => {
               />
             </div>
           ) : (
-            <div className="null" />
+            <div className="null">No data</div>
           )}
         </div>
       </Wrapper>
@@ -106,6 +119,12 @@ const Wrapper = styled.div`
     align-items: center;
   }
   .null {
+    margin-top: 2vh;
     height: 10vh;
+    color: #b7b7b7;
+    font-family: Inter;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
   }
 `;
