@@ -3,7 +3,7 @@ import PlainHeader from "../components/PlainHeder";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { postSignUp } from "../api/member";
+import { postSignUp } from "../api/members";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -74,14 +74,16 @@ const SignUpPage = () => {
           *The password confirmation does not match
         </div>
       )}
-      <Btn onClick={handleSignUp}>Sign Up</Btn>
-      <div
-        className="toLogin"
-        onClick={() => {
-          navigate("/login");
-        }}
-      >
-        Already have an account?
+      <div className="bottom">
+        <Btn onClick={handleSignUp}>Sign Up</Btn>
+        <div
+          className="toLogin"
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Already have an account?
+        </div>
       </div>
     </Wrapper>
   );
@@ -141,6 +143,7 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
+  height: 168px;
   margin-top: 15vh;
   padding: 0.8rem;
   border-radius: 9px;
@@ -183,6 +186,10 @@ const Form = styled.form`
     width: 100%;
     border-top: 2px solid;
     color: #f0f0f0;
+  }
+  .bottom {
+    position: absolute;
+    bottom: 8vh;
   }
 `;
 const Btn = styled.div`
