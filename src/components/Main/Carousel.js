@@ -1,25 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { styled } from "styled-components";
 import { useState } from "react";
+import { getRegions } from "../../api/regions";
 
 const Carousel = () => {
   //요소 네개 이상이어야 정상 작동
-  const [dest, setDest] = useState(["a", "b", "c", "d"]);
+  const [dest, setDest] = useState([]);
+
+  const getCardData = async () => {
+    try {
+      const data = await getRegions();
+      setDest(data.regions);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getCardData();
+  }, []);
 
   return (
     <Wrapper>
       <div className="container">
         <StyledSlider {...settings}>
-          {dest.map(() => {
-            return (
-              <Card>
-                <img src="" alt="" />
-              </Card>
-            );
-          })}
+          {dest &&
+            dest.map((region) => {
+              return (
+                <Card>
+                  <img src={region.photo} alt="" />
+                </Card>
+              );
+            })}
         </StyledSlider>
       </div>
     </Wrapper>
@@ -56,16 +70,17 @@ const settings = {
 
 const Wrapper = styled.div`
   width: 100%;
-
   overflow: hidden;
   margin-top: 15px;
   margin-bottom: 50.5px;
 `;
 
 const Card = styled.div`
+  overflow: hidden;
+
   img {
-    width: 100%;
     height: 100%;
+    transform: translate(-25%, 0%);
     border-radius: 35px;
     filter: grayscale(50%);
   }
@@ -85,17 +100,17 @@ const StyledSlider = styled(Slider)`
   }
   .slick-prev:before {
     font-size: 2rem;
-    color: rgba(58, 58, 58, 0.8);
+
     opacity: 1;
+    color: rgba(255, 255, 255, 0.6);
   }
   .slick-next:before {
     font-size: 2rem;
-    color: rgba(58, 58, 58, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     opacity: 1;
   }
   .slick-list {
     //화면에 보여지는 부분
-
     margin: 0;
   }
 

@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import back from "../../assets/result/back.png";
 import scrap from "../../assets/detail/scrap.png";
+import unscrap from "../../assets/detail/unscrap.png";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
-  const handleScrap = () => {};
+  const [isScrap, setIsScrap] = useState(false);
+
+  const handleScrap = () => {
+    setIsScrap(!isScrap);
+  };
   return (
     <Wrapper>
       <div className="btns">
         <img className="back" alt="" src={back} onClick={() => navigate(-1)} />
-        <img className="scrap" alt="" src={scrap} onClick={handleScrap} />
+        {isScrap ? (
+          <img className="scrap" alt="" src={scrap} onClick={handleScrap} />
+        ) : (
+          <img className="scrap" alt="" src={unscrap} onClick={handleScrap} />
+        )}
       </div>
       <img className="image" alt="" src={""} />
     </Wrapper>
@@ -41,5 +50,18 @@ const Wrapper = styled.div`
     width: 2.5rem;
     margin-right: 1.5rem;
     cursor: pointer;
+    filter: drop-shadow(
+        0px 3.4348926544189453px 2.7479140758514404px rgba(0, 0, 0, 0.02)
+      )
+      drop-shadow(
+        0px 8.687101364135742px 6.949680805206299px rgba(0, 0, 0, 0.03)
+      )
+      drop-shadow(
+        0px 17.720870971679688px 14.176697731018066px rgba(0, 0, 0, 0.04)
+      )
+      drop-shadow(
+        0px 36.501644134521484px 29.201316833496094px rgba(0, 0, 0, 0.05)
+      )
+      drop-shadow(0px 100px 80px rgba(0, 0, 0, 0.07));
   }
 `;

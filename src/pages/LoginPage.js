@@ -2,8 +2,39 @@ import React from "react";
 import PlainHeader from "../components/PlainHeder";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { postSignIn } from "../api/members";
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+  });
+  const [isError, setIsError] = useState(false);
+  const { email, password } = inputs;
+
+  const showErrMsg = () => {
+    setIsError(true);
+  };
+  const handleLogin = async () => {
+    if (email && password) {
+      try {
+        const data = await postSignIn(email, password);
+        localStorage.setItem("cheritoken", data.access_token);
+        navigate("/main");
+
+        setInputs({ email: "", password: "" });
+      } catch (err) {
+        showErrMsg();
+      }
+    }
+  };
+
+  const handleChange = (e) => {
+    setIsError(false);
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
+  };
   return (
     <Wrapper>
       <div className="header">
@@ -12,19 +43,36 @@ const LoginPage = () => {
         <div className="subtitle">Welcome Back</div>
       </div>
       <Form>
-        <input placeholder="Email" />
+        <input
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          value={email}
+          autoComplete="off"
+        />
         <div className="line" />
-        <input placeholder="Password" type="password" />
+        <input
+          name="password"
+          placeholder="Password"
+          type="password"
+          onChange={handleChange}
+          value={password}
+          autoComplete="off"
+        />
       </Form>
-
-      <Btn>Login</Btn>
-      <div
-        className="toLogin"
-        onClick={() => {
-          navigate("/signup");
-        }}
-      >
-        Click here to sign up
+      {isError && (
+        <div className="invalidMsg">*Your email or password is not valid</div>
+      )}
+      <div className="bottom">
+        <Btn onClick={handleLogin}>Login</Btn>
+        <div
+          className="toSignup"
+          onClick={() => {
+            navigate("/signup");
+          }}
+        >
+          Click here to sign up
+        </div>
       </div>
     </Wrapper>
   );
@@ -37,6 +85,18 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .invalidMsg {
+    width: 80%;
+    @media (min-width: 768px) {
+      max-width: 40%;
+    }
+    padding-left: 20px;
+    margin-top: 12px;
+    color: #d90000;
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
   .title {
     color: #353535;
     font-size: 2.2rem;
@@ -54,7 +114,7 @@ const Wrapper = styled.div`
     line-height: 192.023%;
     padding-left: 2.2rem;
   }
-  .toLogin {
+  .toSignup {
     margin-top: 23px;
     color: #b7b7b7;
     text-align: center;
@@ -71,7 +131,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
   margin-top: 15vh;
   padding: 0.8rem;
   border-radius: 9px;
@@ -82,7 +142,6 @@ const Form = styled.div`
     max-width: 40%;
   }
   height: 8rem;
-  margin-bottom: 4rem;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;

@@ -2,8 +2,45 @@ import React from "react";
 import PlainHeader from "../components/PlainHeder";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { postSignUp } from "../api/members";
+
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [isError, setIsError] = useState(false);
+  const { email, password, confirmPassword } = inputs;
+
+  const showErrMsg = () => {
+    setIsError(true);
+  };
+  const handleSignUp = async () => {
+    if (
+      confirmPassword &&
+      password &&
+      email &&
+      confirmPassword === password &&
+      email.includes("@")
+    ) {
+      try {
+        const res = await postSignUp(email, confirmPassword);
+        setInputs({ email: "", password: "", confirmPassword: "" });
+        navigate("/login");
+      } catch (err) {
+        showErrMsg();
+      }
+    }
+  };
+  const handleChange = (e) => {
+    setIsError(false);
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
+  };
+
   return (
     <Wrapper>
       <div className="header">
@@ -12,21 +49,51 @@ const SignUpPage = () => {
         <div className="subtitle">Hello stranger!</div>
       </div>
       <Form>
-        <input placeholder="Email" />
+        <input
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          value={email}
+          autoComplete="off"
+        />{" "}
         <div className="line" />
-        <input placeholder="Password" type="password" />
+        <input
+          name="password"
+          placeholder="Password"
+          type="password"
+          onChange={handleChange}
+          value={password}
+          autoComplete="off"
+        />{" "}
         <div className="line" />
-        <input placeholder="Password" type="password" />
+        <input
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          type="password"
+          onChange={handleChange}
+          value={confirmPassword}
+          autoComplete="off"
+        />{" "}
       </Form>
-
-      <Btn>Sign Up</Btn>
-      <div
-        className="toLogin"
-        onClick={() => {
-          navigate("/login");
-        }}
-      >
-        Already have an account?
+      {email && !email.includes("@") && (
+        <div className="invalidMsg">*not a valid email address</div>
+      )}
+      {confirmPassword && confirmPassword !== password && (
+        <div className="invalidMsg">
+          *The password confirmation does not match
+        </div>
+      )}
+      {isError && <div className="invalidMsg">*The account alreay exists</div>}
+      <div className="bottom">
+        <Btn onClick={handleSignUp}>Sign Up</Btn>
+        <div
+          className="toLogin"
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Already have an account?
+        </div>
       </div>
     </Wrapper>
   );
@@ -71,9 +138,22 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
+  .invalidMsg {
+    width: 80%;
+    @media (min-width: 768px) {
+      max-width: 40%;
+    }
+    padding-left: 20px;
+    margin-top: 12px;
+    color: #d90000;
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
+  height: 168px;
   margin-top: 15vh;
   padding: 0.8rem;
   border-radius: 9px;
@@ -91,7 +171,7 @@ const Form = styled.div`
   align-items: center;
 
   input {
-    width: 80%;
+    width: 90%;
     height: 20%;
 
     outline: none;
@@ -116,6 +196,10 @@ const Form = styled.div`
     width: 100%;
     border-top: 2px solid;
     color: #f0f0f0;
+  }
+  .bottom {
+    position: absolute;
+    bottom: 8vh;
   }
 `;
 const Btn = styled.div`

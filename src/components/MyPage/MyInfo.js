@@ -2,17 +2,17 @@ import React from "react";
 import { styled } from "styled-components";
 import avatar from "../../assets/common/avatar.png";
 import { useNavigate } from "react-router-dom";
-const MyInfo = ({ isLogin, nickname }) => {
+const MyInfo = ({ nickname }) => {
   const navigate = useNavigate();
   return (
     <Wrapper>
       <div className="text">
-        {isLogin ? (
+        {nickname ? (
           <div className="title">Hello {nickname}!</div>
         ) : (
           <div className="title">Hello Stranger!</div>
         )}
-        {isLogin ? (
+        {nickname ? (
           <div className="subtitle">Welcome Back!</div>
         ) : (
           <div
