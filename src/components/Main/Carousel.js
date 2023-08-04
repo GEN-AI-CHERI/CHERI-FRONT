@@ -5,10 +5,12 @@ import Slider from "react-slick";
 import { styled } from "styled-components";
 import { useState } from "react";
 import { getRegions } from "../../api/regions";
+import { useNavigate } from "react-router-dom";
 
 const Carousel = () => {
   //요소 네개 이상이어야 정상 작동
   const [dest, setDest] = useState([]);
+  const navigate = useNavigate();
 
   const getCardData = async () => {
     try {
@@ -29,7 +31,10 @@ const Carousel = () => {
           {dest &&
             dest.map((region) => {
               return (
-                <Card>
+                <Card
+                  key={region.region_id}
+                  onClick={() => navigate(`/detail/${region.region_id}`)}
+                >
                   <img src={region.photo} alt="" />
                 </Card>
               );

@@ -28,7 +28,7 @@ function App() {
       <Route path="/period2" element={<PeriodPage2 />} />
       <Route path="/result" element={<ResultPage />} />
       <Route path="/mypage" element={<MyPage />} />
-      <Route path="/detail" element={<DetailedDestPage />} />
+      <Route path="/detail/:region_id" element={<DetailedDestPage />} />
     </Routes>
   );
 }

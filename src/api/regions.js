@@ -9,3 +9,13 @@ export const getRegions = async () => {
     console.log(err);
   }
 };
+
+export const getEachRegion = async (id) => {
+  try {
+    const res = await client.get(`regions/${id}`);
+
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
+};

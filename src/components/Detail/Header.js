@@ -4,7 +4,7 @@ import back from "../../assets/result/back.png";
 import scrap from "../../assets/detail/scrap.png";
 import unscrap from "../../assets/detail/unscrap.png";
 import { useNavigate } from "react-router-dom";
-const Header = () => {
+const Header = ({ photo }) => {
   const navigate = useNavigate();
   const [isScrap, setIsScrap] = useState(false);
 
@@ -21,7 +21,7 @@ const Header = () => {
           <img className="scrap" alt="" src={unscrap} onClick={handleScrap} />
         )}
       </div>
-      <img className="image" alt="" src={""} />
+      <img className="image" alt="" src={photo} />
     </Wrapper>
   );
 };
