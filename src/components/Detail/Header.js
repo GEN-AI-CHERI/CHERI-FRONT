@@ -3,14 +3,21 @@ import { styled } from "styled-components";
 import back from "../../assets/result/back.png";
 import scrap from "../../assets/detail/scrap.png";
 import unscrap from "../../assets/detail/unscrap.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { postRegion } from "../../api/regions";
 const Header = ({ photo }) => {
   const navigate = useNavigate();
   const [isScrap, setIsScrap] = useState(false);
+  const { region_id } = useParams();
 
+  const scrapRegion = async () => {
+    await postRegion(region_id);
+  };
   const handleScrap = () => {
+    !isScrap && scrapRegion(region_id);
     setIsScrap(!isScrap);
   };
+
   return (
     <Wrapper>
       <div className="btns">

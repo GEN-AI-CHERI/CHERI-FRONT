@@ -19,3 +19,15 @@ export const getEachRegion = async (id) => {
     console.log(err);
   }
 };
+
+export const postRegion = async (region_id) => {
+  try {
+    const res = await client.post(`/scrap`, {
+      region_id: region_id,
+    });
+
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
