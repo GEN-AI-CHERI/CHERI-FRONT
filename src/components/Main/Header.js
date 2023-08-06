@@ -5,6 +5,7 @@ import { useState } from "react";
 import avatar from "../../assets/common/avatar.png";
 import upArrow from "../../assets/main/upArrow.png";
 import downArrow from "../../assets/main/downArrow.png";
+import { useNavigate } from "react-router-dom";
 
 const Languages = ({ currentLan, setIsOpen, setLanguage, isOpen }) => {
   const languages = ["English", "中文", "日本語"];
@@ -41,7 +42,7 @@ const Languages = ({ currentLan, setIsOpen, setLanguage, isOpen }) => {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState("English");
-
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <div className="logo">
@@ -76,7 +77,11 @@ const Header = () => {
         </LanDropdown>
 
         <div className="profile">
-          <Profile>
+          <Profile
+            onClick={() => {
+              navigate("/mypage");
+            }}
+          >
             <img src={avatar} alt="" />
           </Profile>
         </div>
