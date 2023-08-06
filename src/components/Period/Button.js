@@ -1,26 +1,32 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setRegionId } from "../../Redux/itinerary_action";
+import {
+  setBeginPeriod,
+  setEndPeriod,
+  setAge,
+} from "../../Redux/itinerary_action";
 
-const Button = ({ regionId }) => {
+const Button = ({ beginDate, endDate, age }) => {
   const dispatch = useDispatch();
 
-  // region_id 값을 변경하는 액션 디스패치
-  const handleSetRegionId = (id) => {
-    dispatch(setRegionId(id));
+  // period, age 값을 변경하는 액션 디스패치
+  const handleSetPeriodAndAge = (startdate, lastdate, age) => {
+    dispatch(setBeginPeriod(startdate));
+    dispatch(setEndPeriod(lastdate));
+    dispatch(setAge(age));
   };
 
   const navigate = useNavigate();
 
   const handleNavigatePrev = () => {
-    handleSetRegionId("");
+    handleSetPeriodAndAge("", "", 0);
     navigate(-1);
   };
 
   const handleNavigateNext = () => {
-    handleSetRegionId(regionId);
-    navigate(`/themes`);
+    handleSetPeriodAndAge(beginDate, endDate, age);
+    navigate(`/loading`);
   };
 
   return (
