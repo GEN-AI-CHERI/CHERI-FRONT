@@ -3,15 +3,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { styled } from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 const ScrapCarousel = ({ scraps }) => {
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <div className="container">
         <StyledSlider {...settings}>
           {scraps.map((scrap) => {
             return (
-              <Card key={scrap.scrap_id}>
+              <Card
+                onClick={() => navigate(`/detail/${scrap.region_id}`)}
+                key={scrap.scrap_id}
+              >
                 <img src={scrap.region.photo} alt="" />
               </Card>
             );
