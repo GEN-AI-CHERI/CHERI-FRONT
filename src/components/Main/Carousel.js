@@ -9,13 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 const Carousel = () => {
   //요소 네개 이상이어야 정상 작동
-  const [dest, setDest] = useState([]);
+  const [regions, setRegions] = useState([]);
   const navigate = useNavigate();
 
   const getCardData = async () => {
     try {
       const data = await getRegions();
-      setDest(data.regions);
+      setRegions(data.regions);
     } catch (err) {
       console.log(err);
     }
@@ -28,14 +28,19 @@ const Carousel = () => {
     <Wrapper>
       <div className="container">
         <StyledSlider {...settings}>
-          {dest &&
-            dest.map((region) => {
+          {regions &&
+            regions.map((region) => {
               return (
                 <Card
                   key={region.region_id}
                   onClick={() => navigate(`/detail/${region.region_id}`)}
                 >
-                  <img src={region.photo} alt="" />
+                  <div className="wrapper">
+                    <img src={region.photo} alt="" />
+                    <div className="filter" />
+                    <div className="content">{region.content}</div>
+                    <div className="title">{region.title}</div>
+                  </div>
                 </Card>
               );
             })}
@@ -83,11 +88,46 @@ const Wrapper = styled.div`
 const Card = styled.div`
   overflow: hidden;
 
-  img {
-    height: 100%;
-    transform: translate(-25%, 0%);
-    border-radius: 35px;
-    filter: grayscale(50%);
+  .wrapper {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      transform: translate(-25%, 0%);
+    }
+    .title {
+      display: flex;
+      background: none;
+      position: absolute;
+      top: 70%;
+      left: 20px;
+      width: 200px;
+      height: 75px;
+      color: #fcfcfc;
+
+      font-family: Racing Sans One;
+      font-size: 30px;
+      font-weight: 400;
+    }
+    .content {
+      display: flex;
+      background: none;
+      position: absolute;
+      top: 60%;
+      left: 14px;
+      color: #fcfcfc;
+      font-family: Inter;
+      font-size: 10px;
+      font-weight: 300;
+    }
+    .filter {
+      position: absolute;
+      top: 0;
+      background: rgba(0, 0, 0, 0.3);
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 const StyledSlider = styled(Slider)`
