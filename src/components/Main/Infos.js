@@ -75,7 +75,7 @@ const Infos = () => {
           </div>
         </Wrapper>
         <Destinations>
-          <div className="text">Explore popular destinations</div>
+          <div className="text">Guide Recommendations</div>
           <div className="list">
             <div className="dest">
               <img src={seoul} alt=""></img>
