@@ -52,15 +52,14 @@ const Infos = () => {
 
               <div className="option">
                 <img src={check} alt=""></img>
-                20 ~ 29 age
+                With friends
+              </div>
+              <div className="option">
+                <img src={check} alt=""></img>2 nights 3 days
               </div>
               <div className="option">
                 <img src={check} alt=""></img>
-                Woman
-              </div>
-              <div className="option">
-                <img src={check} alt=""></img>
-                With two friends
+                30 ~ 39 age
               </div>
             </div>
           </div>
@@ -126,7 +125,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   .intro {
-    padding-top: 35px;
+    padding-top: 30px;
     color: #000;
     text-align: center;
 
@@ -136,6 +135,7 @@ const Wrapper = styled.div`
     line-height: 22px; /* 110% */
   }
   .subIntro {
+    width: 90%;
     margin-top: 0.5rem;
     color: #949494;
     text-align: center;
@@ -155,7 +155,7 @@ const Wrapper = styled.div`
     }
   }
   .startBtn {
-    margin-top: 3rem;
+    margin-top: 30px;
     width: 8rem;
     height: 40px;
     border-radius: 25px;
@@ -166,7 +166,7 @@ const Wrapper = styled.div`
 
     color: #fff;
     font-family: Inter;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;

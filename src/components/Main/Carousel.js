@@ -82,7 +82,7 @@ const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
   margin-top: 15px;
-  margin-bottom: 50.5px;
+  margin-bottom: 20.5px;
 `;
 
 const Card = styled.div`
@@ -100,15 +100,20 @@ const Card = styled.div`
       display: flex;
       background: none;
       position: absolute;
-      top: 70%;
+      top: 60%;
       left: 20px;
-      width: 200px;
+      width: 250px;
       height: 75px;
       color: #fcfcfc;
 
       font-family: Racing Sans One;
-      font-size: 30px;
+      font-size: 35px;
       font-weight: 400;
+      @media (max-width: 320px) {
+        //갤럭시 폴드 용 등 너비 작은 모바일 용 사이즈 수정
+        width: 200px;
+        font-size: 30px;
+      }
     }
     .content {
       display: flex;
