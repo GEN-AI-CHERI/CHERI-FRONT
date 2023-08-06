@@ -4,7 +4,14 @@ import gptXcheri from "../../assets/main/gptXcheri.png";
 import check from "../../assets/main/check.png";
 import directionImg from "../../assets/main/directionImg.png";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
+import seoul from "../../assets/main/seoul.png";
+import busan from "../../assets/main/busan.png";
+import jeju from "../../assets/main/jeju.png";
+
 const Infos = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Top>
@@ -20,7 +27,14 @@ const Infos = () => {
           <div className="gptXcheri">
             <img src={gptXcheri} alt=""></img>
           </div>
-          <div className="startBtn">Start Now</div>
+          <div
+            onClick={() => {
+              navigate("/menu");
+            }}
+            className="startBtn"
+          >
+            Start Now
+          </div>
         </Wrapper>
       </Top>
       <Bottom>
@@ -63,14 +77,20 @@ const Infos = () => {
         <Destinations>
           <div className="text">Explore popular destinations</div>
           <div className="list">
-            <div className="item">
-              <img src={""} alt=""></img>
+            <div className="dest">
+              <img src={seoul} alt=""></img>
+              <div className="filter" />
+              <div className="title">Seoul</div>
             </div>
-            <div className="item">
-              <img src={""} alt=""></img>
+            <div className="dest">
+              <img src={busan} alt=""></img>
+              <div className="filter" />
+              <div className="title">Busan</div>
             </div>
-            <div className="item">
-              <img src={""} alt=""></img>
+            <div className="dest">
+              <img src={jeju} alt=""></img>
+              <div className="filter" />
+              <div className="title">Jeju Island</div>
             </div>
           </div>
         </Destinations>
@@ -204,16 +224,42 @@ const Destinations = styled.div`
 
     padding-bottom: 70px;
   }
-  .item {
+  .dest {
+    position: relative;
+    overflow: hidden;
     @media (min-width: 768px) {
-      width: 35rem;
-      height: 119px;
+      width: 30rem;
     }
     width: 21.5rem;
     height: 119px;
     border-radius: 23px;
-    background: rgba(0, 0, 0, 0.3);
-
     margin-bottom: 7px;
+
+    img {
+      @media (min-width: 768px) {
+        width: 30rem;
+      }
+      width: 21.5rem;
+      height: 119px;
+    }
+    .title {
+      position: absolute;
+      top: 35%;
+      left: 10%;
+      color: #fff;
+      text-align: center;
+      font-family: Cygre SemiBold;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    .filter {
+      position: absolute;
+      top: 0;
+      background: rgba(0, 0, 0, 0.3);
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
