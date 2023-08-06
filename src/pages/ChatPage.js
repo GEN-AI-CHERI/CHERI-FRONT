@@ -2,40 +2,37 @@ import ChatHeader from "../components/Chat/ChatHeader";
 import CheriSpeech from "../components/Chat/CheriSpeech";
 import UserSpeech from "../components/Chat/UserSpeech";
 import Input from "../components/Chat/Input";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import styled from "styled-components";
 
 const ChatPage = () => {
+  const storedData = JSON.parse(localStorage.getItem("res"));
+  console.log("결과", storedData);
+
+  const room_id = storedData.room_id;
+  const chat_id = storedData.chat_id;
+  const title = storedData.message.plan;
+  const itinerary = storedData.message.itinerary;
+  const question = storedData.message.recommend_next_questions;
+
   return (
-    <>
+    <BG>
       <ChatHeader />
       <CheriSpeech
-        text="Here's a suggested travel itinerary to enjoy the natural scenery in
-            a small city in Korea.
-            The following 1-night 2-day itinerary is centered around Gyeongju,
-            one of the small cities known for its historical landmarks and
-            beautiful natural landscapes.
-          
-            Morning: Upon arriving at Incheon International Airport, take a
-            high-speed bus or KTX to Gyeongju. Once you arrive in Gyeongju,
-            start your journey by visiting Seokguram Grotto, a representative
-            national treasure and the 24th official site of Korea. 
-          Recommended Queries - Route directions for your
-            trip - Finding accommodation options"
-      />
-      <UserSpeech text="Please recommend famous restaurants in Gyeongju." />
-      <CheriSpeech
-        text="Here's a suggested travel itinerary to enjoy the natural scenery in a small city in Korea. 
-
-The following 1-night 2-day itinerary is centered around Gyeongju, one of the small cities known for its historical landmarks and beautiful natural landscapes.
-
-Morning: Upon arriving at Incheon International Airport, take a high-speed bus or KTX to Gyeongju. Once you arrive in Here's a suggested travel itinerary to enjoy the natural scenery in a small city in Korea. 
-
-The following 1-night 2-day itinerary is centered around Gyeongju, one of the small cities known for its historical landmarks and beautiful natural landscapes.
-
-Morning: Upon arriving at Incheon International Airport, take a high-speed bus or KTX to Gyeongju. Once you arrive in"
+        key={chat_id}
+        title={title}
+        itinerary={itinerary}
+        question={question}
       />
       <Input />
-    </>
+    </BG>
   );
 };
+
+const BG = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
 
 export default ChatPage;

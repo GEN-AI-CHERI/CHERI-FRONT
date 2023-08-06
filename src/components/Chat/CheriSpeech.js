@@ -1,21 +1,41 @@
 import cheri from "../../assets/chat/cheri_profile.png";
 import styled from "styled-components";
+import Itinerary from "./Itinerary";
+import Question from "./Question";
 
-const CheriSpeech = ({ text }) => {
+const CheriSpeech = ({ title, itinerary, question }) => {
   return (
     <Row>
       <CheriIcon src={cheri} />
       <Column>
         <Name>CHERI</Name>
-        <SpeechBubble>{text}</SpeechBubble>
+        <SpeechBubble>
+          <Title>{title}</Title>
+          {itinerary.map((item, idx) => (
+            <Itinerary
+              key={idx}
+              day={item.day}
+              description={item.description}
+              places={item.places}
+            />
+          ))}
+          <p>💁🏻‍♀️ Recommended Questions</p>
+          {question.map((q) => (
+            <Question question={q} />
+          ))}
+        </SpeechBubble>
       </Column>
     </Row>
   );
 };
 
+const Title = styled.h3`
+  margin-top: 0;
+`;
+
 const CheriIcon = styled.img`
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3rem;
+  height: 3rem;
   margin-left: 1rem;
   margin-top: 1.5rem;
 `;
@@ -26,7 +46,7 @@ const Name = styled.p`
 `;
 
 const SpeechBubble = styled.div`
-  width: 17rem;
+  width: 18rem;
   background-color: #f9f7f7;
   padding: 1.1rem;
   border-radius: 10px;

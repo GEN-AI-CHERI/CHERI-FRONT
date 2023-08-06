@@ -1,26 +1,26 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setRegionId } from "../../Redux/itinerary_action";
+import { setThemes } from "../../Redux/itinerary_action";
 
-const Button = ({ regionId }) => {
+const Button = ({ selected_list }) => {
   const dispatch = useDispatch();
 
-  // region_id 값을 변경하는 액션 디스패치
-  const handleSetRegionId = (id) => {
-    dispatch(setRegionId(id));
+  // themes 값을 변경하는 액션 디스패치
+  const handleSetThemes = (list) => {
+    dispatch(setThemes(list));
   };
 
   const navigate = useNavigate();
 
   const handleNavigatePrev = () => {
-    handleSetRegionId("");
+    handleSetThemes([]);
     navigate(-1);
   };
 
   const handleNavigateNext = () => {
-    handleSetRegionId(regionId);
-    navigate(`/themes`);
+    handleSetThemes(selected_list);
+    navigate(`/period`);
   };
 
   return (

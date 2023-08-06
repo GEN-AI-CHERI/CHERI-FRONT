@@ -2,11 +2,18 @@ import styled from "styled-components";
 import { useState } from "react";
 import check from "../../assets/theme/check.png";
 
-const Option = ({ text }) => {
+const Option = ({ text, idx, selected_list, setSelectedList }) => {
   const [isSelect, setIsSelect] = useState(false);
 
+  // 선택한 테마들 저장
   const handleSelect = () => {
     setIsSelect(!isSelect);
+
+    if (!isSelect) {
+      setSelectedList([...selected_list, idx + 1]);
+    } else {
+      setSelectedList(selected_list.filter((item) => item !== idx + 1));
+    }
   };
 
   return (
