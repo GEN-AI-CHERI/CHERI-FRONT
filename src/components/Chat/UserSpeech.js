@@ -17,11 +17,10 @@ const End = styled.div`
 
 const Container = styled.div`
   width: 17rem;
-  height: 3rem;
   background-color: #ffefef;
   border-radius: 10px;
   color: #232323;
-  padding: 1.1rem;
+  padding: 1rem;
   font-size: 0.85rem;
 `;
 

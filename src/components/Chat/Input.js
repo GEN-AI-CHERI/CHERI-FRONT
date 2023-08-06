@@ -1,11 +1,60 @@
 import send from "../../assets/chat/send.png";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { PostChats } from "../../api/chat";
 
-const Input = () => {
+const Input = ({
+  room_id,
+  onUserSend,
+  onCheriResponse,
+  autoPost,
+  setAutoPost,
+}) => {
+  const [tempText, setTempText] = useState("");
+
+  const handleChange = (e) => {
+    setTempText(e.target.value);
+  };
+
+  // 질문 답변 생성
+  const postChat = async () => {
+    try {
+      onUserSend(tempText);
+      const res = await PostChats(tempText, room_id);
+      setTempText("");
+      onCheriResponse(res.answer.contents);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // 자동 질문, 답변 생성
+  useEffect(() => {
+    const postAutoChat = async () => {
+      try {
+        onUserSend(autoPost);
+        const res = await PostChats(autoPost, room_id);
+        setTempText("");
+        onCheriResponse(res.answer.contents);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (autoPost) {
+      postAutoChat();
+      setAutoPost("");
+    }
+  }, [autoPost]);
+
   return (
     <Container>
-      <InputField placeholder="Please enter a text..." />
-      <Send src={send} />
+      <InputField
+        placeholder="Please enter a text..."
+        onChange={handleChange}
+        value={tempText}
+      />
+      <Send src={send} onClick={postChat} />
     </Container>
   );
 };
@@ -25,7 +74,7 @@ const Send = styled.img`
 `;
 
 const Container = styled.div`
-  width: 390px;
+  width: 100vw;
   height: 5.5rem;
   background: #fff;
   box-shadow: 0px -3px 27px 0px rgba(0, 0, 0, 0.15);
