@@ -21,7 +21,10 @@ const Header = ({ photo }) => {
           <img className="scrap" alt="" src={unscrap} onClick={handleScrap} />
         )}
       </div>
-      <img className="image" alt="" src={photo} />
+      <div className="image">
+        <img alt="" src={photo} />
+        <div className="blur" />
+      </div>
     </Wrapper>
   );
 };
@@ -36,9 +39,20 @@ const Wrapper = styled.div`
     justify-content: space-between;
   }
   .image {
-    width: 100%;
     height: 293px; //수정
-    background: lightgray 50% / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    img {
+    }
+    .blur {
+      position: absolute;
+      top: 270px;
+      width: 100%;
+      height: 34px;
+      background: rgba(217, 217, 217, 0.02);
+      backdrop-filter: blur(7.5px);
+    }
   }
 
   .back {
