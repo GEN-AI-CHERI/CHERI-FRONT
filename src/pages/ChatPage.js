@@ -2,8 +2,6 @@ import ChatHeader from "../components/Chat/ChatHeader";
 import CheriSpeech from "../components/Chat/CheriSpeech";
 import UserSpeech from "../components/Chat/UserSpeech";
 import Input from "../components/Chat/Input";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import styled from "styled-components";
 
 const ChatPage = () => {
