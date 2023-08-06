@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import backBtn from "../assets/mypage/backBtn.png";
+
 import { styled } from "styled-components";
 import MyInfo from "../components/MyPage/MyInfo";
 import ScrapCarousel from "../components/MyPage/ScrapCarousel";
 import Item from "../components/MyPage/Item";
 import { useNavigate } from "react-router-dom";
 import { getMyInfo } from "../api/members";
+import Accordion from "../components/MyPage/Accordion";
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState({});
   const [rooms, setRooms] = useState([]);
@@ -18,7 +19,7 @@ const MyPage = () => {
       const res = await getMyInfo();
       setUserInfo(res.member);
       setRooms(res.room_list);
-      setScraps([]);
+      setScraps(res.scrap_list);
       setDestinations([]);
     } catch (err) {}
   };
@@ -27,13 +28,6 @@ const MyPage = () => {
   }, []);
   return (
     <>
-      <Back
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        <img src={backBtn} alt="" />
-      </Back>
       <Wrapper>
         {userInfo.email ? (
           <MyInfo
@@ -43,46 +37,9 @@ const MyPage = () => {
           <MyInfo nickname={null} />
         )}
         <div className="storage">
-          <div className="subject">Scrap</div>
-          {scraps.length ? (
-            <div className="list">
-              <ScrapCarousel />
-            </div>
-          ) : (
-            <div className="null">No data</div>
-          )}
-          <div className="subject">Travel Itinerary </div>
-          {rooms.length ? (
-            <div className="list">
-              {rooms.map(() => (
-                <Item subject={0} period={"07.21 ~ 08.19"} place={"Seoul"} />
-              ))}
-            </div>
-          ) : (
-            <div className="null">No data</div>
-          )}
-          <div className="subject">Recommended Destination</div>
-          {destinations.length ? (
-            <div className="list">
-              <Item
-                subject={1}
-                place={"Seoul"}
-                tags={["city", "shopping", "family"]}
-              />
-              <Item
-                subject={1}
-                place={"Seoul"}
-                tags={["city", "shopping", "family"]}
-              />
-              <Item
-                subject={1}
-                place={"Seoul"}
-                tags={["city", "shopping", "family"]}
-              />
-            </div>
-          ) : (
-            <div className="null">No data</div>
-          )}
+          <Accordion subject={"Scrap"} list={scraps} />
+          <Accordion subject={"Travel Itinerary"} list={rooms} />
+          <Accordion subject={"Recommended Destination"} list={destinations} />
         </div>
       </Wrapper>
     </>
@@ -90,21 +47,13 @@ const MyPage = () => {
 };
 
 export default MyPage;
-const Back = styled.div`
-  margin: 27px 5%;
-  @media (min-width: 768px) {
-    margin: 27px 10%;
-  }
 
-  img {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
 const Wrapper = styled.div`
-  margin: 0 10%;
-  @media (min-width: 768px) {
-    margin: 0 20%;
+  .storage {
+    margin: 0 10%;
+    @media (min-width: 768px) {
+      margin: 0 20%;
+    }
   }
 
   .subject {

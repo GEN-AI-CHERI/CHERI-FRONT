@@ -3,19 +3,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { styled } from "styled-components";
-import { useState } from "react";
 
-const ScrapCarousel = () => {
-  const [scraps, setScraps] = useState([1, 2, 3, 4, 5, 6, 7]);
-
+const ScrapCarousel = ({ scraps }) => {
   return (
     <Wrapper>
       <div className="container">
         <StyledSlider {...settings}>
-          {scraps.map(() => {
+          {scraps.map((scrap) => {
             return (
-              <Card>
-                <img src="" alt="" />
+              <Card key={scrap.scrap_id}>
+                <img src={scrap.region.photo} alt="" />
               </Card>
             );
           })}
@@ -70,7 +67,6 @@ const Card = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 20px;
-    filter: grayscale(50%);
   }
 `;
 const StyledSlider = styled(Slider)`
@@ -84,12 +80,12 @@ const StyledSlider = styled(Slider)`
   }
   .slick-prev:before {
     font-size: 1.5rem;
-    color: rgba(58, 58, 58, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     opacity: 5;
   }
   .slick-next:before {
     font-size: 1.5rem;
-    color: rgba(58, 58, 58, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     opacity: 5;
   }
   .slick-list {
