@@ -165,13 +165,24 @@ const StyledSlider = styled(Slider)`
     align-items: center;
     justify-content: center;
     //카드 사이 간격
+    @media (max-width: 320px) {
+      //갤럭시 폴드 용 등 너비 작은 모바일 용 사이즈 수정
+      width: 270px;
+      height: 370px;
+    }
 
-    width: 270px; //얘가 통일 돼야 정렬됨
-    height: 370px;
+    width: 310px; //얘가 통일 돼야 정렬됨
+    height: 424px;
     //자식인 Card 컴포넌트
     div {
-      width: 240px;
-      height: 332px;
+      @media (max-width: 320px) {
+        //갤럭시 폴드 용 등 너비 작은 모바일 용 사이즈 수정
+        width: 240px;
+        height: 332px;
+      }
+
+      width: 280px; //얘가 통일 돼야 정렬됨
+      height: 378px;
       border-radius: 35px;
       background: lightgray 50% / cover no-repeat;
     }
@@ -183,26 +194,48 @@ const StyledSlider = styled(Slider)`
   .slick-active {
     //포커스 카드 개수 1개 일때는 current가 덮어씀
     //포커스된 카드들 (pc는 3개, 모바일은 1개))
-    width: 270px;
 
-    height: 370px;
+    @media (max-width: 320px) {
+      //갤럭시 폴드 용 등 너비 작은 모바일 용 사이즈 수정
+      width: 270px;
+      height: 370px;
+    }
+    width: 310px; //얘가 통일 돼야 정렬됨
+    height: 424px;
 
     div {
-      width: 250px;
-      height: 352px;
+      @media (max-width: 320px) {
+        //갤럭시 폴드 용 등 너비 작은 모바일 용 사이즈 수정
+        width: 250px;
+        height: 352px;
+      }
+
+      width: 280px; //얘가 통일 돼야 정렬됨
+      height: 378px;
       border-radius: 35px;
       background: lightgray 50% / cover no-repeat;
     }
   }
   .slick-current {
     //가운데 카드 하나
-    width: 270px;
 
-    height: 370px;
+    @media (max-width: 320px) {
+      //갤럭시 폴드 용 등 너비 작은 모바일 용 사이즈 수정
+      width: 270px;
+      height: 370px;
+    }
+
+    width: 310px; //얘가 통일 돼야 정렬됨
+    height: 424px;
 
     div {
-      width: 260px;
-      height: 370px;
+      @media (max-width: 320px) {
+        //갤럭시 폴드 용 등 너비 작은 모바일 용 사이즈 수정
+        width: 260px;
+        height: 370px;
+      }
+      width: 300px; //얘가 통일 돼야 정렬됨
+      height: 424px;
       border-radius: 35px;
       background: lightgray 50% / cover no-repeat;
     }
