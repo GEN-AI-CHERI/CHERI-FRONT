@@ -1,27 +1,41 @@
-import Button from "../components/Destination/Button";
+import Button from "../components/Theme/Button";
 import ShortHeader from "../components/Destination/ShortHeader";
 import Title from "../components/Destination/Title";
 import Option from "../components/Theme/option";
 import styled from "styled-components";
+import { useState } from "react";
 
 const ThemePage = () => {
+  const theme_list = [
+    "nature",
+    "city",
+    "history",
+    "shopping",
+    "foods",
+    "hanok",
+    "arts",
+    "activity",
+  ];
+  const [selected_list, setSelectedList] = useState([]); // 선택한 테마 리스트
+
   return (
     <>
       <ShortHeader />
       <Title text="Travel Themes" />
       <Center>
         <OptionContainer>
-          <Option text="nature" />
-          <Option text="city" />
-          <Option text="history" />
-          <Option text="shopping" />
-          <Option text="foods" />
-          <Option text="hanok" />
-          <Option text="arts" />
-          <Option text="activity" />
+          {theme_list.map((theme, idx) => (
+            <Option
+              key={idx}
+              text={theme}
+              idx={idx}
+              selected_list={selected_list}
+              setSelectedList={setSelectedList}
+            />
+          ))}
         </OptionContainer>
       </Center>
-      <Button next="period" />
+      <Button selected_list={selected_list} />
     </>
   );
 };

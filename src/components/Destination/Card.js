@@ -1,29 +1,46 @@
 import { styled } from "styled-components";
-import ex from "../../assets/destination/ex.png";
 import bookmark from "../../assets/destination/Bookmark.png";
 import Check from "../../assets/destination/send.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const Card = () => {
+const Card = ({
+  title,
+  description,
+  region_id,
+  photo,
+  setRegionId,
+  chosenId,
+}) => {
   const [isSelect, setIsSelect] = useState(false);
 
   const handleSelect = () => {
     setIsSelect(!isSelect);
+    setRegionId(region_id);
   };
+
+  // 중복 선택 제한
+  useEffect(() => {
+    if (region_id !== chosenId) {
+      setIsSelect(false);
+    }
+  }, [chosenId]);
 
   return (
     <Container
       onClick={handleSelect}
       disabled={isSelect ? "Selected" : "notSelected"}
     >
-      <Img src={ex} />
+      <Img src={photo} />
       <TextContainer>
-        <Location>Seoul</Location>
         <Row>
-          <BookMark src={bookmark} />
-          <Num>108</Num>
-          <Line> | </Line>
-          <Summary> The capital of South Korea</Summary>
+          <Location>{title}</Location>
+          <BookMarkContainer>
+            <BookMark src={bookmark} />
+            <Num>108</Num>
+          </BookMarkContainer>
+        </Row>
+        <Row>
+          <Summary>{description}</Summary>
           {isSelect && <CheckIcon src={Check} />}
         </Row>
       </TextContainer>
@@ -33,7 +50,13 @@ const Card = () => {
 
 const CheckIcon = styled.img`
   width: 2rem;
-  margin-left: 3.4rem;
+  margin-left: 19.5rem;
+  margin-top: 4.7rem;
+  position: absolute;
+`;
+
+const BookMarkContainer = styled.div`
+  display: flex;
 `;
 
 const Container = styled.div`
@@ -41,11 +64,12 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 25rem;
-  height: 19rem;
   border-radius: 34.583px;
   background-color: ${(props) =>
     props.disabled === "Selected" ? "#FFEFEF" : "white"};
-  margin-bottom: 25px;
+  margin-bottom: 2rem;
+  padding-bottom: 3rem;
+  padding-top: 1.2rem;
   cursor: pointer;
   box-shadow: 0px 2.4631879329681396px 4.187419891357422px 0px rgba(0, 0, 0, 0),
     0px 10.838027954101562px 8.67042064666748px 0px rgba(0, 0, 0, 0.01),
@@ -58,13 +82,14 @@ const Container = styled.div`
 const Img = styled.img`
   width: 21.8rem;
   height: 11rem;
-  margin-top: -12px;
   align-self: center;
+  border-radius: 31px;
 `;
 
 const TextContainer = styled.div`
   margin-left: 2rem;
   margin-top: 1rem;
+  margin-right: 2rem;
 `;
 
 const BookMark = styled.img`
@@ -76,6 +101,8 @@ const BookMark = styled.img`
 
 const Row = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Location = styled.h3`
@@ -94,6 +121,8 @@ const Line = styled(Num)`
   padding-right: 0.5rem;
 `;
 
-const Summary = styled(Num)``;
+const Summary = styled(Num)`
+  font-size: 0.9rem;
+`;
 
 export default Card;
