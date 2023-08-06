@@ -4,18 +4,21 @@ import { useState } from "react";
 import opened from "../../assets/mypage/opened.png";
 import closed from "../../assets/mypage/closed.png";
 import scrap from "../../assets/mypage/scrap.png";
+import travel from "../../assets/mypage/travel.png";
+import dest from "../../assets/mypage/dest.png";
 import ScrapCarousel from "./ScrapCarousel";
 import Item from "./Item";
-const Accordion = ({ subject, list = [] }) => {
+const Accordion = ({ id, subject, list = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
+  const icons = [scrap, travel, dest];
   return (
     <Container>
       <Header onClick={toggleOpen}>
         <div className="icon">
-          <img src={scrap} alt="" />
+          <img src={icons[id]} alt="" />
         </div>
         <div className="title">{subject}</div>
         <div className="btn">
@@ -25,8 +28,8 @@ const Accordion = ({ subject, list = [] }) => {
 
       {isOpen && (
         <div className="contents">
-          {subject === "Scrap" && <ScrapCarousel scraps={list} />}
-          {subject !== "Scrap" &&
+          {id === 0 && <ScrapCarousel scraps={list} />}
+          {id !== 0 &&
             list.map((item) => {
               return (
                 <div className="item">

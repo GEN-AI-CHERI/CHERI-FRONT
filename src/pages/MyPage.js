@@ -37,9 +37,13 @@ const MyPage = () => {
           <MyInfo nickname={null} />
         )}
         <div className="storage">
-          <Accordion subject={"Scrap"} list={scraps} />
-          <Accordion subject={"Travel Itinerary"} list={rooms} />
-          <Accordion subject={"Recommended Destination"} list={destinations} />
+          <Accordion id={0} subject={"Scrap"} list={scraps} />
+          <Accordion id={1} subject={"Travel Itinerary"} list={rooms} />
+          <Accordion
+            id={2}
+            subject={"Recommended Destination"}
+            list={destinations}
+          />
         </div>
       </Wrapper>
     </>
