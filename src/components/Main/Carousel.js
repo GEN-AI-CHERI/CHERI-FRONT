@@ -61,7 +61,7 @@ const settings = {
   accessivility: true,
   variableWidth: true,
   draggable: false,
-  autoplay: false,
+  autoplay: true,
   autoplaySpeed: 3000,
   centerMode: true,
   centerPadding: "5px", //디폴트값
