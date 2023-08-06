@@ -19,7 +19,7 @@ const Header = ({ photo }) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper $background={photo}>
       <div className="btns">
         <img className="back" alt="" src={back} onClick={() => navigate(-1)} />
         {isScrap ? (
@@ -30,7 +30,6 @@ const Header = ({ photo }) => {
       </div>
       <div className="image">
         <img alt="" src={photo} />
-        <div className="blur" />
       </div>
     </Wrapper>
   );
@@ -38,27 +37,24 @@ const Header = ({ photo }) => {
 
 export default Header;
 const Wrapper = styled.div`
+  background: url(${(props) => props.$background}) lightgray 50% / cover
+    no-repeat;
+
   .btns {
     display: flex;
     position: absolute;
     margin-top: 1.2rem;
     width: 100%;
     justify-content: space-between;
+    z-index: 1;
   }
   .image {
     height: 293px; //수정
     display: flex;
     justify-content: center;
     background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3.5px);
     img {
-    }
-    .blur {
-      position: absolute;
-      top: 270px;
-      width: 100%;
-      height: 34px;
-      background: rgba(217, 217, 217, 0.02);
-      backdrop-filter: blur(7.5px);
     }
   }
 
