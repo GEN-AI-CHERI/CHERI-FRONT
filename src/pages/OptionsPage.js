@@ -24,7 +24,7 @@ const OptionsPage = () => {
         "Discover a personalized travel suggestion in Korea with CHERI! Find your perfect destination match!",
     },
   ];
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(0);
 
   return (
     <Wrapper>
@@ -36,11 +36,9 @@ const OptionsPage = () => {
           <Option
             key={option.id}
             onClick={() => {
-              selected === option.title
-                ? setSelected("")
-                : setSelected(option.title);
+              selected === option.id ? setSelected(0) : setSelected(option.id);
             }}
-            $isSelected={selected === option.title ? "true" : "false"}
+            $isSelected={selected === option.id ? "true" : "false"}
           >
             <div className="upper">
               <div className="icon">
@@ -50,7 +48,7 @@ const OptionsPage = () => {
               <div className="optionTitle">{option.title}</div>
 
               <div className="btn">
-                {selected === option.title ? (
+                {selected === option.id ? (
                   <img src={check} alt="" />
                 ) : (
                   <img src={emptyBtn} alt="" />
@@ -63,9 +61,10 @@ const OptionsPage = () => {
       })}
       <Button
         onClick={() => {
-          if (selected !== "") navigate("/");
+          if (selected === 1) navigate("/destination");
+          if (selected === 2) navigate("/themes2");
         }}
-        $color={selected === "" ? "gray" : "black"}
+        $color={selected === 0 ? "gray" : "black"}
       >
         Next Step
       </Button>
