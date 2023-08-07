@@ -25,3 +25,18 @@ export const PostChatroomsStart = async (
     throw err;
   }
 };
+
+export const PostChats = async (prompt, room_id) => {
+  try {
+    const res = await client.post("chats", {
+      prompt: prompt,
+      room_id: room_id,
+    });
+    console.log(res.data);
+    // 리턴 꼭 하기...^^
+    return res.data;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};

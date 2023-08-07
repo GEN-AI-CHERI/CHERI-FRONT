@@ -22,6 +22,8 @@ const Container = styled.div`
   width: 100vw;
   height: 5rem;
   background-color: #ffefef;
+  position: fixed;
+  top: 0;
 `;
 
 export default ChatHeader;
