@@ -3,7 +3,7 @@ import styled from "styled-components";
 import back from "../../assets/result/back.png";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ photo }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <>
       <BackIcon src={back} onClick={handleNavigate} />
-      <HeaderImg src={bg} />
+      <HeaderImg src={photo} />
     </>
   );
 };

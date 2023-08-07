@@ -18,9 +18,10 @@ import DetailResultPage from "./pages/Map/DetailResultPage";
 import MyPage from "./pages/MyPage";
 import DetailedDestPage from "./pages/DetailedDestPage";
 import LoadingPage from "./pages/Itinerary/LoadingPage";
+import LoadingPage2 from "./pages/Destination/LoadingPage2";
 
 import { Provider } from "react-redux";
-import store from "./Redux/itinerary_reducer";
+import store from "./Redux/store";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/detail" element={<DetailedDestPage />} />
         <Route path="/loading" element={<LoadingPage />} />
+        <Route path="/loading2" element={<LoadingPage2 />} />
       </Routes>
     </Provider>
   );
