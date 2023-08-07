@@ -6,21 +6,48 @@ import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 const ScrapCarousel = ({ scraps }) => {
   const navigate = useNavigate();
+  let limitNum = 0;
+  if (window.matchMedia("(min-width: 400px)").matches) {
+    //400px 초과
+    limitNum = 5;
+    if (matchMedia("screen and (min-width: 640px)").matches) {
+      //640px 초과
+      limitNum = 4;
+    } else {
+      //400px 이하
+      limitNum = 3;
+    }
+  }
   return (
     <Wrapper>
       <div className="container">
-        <StyledSlider {...settings}>
-          {scraps.map((scrap) => {
-            return (
-              <Card
-                onClick={() => navigate(`/detail/${scrap.region_id}`)}
-                key={scrap.scrap_id}
-              >
-                <img src={scrap.region.photo} alt="" />
-              </Card>
-            );
-          })}
-        </StyledSlider>
+        {scraps.length > limitNum ? (
+          <StyledSlider {...settings}>
+            {scraps.map((scrap) => {
+              return (
+                <Card
+                  onClick={() => navigate(`/detail/${scrap.region_id}`)}
+                  key={scrap.scrap_id}
+                >
+                  <img src={scrap.region.photo} alt="" />
+                </Card>
+              );
+            })}
+          </StyledSlider>
+        ) : (
+          <div className="list">
+            {scraps.map((scrap) => {
+              return (
+                <Card
+                  onClick={() => navigate(`/detail/${scrap.region_id}`)}
+                  key={scrap.scrap_id}
+                >
+                  <img src={scrap.region.photo} alt="" />
+                </Card>
+              );
+            })}
+          </div>
+        )}
       </div>
     </Wrapper>
   );
@@ -63,6 +90,28 @@ const Wrapper = styled.div`
   width: 100%;
   @media (min-width: 768px) {
     width: 650px;
+  }
+  .list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    //카드 사이 간격
+
+    width: 100%;
+    height: 100px;
+
+    :hover div {
+      transform: scale(1.03);
+    }
+    div {
+      //자식인 Card 컴포넌트
+      width: 93px;
+      height: 93px;
+      border-radius: 20px;
+      background: lightgray 50% / cover no-repeat;
+      margin-right: 14px;
+    }
   }
 `;
 
