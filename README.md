@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 🍒 CHERI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![Frame 39](https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/2c79606f-9678-4cfc-81be-33346ac4f6b8)
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+## 📌 서비스 설명
+CHERI는 프랑스어로 사랑스럽다는 의미로, 체리처럼 상큼하고 사랑스러운 여행 가이드가 되어주겠다는 의미를 담고 있습니다. <br>
+외국인을 대상으로 한 한국 투어 서비스로, 맞춤형 여행 코스 생성, 맞춤형 여행지 추천, 가이드 추천 기능을 제공합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🗓 개발 기간
+2023.08.01 ~ 2023.08.08
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 👥 팀원 소개
+|송지민|이선의|이주희|
+|---|---|---|
+|<img width="150px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/678ff507-7836-4c9c-ba4f-a58a2b9b9896">|<img style="width:150px" src="https://github.com/EduTechProjects/.github/assets/104717341/cda21e5d-5917-4b56-8c38-9418f5993cd6"/>|<img width="150px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/76e28349-f536-46bc-8341-c46f8d3dab37">|
+|프론트|백엔드|디자인&프론트|
+|회원가입/로그인 <br> 메인페이지 <br> 마이페이지 등| api 서버 개발 <br> GPT 가스라이팅 등|여행 코스 생성 <br> 여행지 추천 <br>  가이드 추천 등|
+|[@Doozuu](https://github.com/Doozuu)|[@Doozuu](https://github.com/Doozuu)|[@Doozuu](https://github.com/Doozuu)|
 
-### `npm run build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 💻 기술 스택
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Main
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white"> <img src="https://img.shields.io/badge/react router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white">
 
-### `npm run eject`
+### Team Collaboration Tool
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img src="https://img.shields.io/badge/notion-EBEBEB?style=for-the-badge&logo=notion&logoColor=000000"> <img src="https://img.shields.io/badge/github-292727?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Styles
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Code Formmater
 
-## Learn More
+<img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=black">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔗 웹사이트 배포 링크
 
-### Code Splitting
+https://cheritalk.site/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
 
-### Analyzing the Bundle Size
+## ✨ 주요 기능
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🖼️ 화면 구성
 
-### Advanced Configuration
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📁 폴더 구조
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```javascript
+```
