@@ -21,7 +21,7 @@ const LoginPage = () => {
       try {
         const data = await postSignIn(email, password);
         localStorage.setItem("cheritoken", data.access_token);
-        navigate("/main");
+        navigate("/");
 
         setInputs({ email: "", password: "" });
       } catch (err) {
