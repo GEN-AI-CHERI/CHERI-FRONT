@@ -21,7 +21,6 @@ const Button = ({ regionId }) => {
   const handleNavigateNext = () => {
     handleSetRegionId(regionId);
     navigate(`/themes`);
-    alert("Please Select Destination");
   };
 
   return (
