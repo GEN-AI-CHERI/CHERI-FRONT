@@ -3,16 +3,23 @@ import { styled } from "styled-components";
 import back from "../../assets/result/back.png";
 import scrap from "../../assets/detail/scrap.png";
 import unscrap from "../../assets/detail/unscrap.png";
-import { useNavigate } from "react-router-dom";
-const Header = () => {
+import { useNavigate, useParams } from "react-router-dom";
+import { postRegion } from "../../api/regions";
+const Header = ({ photo }) => {
   const navigate = useNavigate();
   const [isScrap, setIsScrap] = useState(false);
+  const { region_id } = useParams();
 
+  const scrapRegion = async () => {
+    await postRegion(region_id);
+  };
   const handleScrap = () => {
+    !isScrap && scrapRegion(region_id);
     setIsScrap(!isScrap);
   };
+
   return (
-    <Wrapper>
+    <Wrapper $background={photo}>
       <div className="btns">
         <img className="back" alt="" src={back} onClick={() => navigate(-1)} />
         {isScrap ? (
@@ -21,24 +28,34 @@ const Header = () => {
           <img className="scrap" alt="" src={unscrap} onClick={handleScrap} />
         )}
       </div>
-      <img className="image" alt="" src={""} />
+      <div className="image">
+        <img alt="" src={photo} />
+      </div>
     </Wrapper>
   );
 };
 
 export default Header;
 const Wrapper = styled.div`
+  background: url(${(props) => props.$background}) lightgray 50% / cover
+    no-repeat;
+
   .btns {
     display: flex;
     position: absolute;
     margin-top: 1.2rem;
     width: 100%;
     justify-content: space-between;
+    z-index: 1;
   }
   .image {
-    width: 100%;
     height: 293px; //수정
-    background: lightgray 50% / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3.5px);
+    img {
+    }
   }
 
   .back {

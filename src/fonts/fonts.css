@@ -10,3 +10,10 @@
   font-weight: 400;
   src: url("./Cygre-Regular-BF63eeebf4df0b6.ttf") format("woff");
 }
+
+@font-face {
+  font-family: "Racing Sans One";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./RacingSansOne-Regular.ttf") format("woff");
+}

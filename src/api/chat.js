@@ -40,3 +40,14 @@ export const PostChats = async (prompt, room_id) => {
     throw err;
   }
 };
+
+//채팅 내역 get
+export const GetMyChat = async (room_id) => {
+  try {
+    const res = await client.get(`chatrooms/${room_id}`);
+
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+};

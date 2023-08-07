@@ -4,7 +4,14 @@ import gptXcheri from "../../assets/main/gptXcheri.png";
 import check from "../../assets/main/check.png";
 import directionImg from "../../assets/main/directionImg.png";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
+import seoul from "../../assets/main/seoul.png";
+import busan from "../../assets/main/busan.png";
+import jeju from "../../assets/main/jeju.png";
+
 const Infos = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Top>
@@ -20,7 +27,14 @@ const Infos = () => {
           <div className="gptXcheri">
             <img src={gptXcheri} alt=""></img>
           </div>
-          <div className="startBtn">Start Now</div>
+          <div
+            onClick={() => {
+              navigate("/menu");
+            }}
+            className="startBtn"
+          >
+            Start Now
+          </div>
         </Wrapper>
       </Top>
       <Bottom>
@@ -38,15 +52,14 @@ const Infos = () => {
 
               <div className="option">
                 <img src={check} alt=""></img>
-                20 ~ 29 age
+                With friends
+              </div>
+              <div className="option">
+                <img src={check} alt=""></img>2 nights 3 days
               </div>
               <div className="option">
                 <img src={check} alt=""></img>
-                Woman
-              </div>
-              <div className="option">
-                <img src={check} alt=""></img>
-                With two friends
+                30 ~ 39 age
               </div>
             </div>
           </div>
@@ -61,16 +74,22 @@ const Infos = () => {
           </div>
         </Wrapper>
         <Destinations>
-          <div className="text">Explore popular destinations</div>
+          <div className="text">Guide Suggestions</div>
           <div className="list">
-            <div className="item">
-              <img src={""} alt=""></img>
+            <div className="dest">
+              <img src={seoul} alt=""></img>
+              <div className="filter" />
+              <div className="title">Seoul</div>
             </div>
-            <div className="item">
-              <img src={""} alt=""></img>
+            <div className="dest">
+              <img src={busan} alt=""></img>
+              <div className="filter" />
+              <div className="title">Busan</div>
             </div>
-            <div className="item">
-              <img src={""} alt=""></img>
+            <div className="dest">
+              <img src={jeju} alt=""></img>
+              <div className="filter" />
+              <div className="title">Jeju Island</div>
             </div>
           </div>
         </Destinations>
@@ -106,7 +125,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   .intro {
-    padding-top: 35px;
+    padding-top: 30px;
     color: #000;
     text-align: center;
 
@@ -116,11 +135,12 @@ const Wrapper = styled.div`
     line-height: 22px; /* 110% */
   }
   .subIntro {
+    width: 90%;
     margin-top: 0.5rem;
     color: #949494;
     text-align: center;
     font-family: Inter;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -135,9 +155,9 @@ const Wrapper = styled.div`
     }
   }
   .startBtn {
-    margin-top: 3rem;
-    width: 8rem;
-    height: 40px;
+    margin-top: 30px;
+    width: 11rem;
+    height: 49px;
     border-radius: 25px;
     background: #353535;
     display: flex;
@@ -146,7 +166,7 @@ const Wrapper = styled.div`
 
     color: #fff;
     font-family: Inter;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -204,16 +224,42 @@ const Destinations = styled.div`
 
     padding-bottom: 70px;
   }
-  .item {
+  .dest {
+    position: relative;
+    overflow: hidden;
     @media (min-width: 768px) {
-      width: 35rem;
-      height: 119px;
+      width: 30rem;
     }
     width: 21.5rem;
     height: 119px;
     border-radius: 23px;
-    background: rgba(0, 0, 0, 0.3);
-
     margin-bottom: 7px;
+
+    img {
+      @media (min-width: 768px) {
+        width: 30rem;
+      }
+      width: 21.5rem;
+      height: 119px;
+    }
+    .title {
+      position: absolute;
+      top: 35%;
+      left: 10%;
+      color: #fff;
+      text-align: center;
+      font-family: Cygre SemiBold;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    .filter {
+      position: absolute;
+      top: 0;
+      background: rgba(0, 0, 0, 0.3);
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
