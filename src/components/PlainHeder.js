@@ -23,6 +23,6 @@ const Wrapper = styled.div`
   align-items: center;
 
   .logo {
-    margin-left: 19.5px;
+    margin-left: 1.5em;
   }
 `;
