@@ -27,29 +27,24 @@ const MyInfo = ({ nickname }) => {
           {nickname ? (
             <div className="subtitle">Discover wonderful Korea!</div>
           ) : (
-            <div
-              onClick={() => {
-                navigate("./login");
-              }}
-              className="subtitle"
-            >
-              Please login first
-            </div>
+            <div className="subtitle">Please sign in first</div>
           )}
         </div>
         <div className="profile">
           <img src={avatar} alt="" />
         </div>
       </div>
-      <div
-        onClick={() => {
-          navigate("/signup");
-        }}
-        className="signup"
-      >
-        Sign Up
-        <img src={next} alt="" />
-      </div>
+      {!nickname && (
+        <div
+          onClick={() => {
+            navigate("/login");
+          }}
+          className="signin"
+        >
+          Sign In
+          <img src={next} alt="" />
+        </div>
+      )}
     </Wrapper>
   );
 };
@@ -106,7 +101,7 @@ const Wrapper = styled.div`
       height: 45px;
     }
   }
-  .signup {
+  .signin {
     margin-top: 50px;
     display: flex;
     align-items: center;
