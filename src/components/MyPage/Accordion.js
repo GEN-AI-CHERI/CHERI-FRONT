@@ -39,7 +39,7 @@ const Accordion = ({ id, subject, list = [] }) => {
 
       {isOpen && (
         <div className="contents">
-          {id === 0 && <ScrapCarousel scraps={list} />}
+          {id === 0 && list.length ? <ScrapCarousel scraps={list} /> : null}
           {id !== 0 &&
             list.map((item) => {
               return (
