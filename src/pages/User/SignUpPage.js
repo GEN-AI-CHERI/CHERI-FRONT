@@ -48,52 +48,55 @@ const SignUpPage = () => {
         <div className="title">Sign Up</div>
         <div className="subtitle">Hello stranger!</div>
       </div>
-      <Form>
-        <input
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          value={email}
-          autoComplete="off"
-        />{" "}
-        <div className="line" />
-        <input
-          name="password"
-          placeholder="Password"
-          type="password"
-          onChange={handleChange}
-          value={password}
-          autoComplete="off"
-        />{" "}
-        <div className="line" />
-        <input
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          type="password"
-          onChange={handleChange}
-          value={confirmPassword}
-          autoComplete="off"
-        />{" "}
-      </Form>
-      {email && !email.includes("@") && (
-        <div className="invalidMsg">*not a valid email address</div>
-      )}
-      {confirmPassword && confirmPassword !== password && (
-        <div className="invalidMsg">
-          *The password confirmation does not match
-        </div>
-      )}
-      {isError && <div className="invalidMsg">*The account alreay exists</div>}
-      <div className="bottom">
-        <Btn onClick={handleSignUp}>Sign Up</Btn>
-        <div
-          className="toLogin"
-          onClick={() => {
-            navigate("/login");
-          }}
-        >
-          Already have an account?
-        </div>
+      <div className="mid">
+        <Form>
+          <input
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            value={email}
+            autoComplete="off"
+          />{" "}
+          <div className="line" />
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            onChange={handleChange}
+            value={password}
+            autoComplete="off"
+          />{" "}
+          <div className="line" />
+          <input
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            type="password"
+            onChange={handleChange}
+            value={confirmPassword}
+            autoComplete="off"
+          />{" "}
+        </Form>
+        {email && !email.includes("@") && (
+          <div className="invalidMsg">*not a valid email address</div>
+        )}
+        {confirmPassword && confirmPassword !== password && (
+          <div className="invalidMsg">
+            *The password confirmation does not match
+          </div>
+        )}
+        {isError && (
+          <div className="invalidMsg">*The account alreay exists</div>
+        )}
+      </div>
+
+      <Btn onClick={handleSignUp}>Sign Up</Btn>
+      <div
+        className="toLogin"
+        onClick={() => {
+          navigate("/login");
+        }}
+      >
+        Already have an account?
       </div>
     </Wrapper>
   );
@@ -106,6 +109,15 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .mid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 77px;
+    height: 265px;
+  }
   .title {
     color: #353535;
     font-size: 2.2rem;
@@ -114,6 +126,7 @@ const Wrapper = styled.div`
     padding-left: 2.2rem;
     display: flex;
     align-items: end;
+    margin-top: 20px;
   }
   .subtitle {
     color: #353535;
@@ -153,9 +166,7 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
-  height: 168px;
-  margin-top: 15vh;
-  padding: 0.8rem;
+  height: 215px;
   border-radius: 9px;
   border: 1px solid #fff;
   box-shadow: 0px 3px 14px 4px rgba(0, 0, 0, 0.1);
@@ -163,7 +174,7 @@ const Form = styled.form`
   @media (min-width: 768px) {
     max-width: 40%;
   }
-  height: 12rem;
+
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -172,13 +183,13 @@ const Form = styled.form`
 
   input {
     width: 90%;
-    height: 20%;
+    height: 71px;
 
     outline: none;
     border: none;
 
     font-family: Inter;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -186,7 +197,7 @@ const Form = styled.form`
   input::placeholder {
     color: #b7b7b7;
     font-family: Inter;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -197,13 +208,9 @@ const Form = styled.form`
     border-top: 2px solid;
     color: #f0f0f0;
   }
-  .bottom {
-    position: absolute;
-    bottom: 8vh;
-  }
 `;
 const Btn = styled.div`
-  margin-top: 20vh;
+  margin-top: 174px;
   width: 229px;
   height: 58px;
   border-radius: 32px;

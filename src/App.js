@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainNDetail/MainPage";
-import OptionsPage from "./pages/OptionsPage";
+import MenuPage from "./pages/MainNDetail/MenuPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import LoginPage from "./pages/User/LoginPage";
 import DestinationPage from "./pages/Itinerary/DestinationPage";
@@ -22,6 +22,7 @@ import LoadingPage2 from "./pages/Destination/LoadingPage2";
 import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
 import SecureLockPage from "./pages/Common/SecureLockPage";
+import PrivateRoute from "./Router/PrivateRoute";
 
 import { Provider } from "react-redux";
 import store from "./Redux/store";
@@ -30,18 +31,26 @@ function App() {
   return (
     <Provider store={store}>
       <Routes>
+        <Route element={<PrivateRoute />}>
+          <Route path="/result" element={<ResultPage />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/my-chat/:room_id" element={<MyChatPage />} />
+          <Route
+            path="/loading-saved/:room_id"
+            element={<LoadingSavedPage />}
+          />
+          <Route path="/loading" element={<LoadingPage />} />
+        </Route>
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<MainPage />} />
-        <Route path="/menu" element={<OptionsPage />} />
+        <Route path="/menu" element={<MenuPage />} />
         <Route path="/destination" element={<DestinationPage />} />
         <Route path="/themes" element={<ThemePage />} />
         <Route path="/period" element={<PeriodPage />} />
         <Route path="/themes2" element={<ThemePage2 />} />
         <Route path="/party" element={<PartyPage />} />
         <Route path="/period2" element={<PeriodPage2 />} />
-        <Route path="/result" element={<ResultPage />} />
-        <Route path="/chat" element={<ChatPage />} />
         <Route path="/itinerary" element={<ItineraryPage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/map-result" element={<MapResultPage />} />
