@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import PlainHeader from "../components/PlainHeder";
+import PlainHeader from "../../components/PlainHeder";
 import { styled } from "styled-components";
-import check from "../assets/menu/check.png";
-import emptyBtn from "../assets/menu/emptyBtn.png";
+import check from "../../assets/menu/check.png";
+import emptyBtn from "../../assets/menu/emptyBtn.png";
 import { useNavigate } from "react-router-dom";
-import airplane from "../assets/menu/airplane.png";
-import building from "../assets/menu/building.png";
-const OptionsPage = () => {
+import airplane from "../../assets/menu/airplane.png";
+import building from "../../assets/menu/building.png";
+const MenuPage = () => {
   const navigate = useNavigate();
   const options = [
     {
@@ -72,7 +72,7 @@ const OptionsPage = () => {
   );
 };
 
-export default OptionsPage;
+export default MenuPage;
 const Button = styled.div`
   position: absolute;
   bottom: 5rem;

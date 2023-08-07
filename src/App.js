@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainNDetail/MainPage";
-import OptionsPage from "./pages/OptionsPage";
+import MenuPage from "./pages/MainNDetail/MenuPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import LoginPage from "./pages/User/LoginPage";
 import DestinationPage from "./pages/Itinerary/DestinationPage";
@@ -31,7 +31,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<MainPage />} />
-        <Route path="/menu" element={<OptionsPage />} />
+        <Route path="/menu" element={<MenuPage />} />
         <Route path="/destination" element={<DestinationPage />} />
         <Route path="/themes" element={<ThemePage />} />
         <Route path="/period" element={<PeriodPage />} />
