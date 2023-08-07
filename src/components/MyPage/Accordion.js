@@ -43,7 +43,7 @@ const Accordion = ({ id, subject, list = [] }) => {
           {id !== 0 &&
             list.map((item) => {
               return (
-                <div className="item">
+                <div className="item" key={item.room_id}>
                   <Item
                     subject={subject}
                     period={formatDate(item.begin_date, item.end_date)}
