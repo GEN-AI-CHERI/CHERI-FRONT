@@ -20,6 +20,7 @@ import DetailedDestPage from "./pages/MainNDetail/DetailedDestPage";
 import LoadingPage from "./pages/Itinerary/LoadingPage";
 import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
+import PrivateRoute from "./Router/PrivateRoute";
 
 import { Provider } from "react-redux";
 import store from "./Redux/itinerary_reducer";
@@ -28,6 +29,16 @@ function App() {
   return (
     <Provider store={store}>
       <Routes>
+        <Route element={<PrivateRoute />}>
+          <Route path="/result" element={<ResultPage />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/my-chat/:room_id" element={<MyChatPage />} />
+          <Route
+            path="/loading-saved/:room_id"
+            element={<LoadingSavedPage />}
+          />
+          <Route path="/loading" element={<LoadingPage />} />
+        </Route>
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<MainPage />} />
@@ -38,17 +49,12 @@ function App() {
         <Route path="/themes2" element={<ThemePage2 />} />
         <Route path="/party" element={<PartyPage />} />
         <Route path="/period2" element={<PeriodPage2 />} />
-        <Route path="/result" element={<ResultPage />} />
-        <Route path="/chat" element={<ChatPage />} />
         <Route path="/itinerary" element={<ItineraryPage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/map-result" element={<MapResultPage />} />
         <Route path="/detail-result" element={<DetailResultPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/detail/:region_id" element={<DetailedDestPage />} />
-        <Route path="/loading" element={<LoadingPage />} />
-        <Route path="/my-chat/:room_id" element={<MyChatPage />} />
-        <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
       </Routes>
     </Provider>
   );
