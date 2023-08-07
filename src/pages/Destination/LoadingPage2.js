@@ -1,7 +1,7 @@
 import loadingIcon from "../../assets/common/loading.gif";
 import infoIcon from "../../assets/common/info.png";
 import styled from "styled-components";
-import { PostChatroomsStart } from "../../api/chat";
+import { PostRecommend } from "../../api/recommend";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -9,32 +9,31 @@ import { useSelector } from "react-redux";
 const LoadingPage = () => {
   const navigate = useNavigate();
 
-  const NavigateChat = () => {
-    navigate("/chat");
+  const NavigateResult = () => {
+    navigate("/result");
   };
 
-  const age = useSelector((state) => state.itinerary.age);
-  const theme = useSelector((state) => state.itinerary.theme);
-  const begin_date = useSelector((state) => state.itinerary.begin_date);
-  const end_date = useSelector((state) => state.itinerary.end_date);
-  const region_id = useSelector((state) => state.itinerary.region_id);
+  const with_who = useSelector((state) => state.destination.with_who);
+  const age = useSelector((state) => state.destination.age);
+  const theme = useSelector((state) => state.destination.theme);
+  const begin_date = useSelector((state) => state.destination.begin_date);
+  const end_date = useSelector((state) => state.destination.end_date);
 
-  // Next 버튼 클릭하면 채팅 결과 post 요청
+  // Next 버튼 클릭하면 결과 post 요청
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await PostChatroomsStart(
+        const data = await PostRecommend(
+          with_who,
           age,
           theme,
           begin_date,
-          end_date,
-          region_id
+          end_date
         );
+        console.log("응답", data);
+        localStorage.setItem("desRes", JSON.stringify(data));
 
-        // 첫 번째 응답만 로컬스토리지에 저장
-        localStorage.setItem("res", JSON.stringify(data));
-
-        NavigateChat();
+        NavigateResult();
         window.location.reload();
       } catch (error) {
         console.log(error);

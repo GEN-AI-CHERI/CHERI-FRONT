@@ -1,26 +1,26 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setThemes } from "../../Redux/Itinerary/action";
+import { setParty } from "../../Redux/Destination/action";
 
-const Button = ({ selected_list }) => {
+const Button = ({ party }) => {
   const dispatch = useDispatch();
 
-  // themes 값을 변경하는 액션 디스패치
-  const handleSetThemes = (list) => {
-    dispatch(setThemes(list));
+  // with_who 값을 변경하는 액션 디스패치
+  const handleSetParty = (party) => {
+    dispatch(setParty(party));
   };
 
   const navigate = useNavigate();
 
   const handleNavigatePrev = () => {
-    handleSetThemes([]);
+    handleSetParty("");
     navigate(-1);
   };
 
   const handleNavigateNext = () => {
-    handleSetThemes(selected_list);
-    navigate(`/period`);
+    handleSetParty(party);
+    navigate(`/period2`);
   };
 
   return (

@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 const ChatHeader = () => {
   const navigate = useNavigate();
 
+  const hanldeNavigate = () => {
+    navigate("/main");
+  };
+
   return (
     <Container>
       <BackIcon src={backIcon} onClick={() => navigate("/")} />

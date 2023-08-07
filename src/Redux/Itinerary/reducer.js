@@ -1,5 +1,3 @@
-import { createStore } from "redux";
-
 // 여행 코스 추천 기능 -> 사용자 입력사항 저장용
 const initialState = {
   age: "",
@@ -9,7 +7,7 @@ const initialState = {
   region_id: 0,
 };
 
-function reducer(currentState = initialState, action) {
+function ItineraryReducer(currentState = initialState, action) {
   switch (action.type) {
     case "SET_REGION_ID":
       return {
@@ -41,6 +39,4 @@ function reducer(currentState = initialState, action) {
   }
 }
 
-const store = createStore(reducer);
-
-export default store;
+export default ItineraryReducer;
