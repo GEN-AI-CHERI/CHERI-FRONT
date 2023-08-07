@@ -95,7 +95,7 @@ const Button = styled.div`
 
 const Option = styled.div`
   width: 85%;
-  min-height: 103px;
+  max-width: 336px;
   min-height: ${(props) => (props.$isSelected === "true" ? "143px" : "103px")};
   display: flex;
   flex-direction: column;
