@@ -16,7 +16,7 @@ const Input = ({
 
   const handleChange = (e) => {
     setTempText(e.target.value);
-    setText(tempText);
+    setText(e.target.value);
   };
 
   // 엔터쳐도 보내지도록
@@ -75,11 +75,11 @@ const Input = ({
 };
 
 const InputField = styled.input`
-  width: 20rem;
+  width: 19.5rem;
   height: 3.3rem;
   border-radius: 28px;
   border: 1px solid #d1d1d1;
-  padding-left: 1rem;
+  padding-left: 2rem;
   outline: none;
   margin-right: 1rem;
 
