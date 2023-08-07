@@ -11,7 +11,7 @@ const ChatHeader = () => {
 
   return (
     <Container>
-      <BackIcon src={backIcon} onClick={hanldeNavigate} />
+      <BackIcon src={backIcon} onClick={() => navigate("/")} />
     </Container>
   );
 };

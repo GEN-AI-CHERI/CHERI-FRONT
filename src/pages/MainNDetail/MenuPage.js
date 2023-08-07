@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import PlainHeader from "../components/PlainHeder";
+import PlainHeader from "../../components/PlainHeder";
 import { styled } from "styled-components";
-import check from "../assets/menu/check.png";
-import emptyBtn from "../assets/menu/emptyBtn.png";
+import check from "../../assets/menu/check.png";
+import emptyBtn from "../../assets/menu/emptyBtn.png";
 import { useNavigate } from "react-router-dom";
-import airplane from "../assets/menu/airplane.png";
-import building from "../assets/menu/building.png";
-const OptionsPage = () => {
+import airplane from "../../assets/menu/airplane.png";
+import building from "../../assets/menu/building.png";
+import guide from "../../assets/menu/guide.png";
+const MenuPage = () => {
   const navigate = useNavigate();
   const options = [
     {
@@ -22,6 +23,13 @@ const OptionsPage = () => {
       title: "Travel Destination",
       explanation:
         "Discover a personalized travel suggestion in Korea with CHERI! Find your perfect destination match!",
+    },
+    {
+      id: 3,
+      icon: guide,
+      title: "Tour Guide List",
+      explanation:
+        "Do you need a tour guide? Explore guides operating in each region.",
     },
   ];
   const [selected, setSelected] = useState(0);
@@ -63,6 +71,7 @@ const OptionsPage = () => {
         onClick={() => {
           if (selected === 1) navigate("/destination");
           if (selected === 2) navigate("/themes2");
+          if (selected === 3) navigate("/가이드목록");
         }}
         $color={selected === 0 ? "gray" : "black"}
       >
@@ -72,7 +81,7 @@ const OptionsPage = () => {
   );
 };
 
-export default OptionsPage;
+export default MenuPage;
 const Button = styled.div`
   position: absolute;
   bottom: 5rem;
@@ -96,7 +105,7 @@ const Button = styled.div`
 const Option = styled.div`
   width: 85%;
   max-width: 336px;
-  min-height: ${(props) => (props.$isSelected === "true" ? "143px" : "103px")};
+  min-height: 116px;
   display: flex;
   flex-direction: column;
 

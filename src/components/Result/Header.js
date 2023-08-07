@@ -7,7 +7,7 @@ const Header = ({ photo }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/main");
+    navigate("/");
   };
 
   return (
