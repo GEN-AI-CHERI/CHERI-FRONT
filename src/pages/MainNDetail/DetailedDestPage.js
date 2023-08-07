@@ -19,7 +19,7 @@ const DetailedDestPage = () => {
     region && (
       <Wrapper>
         <Header photo={region.photo} />
-        <Info title={region.title} description={region.description} />
+        <Info title={region.title} detail={region.detail} />
         <div className="popular">
           <div className="text">Popular Activities</div>
           <Carousel />
@@ -32,12 +32,9 @@ const DetailedDestPage = () => {
 export default DetailedDestPage;
 
 const Wrapper = styled.div`
-  @media (min-width: 768px) {
-    //margin: 0vh 20vw; //pc일때 마진
-  }
   .text {
     padding: 0 1.5rem;
-    margin-top: 4rem;
+    margin-top: 2.2rem;
     color: #121212;
     font-size: 1.5rem;
     font-style: normal;
