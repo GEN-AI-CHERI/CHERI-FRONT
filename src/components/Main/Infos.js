@@ -140,7 +140,7 @@ const Wrapper = styled.div`
     color: #949494;
     text-align: center;
     font-family: Inter;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -156,8 +156,8 @@ const Wrapper = styled.div`
   }
   .startBtn {
     margin-top: 30px;
-    width: 8rem;
-    height: 40px;
+    width: 11rem;
+    height: 49px;
     border-radius: 25px;
     background: #353535;
     display: flex;
@@ -166,7 +166,7 @@ const Wrapper = styled.div`
 
     color: #fff;
     font-family: Inter;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
