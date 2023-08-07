@@ -30,7 +30,6 @@ const LoadingPage = () => {
           begin_date,
           end_date
         );
-        console.log("응답", data);
         localStorage.setItem("desRes", JSON.stringify(data));
 
         NavigateResult();

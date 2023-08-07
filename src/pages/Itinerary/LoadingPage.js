@@ -19,6 +19,8 @@ const LoadingPage = () => {
   const end_date = useSelector((state) => state.itinerary.end_date);
   const region_id = useSelector((state) => state.itinerary.region_id);
 
+  console.log(age, theme, begin_date, end_date, region_id);
+
   // Next 버튼 클릭하면 채팅 결과 post 요청
   useEffect(() => {
     const fetchData = async () => {

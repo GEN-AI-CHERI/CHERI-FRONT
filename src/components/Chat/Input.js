@@ -9,20 +9,33 @@ const Input = ({
   onCheriResponse,
   autoPost,
   setAutoPost,
+  setIsLoading,
 }) => {
   const [tempText, setTempText] = useState("");
+  const [text, setText] = useState("");
 
   const handleChange = (e) => {
     setTempText(e.target.value);
+    setText(e.target.value);
+  };
+
+  // 엔터쳐도 보내지도록
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      postChat();
+    }
   };
 
   // 질문 답변 생성
   const postChat = async () => {
     try {
+      setText("");
+      setIsLoading(true);
       onUserSend(tempText);
       const res = await PostChats(tempText, room_id);
       setTempText("");
       onCheriResponse(res.answer.contents);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -32,6 +45,7 @@ const Input = ({
   useEffect(() => {
     const postAutoChat = async () => {
       try {
+        setText("");
         onUserSend(autoPost);
         const res = await PostChats(autoPost, room_id);
         setTempText("");
@@ -52,7 +66,8 @@ const Input = ({
       <InputField
         placeholder="Please enter a text..."
         onChange={handleChange}
-        value={tempText}
+        onKeyPress={handleKeyPress}
+        value={text}
       />
       <Send src={send} onClick={postChat} />
     </Container>
@@ -60,13 +75,20 @@ const Input = ({
 };
 
 const InputField = styled.input`
-  width: 20rem;
+  width: 19.5rem;
   height: 3.3rem;
   border-radius: 28px;
   border: 1px solid #d1d1d1;
-  padding-left: 1rem;
+  padding-left: 2rem;
   outline: none;
   margin-right: 1rem;
+
+  @media (min-width: 600px) {
+    width: 30rem;
+  }
+  @media (min-width: 1090px) {
+    width: 50rem;
+  }
 `;
 
 const Send = styled.img`

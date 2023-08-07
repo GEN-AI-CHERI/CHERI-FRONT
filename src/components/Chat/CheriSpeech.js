@@ -3,8 +3,20 @@ import styled from "styled-components";
 import Itinerary from "./Itinerary";
 import Question from "./Question";
 
-const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
-  console.log(text);
+const CheriSpeech = ({
+  title,
+  itinerary,
+  question,
+  text,
+  setAutoPost,
+  src,
+}) => {
+
+  // 응답값 배열로 오는지 확인하기 위해
+  let arr_res = [];
+if(text){
+  arr_res = JSON.stringify(text).slice(2,-2).split('","');
+}
 
   return (
     <Row>
@@ -24,18 +36,25 @@ const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
                 />
               ))}
               <p>💁🏻‍♀️ Recommended Questions</p>
-              {question.map((q) => (
-                <Question question={q} setAutoPost={setAutoPost} />
+              {question.map((q, idx) => (
+                <Question key={idx} question={q} setAutoPost={setAutoPost} />
               ))}
             </>
           )}
-          {text && <p>{text}</p>}
-          {/* {text.length > 0} */}
+          {text && arr_res.length > 1 ? arr_res.map((text, idx) => (
+            <p key={idx}>{text}</p>
+          )) :
+          <p>{text}</p>}
+          {src && <ChatLoading src={src} />}
         </SpeechBubble>
       </Column>
     </Row>
   );
 };
+
+const ChatLoading = styled.img`
+  width: 3rem;
+`;
 
 const Title = styled.h3`
   margin-top: 0;
@@ -54,7 +73,7 @@ const Name = styled.p`
 `;
 
 const SpeechBubble = styled.div`
-  width: 18rem;
+  max-width: 18rem;
   background-color: #f9f7f7;
   padding: 1.1rem;
   border-radius: 10px;
