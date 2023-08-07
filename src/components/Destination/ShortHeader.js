@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ShortHeader = () => {
   const navigate = useNavigate();
 
-  return <Logo src={logo} onClick={() => navigate("/main")} />;
+  return <Logo src={logo} onClick={() => navigate("/")} />;
 };
 
 const Logo = styled.img`

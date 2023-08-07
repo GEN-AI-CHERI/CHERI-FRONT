@@ -24,13 +24,12 @@ const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
                 />
               ))}
               <p>💁🏻‍♀️ Recommended Questions</p>
-              {question.map((q) => (
-                <Question question={q} setAutoPost={setAutoPost} />
+              {question.map((q, idx) => (
+                <Question key={idx}question={q} setAutoPost={setAutoPost} />
               ))}
             </>
           )}
           {text && <p>{text}</p>}
-          {/* {text.length > 0} */}
         </SpeechBubble>
       </Column>
     </Row>
