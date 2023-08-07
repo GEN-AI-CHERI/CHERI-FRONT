@@ -22,7 +22,7 @@ import LoadingPage2 from "./pages/Destination/LoadingPage2";
 import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
 import PrivateRoute from "./Router/PrivateRoute";
-
+import MyDestPage from "./pages/User/MyDestPage";
 import { Provider } from "react-redux";
 import store from "./Redux/store";
 
@@ -38,6 +38,7 @@ function App() {
             path="/loading-saved/:room_id"
             element={<LoadingSavedPage />}
           />
+          <Route path="/my-destination" element={<MyDestPage />} />
           <Route path="/loading" element={<LoadingPage />} />
         </Route>
         <Route path="/signup" element={<SignUpPage />} />
