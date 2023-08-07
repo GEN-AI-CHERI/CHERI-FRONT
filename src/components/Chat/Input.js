@@ -16,6 +16,13 @@ const Input = ({
     setTempText(e.target.value);
   };
 
+  // 엔터쳐도 보내지도록
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      postChat();
+    }
+  };
+
   // 질문 답변 생성
   const postChat = async () => {
     try {
@@ -51,7 +58,8 @@ const Input = ({
     <Container>
       <InputField
         placeholder="Please enter a text..."
-        onChange={handleChange}
+        onChange={handleChange}  
+        onKeyPress={handleKeyPress} 
         value={tempText}
       />
       <Send src={send} onClick={postChat} />
