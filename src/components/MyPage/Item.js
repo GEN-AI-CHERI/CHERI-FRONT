@@ -47,6 +47,7 @@ const Itinerary = ({
 
 export default Itinerary;
 const Wrapper = styled.div`
+  cursor: pointer;
   width: 95%;
   height: 47px;
 

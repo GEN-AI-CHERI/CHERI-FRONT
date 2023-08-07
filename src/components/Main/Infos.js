@@ -155,6 +155,7 @@ const Wrapper = styled.div`
     }
   }
   .startBtn {
+    cursor: pointer;
     margin-top: 30px;
     width: 11rem;
     height: 49px;

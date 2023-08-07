@@ -127,12 +127,12 @@ const Wrapper = styled.div`
       cursor: pointer;
       margin-left: 15px;
       @media (min-width: 768px) {
-        margin-left: 0;
+        margin-left: 15px;
       }
     }
     .login {
       cursor: pointer;
-      margin: 0 23px;
+      margin-left: 15px;
       color: #353535;
       text-align: center;
       font-family: Inter;

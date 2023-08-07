@@ -74,12 +74,12 @@ const Wrapper = styled.div`
   }
   .title {
     color: #000;
-    font-size: 1.5rem;
+    font-size: 20px;
     font-weight: 700;
   }
   .subtitle {
     color: #232323;
-    font-size: 1rem;
+    font-size: 13px;
     font-weight: 400;
   }
 
@@ -103,6 +103,7 @@ const Wrapper = styled.div`
     }
   }
   .signin {
+    cursor: pointer;
     margin-top: 45px;
     display: flex;
     align-items: center;
@@ -121,6 +122,7 @@ const Wrapper = styled.div`
   }
 `;
 const Back = styled.div`
+  cursor: pointer;
   margin: 0px 5%;
   padding-top: 27px;
 

@@ -26,6 +26,7 @@ const MainPage = () => {
 
 export default MainPage;
 const ScrollBtn = styled.div`
+  cursor: pointer;
   display: none;
   @media (min-height: 799px) {
     display: block;

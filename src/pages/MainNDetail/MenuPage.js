@@ -83,6 +83,7 @@ const MenuPage = () => {
 
 export default MenuPage;
 const Button = styled.div`
+  cursor: pointer;
   position: absolute;
   bottom: 5rem;
   width: 194px;
@@ -103,6 +104,7 @@ const Button = styled.div`
 `;
 
 const Option = styled.div`
+  cursor: pointer;
   width: 85%;
   max-width: 336px;
   min-height: 116px;

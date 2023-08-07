@@ -85,6 +85,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
+  cursor: pointer;
   height: 60px;
   display: flex;
   flex-direction: row;
