@@ -41,7 +41,7 @@ const MyPage = () => {
           <Accordion id={1} subject={"Travel Itinerary"} list={rooms} />
           <Accordion
             id={2}
-            subject={"Recommended Destination"}
+            subject={"Travel Destination"}
             list={destinations}
           />
         </div>
@@ -58,6 +58,8 @@ const Wrapper = styled.div`
     @media (min-width: 768px) {
       margin: 0 20%;
     }
+
+    margin-top: 30px;
   }
   .subject {
     color: #232323;

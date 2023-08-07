@@ -28,10 +28,10 @@ const Accordion = ({ id, subject, list = [] }) => {
   return (
     <Container>
       <Header onClick={toggleOpen}>
-        <div className="icon">
+        <div className="iconNtitle">
           <img src={icons[id]} alt="" />
+          <div className="title">{subject}</div>
         </div>
-        <div className="title">{subject}</div>
         <div className="btn">
           {isOpen ? <img src={opened} alt="" /> : <img src={closed} alt="" />}
         </div>
@@ -90,7 +90,9 @@ const Header = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  .icon {
+  .iconNtitle {
+    display: flex;
+    align-items: center;
     img {
       width: 22px;
       height: 22px;
@@ -100,6 +102,8 @@ const Header = styled.div`
     color: #232323;
     font-size: 15px;
     font-weight: 700;
+    margin-left: 21px;
+    margin-bottom: 3px;
   }
 
   .btn {

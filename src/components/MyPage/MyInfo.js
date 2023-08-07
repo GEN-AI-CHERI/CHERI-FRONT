@@ -68,6 +68,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     width: 82%;
     justify-content: space-between;
+    margin-top: 34px;
   }
   .text {
   }
@@ -102,7 +103,7 @@ const Wrapper = styled.div`
     }
   }
   .signin {
-    margin-top: 50px;
+    margin-top: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
