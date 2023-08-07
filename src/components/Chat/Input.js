@@ -75,6 +75,13 @@ const InputField = styled.input`
   padding-left: 1rem;
   outline: none;
   margin-right: 1rem;
+
+  @media (min-width: 600px) {
+    width: 30rem;
+  }
+  @media (min-width: 1090px) {
+    width: 50rem;
+  }
 `;
 
 const Send = styled.img`
