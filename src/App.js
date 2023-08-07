@@ -32,8 +32,8 @@ function App() {
       <Routes>
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/main" element={<MainPage />} />
-        <Route path="/options" element={<OptionsPage />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/menu" element={<OptionsPage />} />
         <Route path="/destination" element={<DestinationPage />} />
         <Route path="/themes" element={<ThemePage />} />
         <Route path="/period" element={<PeriodPage />} />
@@ -47,7 +47,7 @@ function App() {
         <Route path="/map-result" element={<MapResultPage />} />
         <Route path="/detail-result" element={<DetailResultPage />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/detail" element={<DetailedDestPage />} />
+        <Route path="/detail:region_id" element={<DetailedDestPage />} />
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/loading2" element={<LoadingPage2 />} />
         <Route path="/my-chat/:room_id" element={<MyChatPage />} />

@@ -25,8 +25,13 @@ const Button = ({ beginDate, endDate, age }) => {
   };
 
   const handleNavigateNext = () => {
-    handleSetPeriodAndAge(beginDate, endDate, age);
-    navigate(`/loading`);
+    // 로그인되지 않았을시 로그인 유도 페이지로 접속
+    if (!localStorage.getItem("cheritoken")) {
+      navigate("/secure-lock");
+    } else {
+      handleSetPeriodAndAge(beginDate, endDate, age);
+      navigate(`/loading`);
+    }
   };
 
   return (
