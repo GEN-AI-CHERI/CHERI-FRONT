@@ -42,37 +42,38 @@ const LoginPage = () => {
         <div className="title">Login</div>
         <div className="subtitle">Welcome Back</div>
       </div>
-      <Form>
-        <input
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          value={email}
-          autoComplete="off"
-        />
-        <div className="line" />
-        <input
-          name="password"
-          placeholder="Password"
-          type="password"
-          onChange={handleChange}
-          value={password}
-          autoComplete="off"
-        />
-      </Form>
-      {isError && (
-        <div className="invalidMsg">*Your email or password is not valid</div>
-      )}
-      <div className="bottom">
-        <Btn onClick={handleLogin}>Login</Btn>
-        <div
-          className="toSignup"
-          onClick={() => {
-            navigate("/signup");
-          }}
-        >
-          Click here to sign up
-        </div>
+      <div className="mid">
+        <Form>
+          <input
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            value={email}
+            autoComplete="off"
+          />
+          <div className="line" />
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            onChange={handleChange}
+            value={password}
+            autoComplete="off"
+          />
+        </Form>
+
+        {isError && (
+          <div className="invalidMsg">*Your email or password is not valid</div>
+        )}
+      </div>
+      <Btn onClick={handleLogin}>Login</Btn>
+      <div
+        className="toSignup"
+        onClick={() => {
+          navigate("/signup");
+        }}
+      >
+        Click here to sign up
       </div>
     </Wrapper>
   );
@@ -85,6 +86,15 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .mid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 121px;
+    height: 161px;
+  }
   .invalidMsg {
     width: 80%;
     @media (min-width: 768px) {
@@ -105,6 +115,7 @@ const Wrapper = styled.div`
     padding-left: 2.2rem;
     display: flex;
     align-items: end;
+    margin-top: 20px;
   }
   .subtitle {
     color: #353535;
@@ -132,8 +143,6 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
-  margin-top: 15vh;
-  padding: 0.8rem;
   border-radius: 9px;
   border: 1px solid #fff;
   box-shadow: 0px 3px 14px 4px rgba(0, 0, 0, 0.1);
@@ -141,7 +150,7 @@ const Form = styled.form`
   @media (min-width: 768px) {
     max-width: 40%;
   }
-  height: 8rem;
+  height: 130px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -150,13 +159,13 @@ const Form = styled.form`
 
   input {
     width: 90%;
-    height: 20%;
+    height: 65px;
 
     outline: none;
     border: none;
 
     font-family: Inter;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -164,7 +173,7 @@ const Form = styled.form`
   input::placeholder {
     color: #b7b7b7;
     font-family: Inter;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -177,7 +186,7 @@ const Form = styled.form`
   }
 `;
 const Btn = styled.div`
-  margin-top: 20vh;
+  margin-top: 232px;
   width: 229px;
   height: 58px;
   border-radius: 32px;
