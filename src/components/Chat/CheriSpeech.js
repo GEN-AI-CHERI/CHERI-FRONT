@@ -3,26 +3,31 @@ import styled from "styled-components";
 import Itinerary from "./Itinerary";
 import Question from "./Question";
 
-const CheriSpeech = ({ title, itinerary, question }) => {
+const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
   return (
     <Row>
       <CheriIcon src={cheri} />
       <Column>
         <Name>CHERI</Name>
         <SpeechBubble>
-          <Title>{title}</Title>
-          {itinerary.map((item, idx) => (
-            <Itinerary
-              key={idx}
-              day={item.day}
-              description={item.description}
-              places={item.places}
-            />
-          ))}
-          <p>💁🏻‍♀️ Recommended Questions</p>
-          {question.map((q) => (
-            <Question question={q} />
-          ))}
+          {title && itinerary && question && (
+            <>
+              <Title>{title}</Title>
+              {itinerary.map((item, idx) => (
+                <Itinerary
+                  key={idx}
+                  day={item.day}
+                  description={item.description}
+                  places={item.places}
+                />
+              ))}
+              <p>💁🏻‍♀️ Recommended Questions</p>
+              {question.map((q) => (
+                <Question question={q} setAutoPost={setAutoPost} />
+              ))}
+            </>
+          )}
+          {text && <p>{text}</p>}
         </SpeechBubble>
       </Column>
     </Row>
