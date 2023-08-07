@@ -1,21 +1,23 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import map from "../assets/map_result/map.png";
-import back from "../assets/chat/backIcon.png";
-import Search from "../components/MapResult/Search";
-import Bar from "../components/MapResult/Bar";
-import DetailRoute from "../components/DetailResult/DetailRoute";
+import map from "../../assets/map_result/map.png";
+import back from "../../assets/chat/backIcon.png";
+import Search from "../../components/MapResult/Search";
+import Bar from "../../components/MapResult/Bar";
+import DetailRoute from "../../components/DetailResult/DetailRoute";
 
 const DetailResultPage = () => {
-    const navigate = useNavigate();
-    return <>
+  const navigate = useNavigate();
+  return (
+    <>
       <Back src={back} onClick={() => navigate(-1)} />
       <BaseMap src={map} />
       <Search />
-      <Bar/>
-      <DetailRoute/>
+      <Bar />
+      <DetailRoute />
     </>
-}
+  );
+};
 
 const BaseMap = styled.img`
   width: 100vw;
@@ -31,4 +33,4 @@ const Back = styled.img`
   cursor: pointer;
 `;
 
-export default DetailResultPage
+export default DetailResultPage;

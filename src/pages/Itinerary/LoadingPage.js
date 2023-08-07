@@ -1,7 +1,7 @@
-import loadingIcon from "../assets/common/loading.gif";
-import infoIcon from "../assets/common/info.png";
+import loadingIcon from "../../assets/common/loading.gif";
+import infoIcon from "../../assets/common/info.png";
 import styled from "styled-components";
-import { PostChatroomsStart } from "../api/chat";
+import { PostChatroomsStart } from "../../api/chat";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";

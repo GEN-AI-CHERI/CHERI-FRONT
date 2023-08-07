@@ -1,7 +1,7 @@
-import Button from "../components/Destination/Button";
-import ShortHeader from "../components/Destination/ShortHeader";
-import Title from "../components/Destination/Title";
-import Option from "../components/Theme/option";
+import Button from "../../components/Destination/Button";
+import ShortHeader from "../../components/Destination/ShortHeader";
+import Title from "../../components/Destination/Title";
+import Option from "../../components/Theme/option";
 import styled from "styled-components";
 
 const ThemePage2 = () => {

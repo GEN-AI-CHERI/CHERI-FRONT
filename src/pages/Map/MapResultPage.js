@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import map from "../assets/map_result/map.png";
-import back from "../assets/chat/backIcon.png";
-import Search from "../components/MapResult/Search";
-import Route from "../components/MapResult/Route";
-import Bar from "../components/MapResult/Bar";
+import map from "../../assets/map_result/map.png";
+import back from "../../assets/chat/backIcon.png";
+import Search from "../../components/MapResult/Search";
+import Route from "../../components/MapResult/Route";
+import Bar from "../../components/MapResult/Bar";
 
 const MapResultPage = () => {
   const navigate = useNavigate();
@@ -13,11 +13,11 @@ const MapResultPage = () => {
       <Back src={back} onClick={() => navigate(-1)} />
       <BaseMap src={map} />
       <Search />
-      <Bar/>
+      <Bar />
       <RouteContainer>
-      <Route />
-      <Route />
-      <Route />
+        <Route />
+        <Route />
+        <Route />
       </RouteContainer>
     </>
   );
@@ -38,15 +38,15 @@ const Back = styled.img`
 `;
 
 const RouteContainer = styled.div`
-position: absolute;
-bottom: 1.5rem;
-display: flex;
-width: 100vw;
-overflow: scroll;
-padding-bottom: 0.8rem;
-&::-webkit-scrollbar {
-   display: none;
+  position: absolute;
+  bottom: 1.5rem;
+  display: flex;
+  width: 100vw;
+  overflow: scroll;
+  padding-bottom: 0.8rem;
+  &::-webkit-scrollbar {
+    display: none;
   }
-`
+`;
 
 export default MapResultPage;
