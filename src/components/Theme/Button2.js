@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setThemes } from "../../Redux/Itinerary/action";
+import { setThemes } from "../../Redux/Destination/action";
 
 const Button = ({ selected_list }) => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Button = ({ selected_list }) => {
 
   const handleNavigateNext = () => {
     handleSetThemes(selected_list);
-    navigate(`/period`);
+    navigate(`/party`);
   };
 
   return (

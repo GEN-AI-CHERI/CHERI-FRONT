@@ -3,13 +3,14 @@ import CheriSpeech from "../../components/Chat/CheriSpeech";
 import UserSpeech from "../../components/Chat/UserSpeech";
 import Input from "../../components/Chat/Input";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 
 const ChatPage = () => {
   const [userMessages, setUserMessages] = useState([]); // 사용자 메시지 배열
   const [cheriMessages, setCheriMessages] = useState([]); // 케리 응답 배열
   const [autoPost, setAutoPost] = useState("");
+
   const storedData = JSON.parse(localStorage.getItem("res"));
 
   const room_id = storedData.room_id;
@@ -25,7 +26,6 @@ const ChatPage = () => {
   const handleCheriResponse = (text) => {
     setCheriMessages([...cheriMessages, text]); // 케리 응답을 배열에 추가
   };
-
   return (
     <>
       <ChatHeader />

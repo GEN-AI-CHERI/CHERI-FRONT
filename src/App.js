@@ -18,12 +18,13 @@ import DetailResultPage from "./pages/Map/DetailResultPage";
 import MyPage from "./pages/User/MyPage";
 import DetailedDestPage from "./pages/MainNDetail/DetailedDestPage";
 import LoadingPage from "./pages/Itinerary/LoadingPage";
+import LoadingPage2 from "./pages/Destination/LoadingPage2";
 import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
 import PrivateRoute from "./Router/PrivateRoute";
 
 import { Provider } from "react-redux";
-import store from "./Redux/itinerary_reducer";
+import store from "./Redux/store";
 
 function App() {
   return (
