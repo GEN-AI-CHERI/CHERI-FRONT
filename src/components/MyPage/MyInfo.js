@@ -27,7 +27,7 @@ const MyInfo = ({ nickname }) => {
           {nickname ? (
             <div className="subtitle">Discover wonderful Korea!</div>
           ) : (
-            <div className="subtitle">Please sign in first</div>
+            <div className="subtitle">Please login first</div>
           )}
         </div>
         <div className="profile">
@@ -39,9 +39,9 @@ const MyInfo = ({ nickname }) => {
           onClick={() => {
             navigate("/login");
           }}
-          className="signin"
+          className="login"
         >
-          Sign In
+          Login
           <img src={next} alt="" />
         </div>
       )}
@@ -102,7 +102,7 @@ const Wrapper = styled.div`
       height: 45px;
     }
   }
-  .signin {
+  .login {
     margin-top: 45px;
     display: flex;
     align-items: center;
