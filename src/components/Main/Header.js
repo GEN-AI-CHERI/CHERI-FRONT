@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../assets/common/logo.png";
 import { styled } from "styled-components";
 import { useState } from "react";
@@ -42,6 +42,16 @@ const Languages = ({ currentLan, setIsOpen, setLanguage, isOpen }) => {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState("English");
+  const [showLogin, setShowLogin] = useState(false);
+  const checkLogin = () => {
+    if (matchMedia("screen and (min-width: 768px)").matches) {
+      setShowLogin(!localStorage.getItem("cheritoken"));
+    }
+  };
+  useEffect(() => {
+    checkLogin();
+  }, []);
+
   const navigate = useNavigate();
   return (
     <Wrapper>
@@ -75,7 +85,11 @@ const Header = () => {
             )}
           </div>
         </LanDropdown>
-
+        {showLogin && (
+          <div className="login" onClick={() => navigate("/login")}>
+            Login
+          </div>
+        )}
         <div className="profile">
           <Profile
             onClick={() => {
@@ -110,7 +124,22 @@ const Wrapper = styled.div`
     margin-right: 12px;
 
     .profile {
+      cursor: pointer;
       margin-left: 15px;
+      @media (min-width: 768px) {
+        margin-left: 0;
+      }
+    }
+    .login {
+      cursor: pointer;
+      margin: 0 23px;
+      color: #353535;
+      text-align: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     }
   }
 `;
@@ -118,6 +147,7 @@ const Wrapper = styled.div`
 const LanDropdown = styled.ul`
   padding: 0;
   margin: 0;
+  cursor: pointer;
 
   z-index: 1;
   border-radius: ${(props) => (props.$isOpen === "true" ? "15px" : "20px")};
