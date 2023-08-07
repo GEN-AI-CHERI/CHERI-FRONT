@@ -1,41 +1,70 @@
 import React, { useState } from "react";
 import PlainHeader from "../components/PlainHeder";
 import { styled } from "styled-components";
-import check from "../assets/common/selected.png";
+import check from "../assets/menu/check.png";
+import emptyBtn from "../assets/menu/emptyBtn.png";
 import { useNavigate } from "react-router-dom";
-
+import airplane from "../assets/menu/airplane.png";
+import building from "../assets/menu/building.png";
 const OptionsPage = () => {
   const navigate = useNavigate();
-  const options = ["Travel Itinerary", "Travel Destination", "Get Directions"];
-  const [selected, setSelected] = useState("");
+  const options = [
+    {
+      id: 1,
+      icon: airplane,
+      title: "Travel Itinerary",
+      explanation:
+        "CHERI's AI chatbot provides tailored travel plans just for you! Get your ideal itinerary!",
+    },
+    {
+      id: 2,
+      icon: building,
+      title: "Travel Destination",
+      explanation:
+        "Discover a personalized travel suggestion in Korea with CHERI! Find your perfect destination match!",
+    },
+  ];
+  const [selected, setSelected] = useState(0);
 
   return (
     <Wrapper>
       <PlainHeader />
       <div className="title">Options</div>
 
-      {options.map((el) => {
+      {options.map((option) => {
         return (
           <Option
+            key={option.id}
             onClick={() => {
-              selected === el ? setSelected("") : setSelected(el);
+              selected === option.id ? setSelected(0) : setSelected(option.id);
             }}
-            $isSelected={selected === el ? "true" : "false"}
+            $isSelected={selected === option.id ? "true" : "false"}
           >
-            <div className="text">{el}</div>
-            <div className="btn">
-              {selected === el ? (
-                <img src={check} alt="" width={"14px"} height={"9px"} />
-              ) : null}
+            <div className="upper">
+              <div className="icon">
+                <img src={option.icon} alt="" />
+              </div>
+
+              <div className="optionTitle">{option.title}</div>
+
+              <div className="btn">
+                {selected === option.id ? (
+                  <img src={check} alt="" />
+                ) : (
+                  <img src={emptyBtn} alt="" />
+                )}
+              </div>
             </div>
+            <div className="explanation">{option.explanation}</div>
           </Option>
         );
       })}
       <Button
         onClick={() => {
-          if (selected !== "") navigate("/");
+          if (selected === 1) navigate("/destination");
+          if (selected === 2) navigate("/themes2");
         }}
-        $color={selected === "" ? "gray" : "black"}
+        $color={selected === 0 ? "gray" : "black"}
       >
         Next Step
       </Button>
@@ -65,12 +94,12 @@ const Button = styled.div`
 `;
 
 const Option = styled.div`
-  width: 70%;
-  height: 30%;
-  display: inline-flex;
-  padding: 18px 20px 18px 26px;
-  align-items: center;
-  justify-content: space-between;
+  width: 85%;
+  max-width: 336px;
+  min-height: ${(props) => (props.$isSelected === "true" ? "143px" : "103px")};
+  display: flex;
+  flex-direction: column;
+
   border-radius: 20px;
 
   background: ${(props) => (props.$isSelected === "true" ? "#FFEFEF" : "#fff")};
@@ -78,27 +107,45 @@ const Option = styled.div`
 
   margin-bottom: 2rem;
 
-  color: #121212;
-  font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  .text {
-    color: ${(props) => (props.$isSelected === "true" ? "#E84848" : "")};
+  .upper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
   .btn {
-    width: 33px;
-    height: 33px;
-    border-radius: 33px;
+    margin-top: 18.5px;
+    margin-right: 16px;
+    img {
+      width: 26px;
+      height: 26px;
+    }
+  }
 
-    background: ${(props) =>
-      props.$isSelected === "true"
-        ? "var(--circle, #fff)"
-        : "var(--circle, #f5f5f5)"};
+  .optionTitle {
+    color: ${(props) => (props.$isSelected === "true" ? "#E84848" : "")};
+    width: 236px;
+    color: #121212;
+    text-align: start;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
+  .explanation {
+    margin-left: 67px;
+    width: 70%;
+    color: #828282;
+    font-size: 10px;
+    font-weight: 400;
+  }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .icon {
+    margin-left: 21px;
+    margin-top: 19px;
+    img {
+      width: 30px;
+      height: 30px;
+    }
   }
 `;
 const Wrapper = styled.div`

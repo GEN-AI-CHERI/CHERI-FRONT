@@ -1,16 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const Info = () => {
+const Info = ({ title, description }) => {
   return (
     <Wrapper>
-      <div className="title">Busan</div>
-      <div className="explanation">
-        Busan, a large port city in South Korea, is known for its beaches,
-        mountains and temples. Busy Haeundae Beach features the Sea Life
-        Aquarium, plus a Folk Square with traditional games such as tug-of-war,
-        while Gwangalli Beach has many bars and views of modern Diamond Bridge.
-      </div>
+      <div className="title">{title}</div>
+      <div className="explanation">{description}</div>
     </Wrapper>
   );
 };

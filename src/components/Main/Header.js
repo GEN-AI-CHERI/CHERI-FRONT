@@ -5,6 +5,7 @@ import { useState } from "react";
 import avatar from "../../assets/common/avatar.png";
 import upArrow from "../../assets/main/upArrow.png";
 import downArrow from "../../assets/main/downArrow.png";
+import { useNavigate } from "react-router-dom";
 
 const Languages = ({ currentLan, setIsOpen, setLanguage, isOpen }) => {
   const languages = ["English", "中文", "日本語"];
@@ -41,7 +42,7 @@ const Languages = ({ currentLan, setIsOpen, setLanguage, isOpen }) => {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState("English");
-
+  const navigate = useNavigate();
   return (
     <Wrapper>
       <div className="logo">
@@ -76,7 +77,11 @@ const Header = () => {
         </LanDropdown>
 
         <div className="profile">
-          <Profile>
+          <Profile
+            onClick={() => {
+              navigate("/mypage");
+            }}
+          >
             <img src={avatar} alt="" />
           </Profile>
         </div>
@@ -113,22 +118,21 @@ const Wrapper = styled.div`
 const LanDropdown = styled.ul`
   padding: 0;
   margin: 0;
-  width: 89px;
-  z-index: 1;
 
-  border-radius: 20px;
+  z-index: 1;
+  border-radius: ${(props) => (props.$isOpen === "true" ? "15px" : "20px")};
   border: 1px solid #353535;
   background: rgba(255, 255, 255, 0.6);
-
-  height: ${(props) => (props.$isOpen === "true" ? "87px" : "28px")};
+  width: ${(props) => (props.$isOpen === "true" ? "89px" : "100px")};
+  height: ${(props) => (props.$isOpen === "true" ? "87px" : "34px")};
   display: flex;
 
   justify-content: center;
-
+  align-items: center;
   color: #353535;
   text-align: center;
   font-family: Inter;
-  font-size: 12px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -136,7 +140,6 @@ const LanDropdown = styled.ul`
 
   .close {
     display: flex;
-    margin-top: 7px;
   }
   .open {
     display: flex;
@@ -156,9 +159,9 @@ const LanDropdown = styled.ul`
     display: flex;
     margin-left: 9px;
     img {
-      width: 8px;
-      height: 4px;
-      margin-top: 6px;
+      width: 9px;
+      height: 5px;
+      margin-top: 5px;
     }
   }
   .lan {
