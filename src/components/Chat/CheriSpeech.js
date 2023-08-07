@@ -4,6 +4,8 @@ import Itinerary from "./Itinerary";
 import Question from "./Question";
 
 const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
+  console.log(text);
+
   return (
     <Row>
       <CheriIcon src={cheri} />
@@ -28,6 +30,7 @@ const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
             </>
           )}
           {text && <p>{text}</p>}
+          {/* {text.length > 0} */}
         </SpeechBubble>
       </Column>
     </Row>

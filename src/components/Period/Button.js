@@ -5,7 +5,7 @@ import {
   setBeginPeriod,
   setEndPeriod,
   setAge,
-} from "../../Redux/itinerary_action";
+} from "../../Redux/Itinerary/action";
 
 const Button = ({ beginDate, endDate, age }) => {
   const dispatch = useDispatch();

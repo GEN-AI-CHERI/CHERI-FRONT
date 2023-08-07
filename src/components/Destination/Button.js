@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setRegionId } from "../../Redux/itinerary_action";
+import { setRegionId } from "../../Redux/Itinerary/action";
 
 const Button = ({ regionId }) => {
   const dispatch = useDispatch();

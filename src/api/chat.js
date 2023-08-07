@@ -1,6 +1,6 @@
 import client from "./client";
 
-// 채팅 결과 조회(첫 번째)
+// 채팅 결과 요청(첫 번째)
 export const PostChatroomsStart = async (
   age,
   theme,
@@ -26,6 +26,7 @@ export const PostChatroomsStart = async (
   }
 };
 
+// 채팅 결과 요청(이후)
 export const PostChats = async (prompt, room_id) => {
   try {
     const res = await client.post("chats", {

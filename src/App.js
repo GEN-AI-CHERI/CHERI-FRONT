@@ -18,11 +18,12 @@ import DetailResultPage from "./pages/Map/DetailResultPage";
 import MyPage from "./pages/User/MyPage";
 import DetailedDestPage from "./pages/MainNDetail/DetailedDestPage";
 import LoadingPage from "./pages/Itinerary/LoadingPage";
+import LoadingPage2 from "./pages/Destination/LoadingPage2";
 import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
 
 import { Provider } from "react-redux";
-import store from "./Redux/itinerary_reducer";
+import store from "./Redux/store";
 
 function App() {
   return (
@@ -47,8 +48,6 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/detail/:region_id" element={<DetailedDestPage />} />
         <Route path="/loading" element={<LoadingPage />} />
-        <Route path="/my-chat/:room_id" element={<MyChatPage />} />
-        <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
       </Routes>
     </Provider>
   );

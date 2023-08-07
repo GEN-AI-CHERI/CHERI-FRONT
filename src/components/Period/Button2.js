@@ -1,26 +1,32 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setThemes } from "../../Redux/Itinerary/action";
+import {
+  setBeginPeriod,
+  setEndPeriod,
+  setAge,
+} from "../../Redux/Destination/action";
 
-const Button = ({ selected_list }) => {
+const Button = ({ beginDate, endDate, age }) => {
   const dispatch = useDispatch();
 
-  // themes 값을 변경하는 액션 디스패치
-  const handleSetThemes = (list) => {
-    dispatch(setThemes(list));
+  // period, age 값을 변경하는 액션 디스패치
+  const handleSetPeriodAndAge = (startdate, lastdate, age) => {
+    dispatch(setBeginPeriod(startdate));
+    dispatch(setEndPeriod(lastdate));
+    dispatch(setAge(age));
   };
 
   const navigate = useNavigate();
 
   const handleNavigatePrev = () => {
-    handleSetThemes([]);
+    handleSetPeriodAndAge("", "", 0);
     navigate(-1);
   };
 
   const handleNavigateNext = () => {
-    handleSetThemes(selected_list);
-    navigate(`/period`);
+    handleSetPeriodAndAge(beginDate, endDate, age);
+    navigate(`/loading2`);
   };
 
   return (
