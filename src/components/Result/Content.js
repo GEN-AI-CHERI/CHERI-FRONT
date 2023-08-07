@@ -9,7 +9,6 @@ const Content = ({
   themes,
   detail,
 }) => {
-const arr = [detail[0], detail[detail.length -1]];
 
   return (
     <Container>
@@ -20,7 +19,7 @@ const arr = [detail[0], detail[detail.length -1]];
         </Period>
       </Row>
       {themes.map(item => <HashTag text={item} />)}
-      {arr.map((item) => (
+      {detail.map((item) => (
         <P>{item}</P>
       ))}
     </Container>
@@ -30,6 +29,7 @@ const arr = [detail[0], detail[detail.length -1]];
 const Container = styled.div`
   margin-left: 2rem;
   margin-right: 2rem;
+  margin-bottom: 5rem;
 `;
 
 const Title = styled.h2``;

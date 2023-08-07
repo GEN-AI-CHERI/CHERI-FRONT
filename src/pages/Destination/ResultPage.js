@@ -7,6 +7,7 @@ const ResultPage = () => {
 
   console.log(storedData);
 
+  const region_id = storedData.region.region_id;
   const title = storedData.region.title;
   const description = storedData.region.description;
   const photo = storedData.region.photo;
@@ -19,6 +20,7 @@ const ResultPage = () => {
     <>
       <Header photo={photo} />
       <Content
+        key={region_id}
         title={title}
         description={description}
         begin_date={begin_date}
