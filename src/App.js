@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/MainNDetail/MainPage";
 import OptionsPage from "./pages/OptionsPage";
-import SignUpPage from "./pages/SignUpPage";
-import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/User/SignUpPage";
+import LoginPage from "./pages/User/LoginPage";
 import DestinationPage from "./pages/DestinationPage";
 import ThemePage from "./pages/ThemePage";
 import PeriodPage from "./pages/PeriodPage";
@@ -15,10 +15,11 @@ import ItineraryPage from "./pages/ItineraryPage";
 import MapPage from "./pages/MapPage";
 import MapResultPage from "./pages/MapResultPage";
 import DetailResultPage from "./pages/DetailResultPage";
-import MyPage from "./pages/MyPage";
-import DetailedDestPage from "./pages/DetailedDestPage";
+import MyPage from "./pages/User/MyPage";
+import DetailedDestPage from "./pages/MainNDetail/DetailedDestPage";
 import LoadingPage from "./pages/LoadingPage";
-
+import MyChatPage from "./pages/User/MyChatPage";
+import LoadingSavedPage from "./pages/User/LoadingSavedPage";
 import { Provider } from "react-redux";
 import store from "./Redux/itinerary_reducer";
 
@@ -45,6 +46,8 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/detail" element={<DetailedDestPage />} />
         <Route path="/loading" element={<LoadingPage />} />
+        <Route path="/my-chat/:room_id" element={<MyChatPage />} />
+        <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
       </Routes>
     </Provider>
   );

@@ -2,9 +2,21 @@ import React from "react";
 import { styled } from "styled-components";
 import airplane from "../../assets/mypage/airplane.png";
 import circleNext from "../../assets/mypage/circleNext.png";
-const Itinerary = ({ subject, period = "", place = "", tags = [] }) => {
+import { useNavigate } from "react-router-dom";
+const Itinerary = ({
+  subject,
+  period = "",
+  place = "",
+  tags = [],
+  room_id = 0,
+}) => {
+  const navigate = useNavigate();
   return subject === "Travel Itinerary" ? (
-    <Wrapper>
+    <Wrapper
+      onClick={() => {
+        navigate(`/loading-saved/${room_id}`);
+      }}
+    >
       <div className="front">
         <img src={airplane} alt="" />
         <div className="place">{place}</div>
@@ -43,6 +55,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
   img {
     width: 23px;
     height: 24px;

@@ -13,7 +13,18 @@ const Accordion = ({ id, subject, list = [] }) => {
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
+
   const icons = [scrap, travel, dest];
+
+  const formatDate = (begin_date, end_date) => {
+    const beginMonth = begin_date.substr(5, 2);
+    const beginDate = begin_date.substr(8, 2);
+
+    const endMonth = end_date.substr(5, 2);
+    const endDate = end_date.substr(8, 2);
+
+    return `${beginMonth}.${beginDate} ~ ${endMonth}.${endDate}`;
+  };
   return (
     <Container>
       <Header onClick={toggleOpen}>
@@ -33,7 +44,13 @@ const Accordion = ({ id, subject, list = [] }) => {
             list.map((item) => {
               return (
                 <div className="item">
-                  <Item subject={subject} period={""} place={""} tags={[]} />
+                  <Item
+                    subject={subject}
+                    period={formatDate(item.begin_date, item.end_date)}
+                    place={item.region.title}
+                    tags={item.tags}
+                    room_id={item.room_id}
+                  />
                 </div>
               );
             })}
@@ -52,7 +69,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  .item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .contents {
     display: flex;
     flex-direction: column;
