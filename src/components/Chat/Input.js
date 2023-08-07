@@ -9,11 +9,14 @@ const Input = ({
   onCheriResponse,
   autoPost,
   setAutoPost,
+  setIsLoading,
 }) => {
   const [tempText, setTempText] = useState("");
+  const [text, setText] = useState("");
 
   const handleChange = (e) => {
     setTempText(e.target.value);
+    setText(tempText);
   };
 
   // 엔터쳐도 보내지도록
@@ -26,10 +29,13 @@ const Input = ({
   // 질문 답변 생성
   const postChat = async () => {
     try {
+      setText("");
+      setIsLoading(true);
       onUserSend(tempText);
       const res = await PostChats(tempText, room_id);
       setTempText("");
       onCheriResponse(res.answer.contents);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -39,6 +45,7 @@ const Input = ({
   useEffect(() => {
     const postAutoChat = async () => {
       try {
+        setText("");
         onUserSend(autoPost);
         const res = await PostChats(autoPost, room_id);
         setTempText("");
@@ -58,9 +65,9 @@ const Input = ({
     <Container>
       <InputField
         placeholder="Please enter a text..."
-        onChange={handleChange}  
-        onKeyPress={handleKeyPress} 
-        value={tempText}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
+        value={text}
       />
       <Send src={send} onClick={postChat} />
     </Container>

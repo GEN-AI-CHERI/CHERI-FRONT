@@ -3,9 +3,14 @@ import styled from "styled-components";
 import Itinerary from "./Itinerary";
 import Question from "./Question";
 
-const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
-  console.log(text);
-
+const CheriSpeech = ({
+  title,
+  itinerary,
+  question,
+  text,
+  setAutoPost,
+  src,
+}) => {
   return (
     <Row>
       <CheriIcon src={cheri} />
@@ -25,16 +30,21 @@ const CheriSpeech = ({ title, itinerary, question, text, setAutoPost }) => {
               ))}
               <p>💁🏻‍♀️ Recommended Questions</p>
               {question.map((q, idx) => (
-                <Question key={idx}question={q} setAutoPost={setAutoPost} />
+                <Question key={idx} question={q} setAutoPost={setAutoPost} />
               ))}
             </>
           )}
           {text && <p>{text}</p>}
+          {src && <ChatLoading src={src} />}
         </SpeechBubble>
       </Column>
     </Row>
   );
 };
+
+const ChatLoading = styled.img`
+  width: 3rem;
+`;
 
 const Title = styled.h3`
   margin-top: 0;
@@ -53,7 +63,7 @@ const Name = styled.p`
 `;
 
 const SpeechBubble = styled.div`
-  width: 18rem;
+  max-width: 18rem;
   background-color: #f9f7f7;
   padding: 1.1rem;
   border-radius: 10px;

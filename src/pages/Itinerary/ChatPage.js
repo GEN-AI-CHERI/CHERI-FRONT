@@ -3,6 +3,7 @@ import ChatHeader from "../../components/Chat/ChatHeader";
 import CheriSpeech from "../../components/Chat/CheriSpeech";
 import UserSpeech from "../../components/Chat/UserSpeech";
 import Input from "../../components/Chat/Input";
+import chatLoading from "../../assets/chat/chat_loading.gif";
 import styled from "styled-components";
 import React from "react";
 
@@ -10,6 +11,7 @@ const ChatPage = () => {
   const [userMessages, setUserMessages] = useState([]); // 사용자 메시지 배열
   const [cheriMessages, setCheriMessages] = useState([]); // 체리 응답 배열
   const [autoPost, setAutoPost] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const chatContainerRef = useRef(null); // 스크롤을 조정할 컨테이너 엘리먼트의 참조
 
@@ -35,7 +37,6 @@ const ChatPage = () => {
   };
   useEffect(() => {
     scrollToBottom();
-    console.log(chatContainerRef.current.scrollTop);
   }, [userMessages, cheriMessages]);
 
   return (
@@ -54,10 +55,14 @@ const ChatPage = () => {
             <React.Fragment key={`user_${index}`}>
               <UserSpeech text={userMessage} />
               {cheriMessages[index] && (
-                <CheriSpeech text={cheriMessages[index]} />
+                <CheriSpeech
+                  text={cheriMessages[index]}
+                  isLoading={isLoading}
+                />
               )}
             </React.Fragment>
           ))}
+          {isLoading && <CheriSpeech src={chatLoading} />}
         </ChatContainer>
       </BG>
       <Input
@@ -68,6 +73,7 @@ const ChatPage = () => {
         onCheriResponse={handleCheriResponse} // 케리가 응답할 때 호출
         autoPost={autoPost}
         setAutoPost={setAutoPost}
+        setIsLoading={setIsLoading}
       />
     </>
   );
