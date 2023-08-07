@@ -1,52 +1,46 @@
 import React from "react";
-import PlainHeader from "../components/PlainHeder";
+import PlainHeader from "../../components/PlainHeder";
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { postSignUp } from "../api/members";
-
-const SignUpPage = () => {
+import { postSignIn } from "../../api/members";
+const LoginPage = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
-    confirmPassword: "",
   });
   const [isError, setIsError] = useState(false);
-  const { email, password, confirmPassword } = inputs;
+  const { email, password } = inputs;
 
   const showErrMsg = () => {
     setIsError(true);
   };
-  const handleSignUp = async () => {
-    if (
-      confirmPassword &&
-      password &&
-      email &&
-      confirmPassword === password &&
-      email.includes("@")
-    ) {
+  const handleLogin = async () => {
+    if (email && password) {
       try {
-        const res = await postSignUp(email, confirmPassword);
-        setInputs({ email: "", password: "", confirmPassword: "" });
-        navigate("/login");
+        const data = await postSignIn(email, password);
+        localStorage.setItem("cheritoken", data.access_token);
+        navigate("/main");
+
+        setInputs({ email: "", password: "" });
       } catch (err) {
         showErrMsg();
       }
     }
   };
+
   const handleChange = (e) => {
     setIsError(false);
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
   };
-
   return (
     <Wrapper>
       <div className="header">
         <PlainHeader />
-        <div className="title">Sign Up</div>
-        <div className="subtitle">Hello stranger!</div>
+        <div className="title">Login</div>
+        <div className="subtitle">Welcome Back</div>
       </div>
       <Form>
         <input
@@ -55,7 +49,7 @@ const SignUpPage = () => {
           onChange={handleChange}
           value={email}
           autoComplete="off"
-        />{" "}
+        />
         <div className="line" />
         <input
           name="password"
@@ -64,48 +58,45 @@ const SignUpPage = () => {
           onChange={handleChange}
           value={password}
           autoComplete="off"
-        />{" "}
-        <div className="line" />
-        <input
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          type="password"
-          onChange={handleChange}
-          value={confirmPassword}
-          autoComplete="off"
-        />{" "}
+        />
       </Form>
-      {email && !email.includes("@") && (
-        <div className="invalidMsg">*not a valid email address</div>
+      {isError && (
+        <div className="invalidMsg">*Your email or password is not valid</div>
       )}
-      {confirmPassword && confirmPassword !== password && (
-        <div className="invalidMsg">
-          *The password confirmation does not match
-        </div>
-      )}
-      {isError && <div className="invalidMsg">*The account alreay exists</div>}
       <div className="bottom">
-        <Btn onClick={handleSignUp}>Sign Up</Btn>
+        <Btn onClick={handleLogin}>Login</Btn>
         <div
-          className="toLogin"
+          className="toSignup"
           onClick={() => {
-            navigate("/login");
+            navigate("/signup");
           }}
         >
-          Already have an account?
+          Click here to sign up
         </div>
       </div>
     </Wrapper>
   );
 };
 
-export default SignUpPage;
+export default LoginPage;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .invalidMsg {
+    width: 80%;
+    @media (min-width: 768px) {
+      max-width: 40%;
+    }
+    padding-left: 20px;
+    margin-top: 12px;
+    color: #d90000;
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
   .title {
     color: #353535;
     font-size: 2.2rem;
@@ -123,7 +114,7 @@ const Wrapper = styled.div`
     line-height: 192.023%;
     padding-left: 2.2rem;
   }
-  .toLogin {
+  .toSignup {
     margin-top: 23px;
     color: #b7b7b7;
     text-align: center;
@@ -138,22 +129,9 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
-  .invalidMsg {
-    width: 80%;
-    @media (min-width: 768px) {
-      max-width: 40%;
-    }
-    padding-left: 20px;
-    margin-top: 12px;
-    color: #d90000;
-    font-family: Inter;
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
 `;
 
 const Form = styled.form`
-  height: 168px;
   margin-top: 15vh;
   padding: 0.8rem;
   border-radius: 9px;
@@ -163,7 +141,7 @@ const Form = styled.form`
   @media (min-width: 768px) {
     max-width: 40%;
   }
-  height: 12rem;
+  height: 8rem;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -196,10 +174,6 @@ const Form = styled.form`
     width: 100%;
     border-top: 2px solid;
     color: #f0f0f0;
-  }
-  .bottom {
-    position: absolute;
-    bottom: 8vh;
   }
 `;
 const Btn = styled.div`

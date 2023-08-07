@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 import { styled } from "styled-components";
-import MyInfo from "../components/MyPage/MyInfo";
-import ScrapCarousel from "../components/MyPage/ScrapCarousel";
-import Item from "../components/MyPage/Item";
+import MyInfo from "../../components/MyPage/MyInfo";
+import ScrapCarousel from "../../components/MyPage/ScrapCarousel";
+import Item from "../../components/MyPage/Item";
 import { useNavigate } from "react-router-dom";
-import { getMyInfo } from "../api/members";
-import Accordion from "../components/MyPage/Accordion";
+import { getMyInfo } from "../../api/members";
+import Accordion from "../../components/MyPage/Accordion";
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState({});
   const [rooms, setRooms] = useState([]);
@@ -59,7 +59,6 @@ const Wrapper = styled.div`
       margin: 0 20%;
     }
   }
-
   .subject {
     color: #232323;
     font-size: 1.3rem;

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import Header from "../components/Detail/Header";
-import Info from "../components/Detail/Info";
-import Carousel from "../components/Detail/Carousel";
+import Header from "../../components/Detail/Header";
+import Info from "../../components/Detail/Info";
+import Carousel from "../../components/Detail/Carousel";
 import { useParams } from "react-router-dom";
-import { getEachRegion } from "../api/regions";
+import { getEachRegion } from "../../api/regions";
 const DetailedDestPage = () => {
   const { region_id } = useParams();
   const [region, setRegion] = useState({});

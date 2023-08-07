@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../components/Main/Header";
-import Carousel from "../components/Main/Carousel";
-import Infos from "../components/Main/Infos";
-import scrollBtn from "../assets/main/scrollBtn.png";
+import Header from "../../components/Main/Header";
+import Carousel from "../../components/Main/Carousel";
+import Infos from "../../components/Main/Infos";
+import scrollBtn from "../../assets/main/scrollBtn.png";
 import { styled } from "styled-components";
 
 const MainPage = () => {
