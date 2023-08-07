@@ -6,7 +6,7 @@ const ChatHeader = () => {
   const navigate = useNavigate();
 
   const hanldeNavigate = () => {
-    navigate("/main");
+    navigate("/");
   };
 
   return (
