@@ -34,6 +34,7 @@ const OptionsPage = () => {
       {options.map((option) => {
         return (
           <Option
+            key={option.id}
             onClick={() => {
               selected === option.title
                 ? setSelected("")
