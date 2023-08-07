@@ -45,7 +45,7 @@ function App() {
         <Route path="/map-result" element={<MapResultPage />} />
         <Route path="/detail-result" element={<DetailResultPage />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/detail" element={<DetailedDestPage />} />
+        <Route path="/detail/:region_id" element={<DetailedDestPage />} />
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/my-chat/:room_id" element={<MyChatPage />} />
         <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
