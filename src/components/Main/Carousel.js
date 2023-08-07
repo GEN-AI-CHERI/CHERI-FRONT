@@ -87,6 +87,7 @@ const Wrapper = styled.div`
 
 const Card = styled.div`
   overflow: hidden;
+  cursor: pointer;
 
   .wrapper {
     position: relative;

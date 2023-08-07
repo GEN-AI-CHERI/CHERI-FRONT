@@ -123,6 +123,7 @@ const StyledSlider = styled(Slider)`
   }
 `;
 const Card = styled.div`
+  cursor: pointer;
   width: 210px;
   height: 305px;
   border-radius: 30px;
