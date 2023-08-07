@@ -21,6 +21,7 @@ import LoadingPage from "./pages/Itinerary/LoadingPage";
 import LoadingPage2 from "./pages/Destination/LoadingPage2";
 import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
+import SecureLockPage from "./pages/Common/SecureLockPage";
 import PrivateRoute from "./Router/PrivateRoute";
 
 import { Provider } from "react-redux";
@@ -55,7 +56,12 @@ function App() {
         <Route path="/map-result" element={<MapResultPage />} />
         <Route path="/detail-result" element={<DetailResultPage />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/detail/:region_id" element={<DetailedDestPage />} />
+        <Route path="/detail:region_id" element={<DetailedDestPage />} />
+        <Route path="/loading" element={<LoadingPage />} />
+        <Route path="/loading2" element={<LoadingPage2 />} />
+        <Route path="/my-chat/:room_id" element={<MyChatPage />} />
+        <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
+        <Route path="/secure-lock" element={<SecureLockPage />} />
       </Routes>
     </Provider>
   );
