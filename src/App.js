@@ -21,6 +21,7 @@ import LoadingPage from "./pages/Itinerary/LoadingPage";
 import LoadingPage2 from "./pages/Destination/LoadingPage2";
 import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
+import SecureLockPage from "./pages/Common/SecureLockPage";
 
 import { Provider } from "react-redux";
 import store from "./Redux/store";
@@ -31,8 +32,8 @@ function App() {
       <Routes>
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<MainPage />} />
-        <Route path="/menu" element={<OptionsPage />} />
+        <Route path="/main" element={<MainPage />} />
+        <Route path="/options" element={<OptionsPage />} />
         <Route path="/destination" element={<DestinationPage />} />
         <Route path="/themes" element={<ThemePage />} />
         <Route path="/period" element={<PeriodPage />} />
@@ -46,8 +47,12 @@ function App() {
         <Route path="/map-result" element={<MapResultPage />} />
         <Route path="/detail-result" element={<DetailResultPage />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/detail/:region_id" element={<DetailedDestPage />} />
+        <Route path="/detail" element={<DetailedDestPage />} />
         <Route path="/loading" element={<LoadingPage />} />
+        <Route path="/loading2" element={<LoadingPage2 />} />
+        <Route path="/my-chat/:room_id" element={<MyChatPage />} />
+        <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
+        <Route path="/secure-lock" element={<SecureLockPage />} />
       </Routes>
     </Provider>
   );
