@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
-import baseMap from "../assets/map/Basemap.png";
-import back from "../assets/chat/backIcon.png";
-import SearchBar from "../components/Map/SearchBar";
-import Details from "../components/Map/Details";
+import baseMap from "../../assets/map/Basemap.png";
+import back from "../../assets/chat/backIcon.png";
+import SearchBar from "../../components/Map/SearchBar";
+import Details from "../../components/Map/Details";
 
 const MapPage = () => {
   const navigate = useNavigate();

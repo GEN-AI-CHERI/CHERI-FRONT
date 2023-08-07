@@ -1,7 +1,7 @@
-import ChatHeader from "../components/Chat/ChatHeader";
-import CheriSpeech from "../components/Chat/CheriSpeech";
-import UserSpeech from "../components/Chat/UserSpeech";
-import Input from "../components/Chat/Input";
+import ChatHeader from "../../components/Chat/ChatHeader";
+import CheriSpeech from "../../components/Chat/CheriSpeech";
+import UserSpeech from "../../components/Chat/UserSpeech";
+import Input from "../../components/Chat/Input";
 import styled from "styled-components";
 import { useState } from "react";
 import React from "react";

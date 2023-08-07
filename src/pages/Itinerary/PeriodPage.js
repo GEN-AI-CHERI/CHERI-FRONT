@@ -1,8 +1,8 @@
-import ShortHeader from "../components/Destination/ShortHeader";
-import Title from "../components/Destination/Title";
-import Button from "../components/Period/Button";
-import Calendar from "../components/Period/Calendar";
-import Age from "../components/Period/Age";
+import ShortHeader from "../../components/Destination/ShortHeader";
+import Title from "../../components/Destination/Title";
+import Button from "../../components/Period/Button";
+import Calendar from "../../components/Period/Calendar";
+import Age from "../../components/Period/Age";
 import { useState } from "react";
 import { styled } from "styled-components";
 

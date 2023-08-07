@@ -1,7 +1,7 @@
-import Button from "../components/Theme/Button";
-import ShortHeader from "../components/Destination/ShortHeader";
-import Title from "../components/Destination/Title";
-import Option from "../components/Theme/option";
+import Button from "../../components/Theme/Button";
+import ShortHeader from "../../components/Destination/ShortHeader";
+import Title from "../../components/Destination/Title";
+import Option from "../../components/Theme/option";
 import styled from "styled-components";
 import { useState } from "react";
 
