@@ -7,7 +7,7 @@ const ChatHeader = () => {
 
   return (
     <Container>
-      <BackIcon src={backIcon} onClick={() => navigate("/main")} />
+      <BackIcon src={backIcon} onClick={() => navigate("/")} />
     </Container>
   );
 };

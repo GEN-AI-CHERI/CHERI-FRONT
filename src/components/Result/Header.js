@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/main");
+    navigate("/");
   };
 
   return (
