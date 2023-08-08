@@ -11,7 +11,7 @@ const SecureLockPage = () => {
       <LockIcon src={lock} />
       <H2>Secure Lock</H2>
       <P>To view the results, please log in first.</P>
-      <Btn onClick={() => navigate("/signup")}>
+      <Btn onClick={() => navigate("/login")}>
         <p> Login</p> <MoveIcon src={moveIcon} />
       </Btn>
     </Container>

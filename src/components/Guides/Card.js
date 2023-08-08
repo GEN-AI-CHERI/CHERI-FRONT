@@ -2,9 +2,8 @@ import styled from "styled-components";
 import guide from "../../assets/Guide/ex.png";
 import move from "../../assets/Guide/move.png";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
-const Card = ({ item, region_id, guide_id }) => {
+const Card = ({ item, guide_id }) => {
   const navigate = useNavigate();
 
   return (
