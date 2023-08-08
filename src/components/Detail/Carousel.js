@@ -3,9 +3,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import location from "../../assets/detail/location.png";
+import exampleImg from "../../assets/detail/exampleImg.png";
 import { styled } from "styled-components";
 import { useState } from "react";
-//768-1045
+
 const Carousel = () => {
   const [scraps, setScraps] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
@@ -16,15 +17,12 @@ const Carousel = () => {
           {scraps.map(() => {
             return (
               <Card>
-                <img
-                  src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E"
-                  alt=""
-                />
+                <img src={exampleImg} alt="" />
                 <div className="info">
-                  <div className="name">Blueline park</div>
+                  <div className="name">Activity</div>
                   <div className="location">
                     <img className="icon" alt="" src={location} />
-                    Haeundae
+                    Location
                   </div>
                 </div>
               </Card>
@@ -47,7 +45,7 @@ const settings = {
   accessivility: true,
   variableWidth: true,
   draggable: false,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 3000,
   centerMode: true,
   centerPadding: "50px", //디폴트값
