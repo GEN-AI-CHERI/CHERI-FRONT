@@ -21,7 +21,7 @@ const MyChatPage = () => {
 
   return (
     <>
-      <ChatHeader />
+      <ChatHeader isSaved={true} />
       <BG>
         <CheriSpeech
           title={firstContents.plan}

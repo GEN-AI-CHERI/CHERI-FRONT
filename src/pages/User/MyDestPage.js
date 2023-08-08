@@ -28,7 +28,10 @@ const MyDestPage = () => {
 
   return (
     <>
-      <Header photo={recommend.region && recommend.region.photo} />
+      <Header
+        isSaved={true}
+        photo={recommend.region && recommend.region.photo}
+      />
       <Content
         title={recommend.region && recommend.region.title}
         description={recommend.region && recommend.region.description}
