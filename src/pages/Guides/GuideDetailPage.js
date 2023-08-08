@@ -76,6 +76,7 @@ const BackIcon = styled.img`
   width: 2.5rem;
   margin-left: 1.5rem;
   margin-top: 1.5rem;
+  cursor: pointer;
 `;
 
 const Telephone = styled.p`
