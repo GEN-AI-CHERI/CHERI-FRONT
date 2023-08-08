@@ -26,6 +26,7 @@ import PrivateRoute from "./Router/PrivateRoute";
 import MyDestPage from "./pages/User/MyDestPage";
 import GuideListPage from "./pages/Guides/GuideListPage";
 import GuideDetailPage from "./pages/Guides/GuideDetailPage";
+import RegionGuideListPage from "./pages/Guides/RegionGuideListPage";
 
 import { Provider } from "react-redux";
 import store from "./Redux/store";
@@ -70,6 +71,10 @@ function App() {
         <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
         <Route path="/secure-lock" element={<SecureLockPage />} />
         <Route path="/guide-list" element={<GuideListPage />} />
+        <Route
+          path="/guide-list/:region_id"
+          element={<RegionGuideListPage />}
+        />
         <Route path="/guide/:guide_id" element={<GuideDetailPage />} />
       </Routes>
     </Provider>
