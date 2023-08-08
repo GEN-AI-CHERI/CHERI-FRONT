@@ -11,7 +11,7 @@ const MyInfo = ({ nickname }) => {
       <div className="header">
         <Back
           onClick={() => {
-            navigate(-1);
+            navigate("/");
           }}
         >
           <img src={backBtn} alt="" />
