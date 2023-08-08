@@ -1,4 +1,4 @@
-# 🍒 외국인 맞춤형 한국 관광 가이드, `CHERI`
+# 🍒 외국인 맞춤형 한국 관광 서비스, `CHERI`
 
 ![Frame 39](https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/2c79606f-9678-4cfc-81be-33346ac4f6b8)
 
