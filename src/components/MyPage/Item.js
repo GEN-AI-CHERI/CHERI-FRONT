@@ -35,8 +35,8 @@ const Itinerary = ({
         <div className="place">{place}</div>
         <div className="tags">
           {tags.length &&
-            tags.map((tag) => {
-              return <div>#{tag}&nbsp;</div>;
+            tags.map((tag, index) => {
+              return <div key={index}>#{tag}&nbsp;</div>;
             })}
         </div>
       </div>
