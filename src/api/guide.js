@@ -31,9 +31,7 @@ export const GetGuideDetail = async (guide_id) => {
 // 지역별 가이드 조회
 export const GetGuidesByRegion = async (region_id) => {
   try {
-    const res = await client.get(`guides/${region_id}`, {
-      region_id: region_id,
-    });
+    const res = await client.get(`guides/region/${region_id}`);
     console.log(res.data);
 
     return res.data;
