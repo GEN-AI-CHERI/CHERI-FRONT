@@ -67,13 +67,12 @@ const ChatPage = () => {
       </BG>
       <Input
         room_id={room_id}
-        setUserMessages={setUserMessages}
-        setCheriMessages={setCheriMessages}
         onUserSend={handleUserSend} // 사용자가 메시지를 보낼 때 호출
-        onCheriResponse={handleCheriResponse} // 케리가 응답할 때 호출
+        onCheriResponse={handleCheriResponse} // 체리가 응답할 때 호출
         autoPost={autoPost}
         setAutoPost={setAutoPost}
         setIsLoading={setIsLoading}
+        isLoading={isLoading}
       />
     </>
   );
