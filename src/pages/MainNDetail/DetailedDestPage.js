@@ -18,7 +18,7 @@ const DetailedDestPage = () => {
   return (
     region && (
       <Wrapper>
-        <Header photo={region.photo} />
+        <Header photo={region.photo} isScrap={region.scrap} />
         <Info title={region.title} detail={region.detail} />
         <div className="popular">
           <div className="text">Popular Activities</div>
