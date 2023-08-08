@@ -2,11 +2,18 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import check from "../../assets/theme/check.png";
 
-const GainOptions = ({ setParty, selectedParty, item }) => {
+const GainOptions = ({
+  setParty,
+  selectedParty,
+  item,
+  isContinue,
+  setIsContinue,
+}) => {
   const [isSelect, setIsSelect] = useState(false);
 
   const handleSelect = () => {
     setIsSelect(!isSelect);
+    setIsContinue(!isContinue);
     setParty(item);
   };
 
@@ -38,6 +45,7 @@ const Container = styled.div`
     props.disabled === "Selected" ? "#FFEFEF" : "white"};
   margin-left: 3.2rem;
   margin-right: 3.2rem;
+  cursor: pointer;
 `;
 
 const CheckIcon = styled.img`

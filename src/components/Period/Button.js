@@ -7,7 +7,7 @@ import {
   setAge,
 } from "../../Redux/Itinerary/action";
 
-const Button = ({ beginDate, endDate, age }) => {
+const Button = ({ beginDate, endDate, age, isContinue }) => {
   const dispatch = useDispatch();
 
   // period, age 값을 변경하는 액션 디스패치
@@ -25,12 +25,16 @@ const Button = ({ beginDate, endDate, age }) => {
   };
 
   const handleNavigateNext = () => {
-    // 로그인되지 않았을시 로그인 유도 페이지로 접속
-    if (!localStorage.getItem("cheritoken")) {
-      navigate("/secure-lock");
+    if (!isContinue) {
+      alert("Please select an option");
     } else {
-      handleSetPeriodAndAge(beginDate, endDate, age);
-      navigate(`/loading`);
+      // 로그인되지 않았을시 로그인 유도 페이지로 접속
+      if (!localStorage.getItem("cheritoken")) {
+        navigate("/secure-lock");
+      } else {
+        handleSetPeriodAndAge(beginDate, endDate, age);
+        navigate(`/loading`);
+      }
     }
   };
 

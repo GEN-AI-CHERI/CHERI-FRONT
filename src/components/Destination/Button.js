@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setRegionId } from "../../Redux/Itinerary/action";
 
-const Button = ({ regionId }) => {
+const Button = ({ regionId, isContinue }) => {
   const dispatch = useDispatch();
 
   // region_id 값을 변경하는 액션 디스패치
@@ -19,9 +19,12 @@ const Button = ({ regionId }) => {
   };
 
   const handleNavigateNext = () => {
-    handleSetRegionId(regionId);
-    navigate(`/themes`);
-    alert("Please Select Destination");
+    if (isContinue) {
+      handleSetRegionId(regionId);
+      navigate(`/themes`);
+    } else {
+      alert("Please select an option");
+    }
   };
 
   return (

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setThemes } from "../../Redux/Destination/action";
 
-const Button = ({ selected_list }) => {
+const Button = ({ selected_list, isContinue }) => {
   const dispatch = useDispatch();
 
   // themes 값을 변경하는 액션 디스패치
@@ -19,8 +19,12 @@ const Button = ({ selected_list }) => {
   };
 
   const handleNavigateNext = () => {
-    handleSetThemes(selected_list);
-    navigate(`/party`);
+    if (isContinue) {
+      handleSetThemes(selected_list);
+      navigate(`/party`);
+    } else {
+      alert("Please select an option");
+    }
   };
 
   return (

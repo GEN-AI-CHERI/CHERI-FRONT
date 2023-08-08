@@ -11,12 +11,11 @@ const CheriSpeech = ({
   setAutoPost,
   src,
 }) => {
-
   // 응답값 배열로 오는지 확인하기 위해
   let arr_res = [];
-if(text){
-  arr_res = JSON.stringify(text).slice(2,-2).split('","');
-}
+  if (text) {
+    arr_res = JSON.stringify(text).slice(2, -2).split('","');
+  }
 
   return (
     <Row>
@@ -41,10 +40,11 @@ if(text){
               ))}
             </>
           )}
-          {text && arr_res.length > 1 ? arr_res.map((text, idx) => (
-            <p key={idx}>{text}</p>
-          )) :
-          <p>{text}</p>}
+          {text && arr_res.length > 1 ? (
+            arr_res.map((text, idx) => <p key={idx}>{text}</p>)
+          ) : (
+            <p>{text}</p>
+          )}
           {src && <ChatLoading src={src} />}
         </SpeechBubble>
       </Column>

@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import check from "../../assets/theme/check.png";
 
-const Age = ({ setAge, item, selectedAge }) => {
+const Age = ({ setAge, item, selectedAge, setIsContinue, isContinue }) => {
   const [isSelect, setIsSelect] = useState(false);
 
   const handleSelect = () => {
     setIsSelect(!isSelect);
     setAge(item);
+    setIsContinue(!isContinue);
   };
 
   // 중복 선택 제한
@@ -38,6 +39,7 @@ const Container = styled.div`
     props.disabled === "Selected" ? "#FFEFEF" : "white"};
   margin-left: 3.2rem;
   margin-right: 3.2rem;
+  cursor: pointer;
 `;
 
 const CheckIcon = styled.img`

@@ -10,9 +10,11 @@ const PeriodPage2 = () => {
   const [beginDate, setBeginDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [age, setAge] = useState(0);
+  const [isContinue, setIsContinue] = useState(false);
 
   const age_list1 = ["12 - 29", "30 - 39"];
   const age_list2 = ["40 - 49", "50"];
+
   return (
     <>
       <ShortHeader />
@@ -21,16 +23,35 @@ const PeriodPage2 = () => {
       <AgeContainer>
         <Row>
           {age_list1.map((item, idx) => (
-            <Age key={idx} setAge={setAge} item={item} selectedAge={age} />
+            <Age
+              key={idx}
+              setAge={setAge}
+              item={item}
+              selectedAge={age}
+              setIsContinue={setIsContinue}
+              isContinue={isContinue}
+            />
           ))}
         </Row>
         <Row>
           {age_list2.map((item, idx) => (
-            <Age key={idx} setAge={setAge} item={item} selectedAge={age} />
+            <Age
+              key={idx}
+              setAge={setAge}
+              item={item}
+              selectedAge={age}
+              setIsContinue={setIsContinue}
+              isContinue={isContinue}
+            />
           ))}
         </Row>
       </AgeContainer>
-      <Button2 beginDate={beginDate} endDate={endDate} age={age} />
+      <Button2
+        beginDate={beginDate}
+        endDate={endDate}
+        age={age}
+        isContinue={isContinue}
+      />
     </>
   );
 };
