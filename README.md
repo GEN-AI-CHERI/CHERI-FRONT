@@ -25,7 +25,7 @@
 	<th> 로그인</th>
 	<th> 메인</th>
 	<th> 마이페이지</th>
-	<th> 메뉴</th>
+	<th> 기능 선택 메뉴</th>
   <th> 여행지 정보 조회</th>
 	<tr>
 		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/4475fc89-4027-4116-9569-1b2dd93a8ec6"></td>
