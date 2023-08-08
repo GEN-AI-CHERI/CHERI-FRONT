@@ -5,15 +5,15 @@ import styled from "styled-components";
 import guide from "../../assets/Guide/ex.png";
 
 const GuideDetailPage = () => {
-  const { region_id } = useParams();
+  const { guide_id } = useParams();
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await GetGuideDetail(region_id);
-        setData(res.guides);
-        console.log("데이터", data);
+        const res = await GetGuideDetail(guide_id);
+        // setData(res.guides);
+        console.log("데이터", res);
       } catch (error) {
         console.log(error);
       }

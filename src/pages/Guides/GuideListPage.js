@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 
 const GuideListPage = () => {
   const [list, setList] = useState([]);
-  const [regionId, setRegionId] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await GetGuides();
         setList(data.guides);
+        console.log(list);
       } catch (error) {
         console.log(error);
       }
@@ -29,8 +29,8 @@ const GuideListPage = () => {
           <Card
             key={idx}
             item={item}
+            guide_id={item.guide_id}
             region_id={item.region_id}
-            setRegionId={setRegionId}
           />
         ))}
       </Container>
