@@ -20,6 +20,7 @@ const BackIcon = styled.img`
   width: 2.5rem;
   margin-left: 1.5em;
   margin-top: 1.2rem;
+  cursor: pointer;
 `;
 
 const Container = styled.div`
