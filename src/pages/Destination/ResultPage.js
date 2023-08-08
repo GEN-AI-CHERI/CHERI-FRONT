@@ -1,13 +1,13 @@
 import Header from "../../components/Result/Header";
 import Content from "../../components/Result/Content";
-import { be } from "date-fns/locale";
+import { styled } from "styled-components";
 
 const ResultPage = () => {
   const storedData = JSON.parse(localStorage.getItem("desRes"));
 
   console.log(storedData);
 
-  const region_id = storedData.region.region_id;
+  const region_id = storedData.recommend_id;
   const title = storedData.region.title;
   const description = storedData.region.description;
   const photo = storedData.region.photo;
@@ -28,8 +28,33 @@ const ResultPage = () => {
         themes={themes}
         detail={detail}
       />
+      <Container>
+        <Btn>Tour Guide Suggestions</Btn>
+      </Container>
     </>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+`;
+
+const Btn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23rem;
+  height: 5rem;
+  border-radius: 31px;
+  background: #ffefef;
+  box-shadow: 5px 4px 15px -3px rgba(0, 0, 0, 0.25);
+  color: #e84848;
+  font-size: 17px;
+  font-weight: 400;
+  border: none;
+`;
 
 export default ResultPage;

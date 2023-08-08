@@ -10,12 +10,15 @@ const Card = ({
   photo,
   setRegionId,
   chosenId,
+  setIsContinue,
+  isContinue,
 }) => {
   const [isSelect, setIsSelect] = useState(false);
 
   const handleSelect = () => {
     setIsSelect(!isSelect);
     setRegionId(region_id);
+    setIsContinue(!isContinue);
   };
 
   // 중복 선택 제한

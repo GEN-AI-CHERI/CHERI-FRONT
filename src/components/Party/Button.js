@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setParty } from "../../Redux/Destination/action";
 
-const Button = ({ party }) => {
+const Button = ({ party, isContinue }) => {
   const dispatch = useDispatch();
 
   // with_who 값을 변경하는 액션 디스패치
@@ -19,8 +19,12 @@ const Button = ({ party }) => {
   };
 
   const handleNavigateNext = () => {
-    handleSetParty(party);
-    navigate(`/period2`);
+    if (isContinue) {
+      handleSetParty(party);
+      navigate(`/period2`);
+    } else {
+      alert("Please select an option");
+    }
   };
 
   return (

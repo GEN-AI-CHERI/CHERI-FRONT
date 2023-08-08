@@ -10,6 +10,7 @@ const Input = ({
   autoPost,
   setAutoPost,
   setIsLoading,
+  isLoading,
 }) => {
   const [tempText, setTempText] = useState("");
   const [text, setText] = useState("");
@@ -46,10 +47,12 @@ const Input = ({
     const postAutoChat = async () => {
       try {
         setText("");
+        setIsLoading(true);
         onUserSend(autoPost);
         const res = await PostChats(autoPost, room_id);
         setTempText("");
         onCheriResponse(res.answer.contents);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -93,6 +96,7 @@ const InputField = styled.input`
 
 const Send = styled.img`
   width: 2.5rem;
+  cursor: pointer;
 `;
 
 const Container = styled.div`

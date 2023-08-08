@@ -87,6 +87,7 @@ const DatePickerWrapper = styled.div`
     font-size: 1.2rem;
     outline: none;
     margin-left: 1.4rem;
+    cursor: pointer;
   }
 `;
 

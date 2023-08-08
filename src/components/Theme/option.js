@@ -47,6 +47,7 @@ const ThemeOption = styled.div`
   font-weight: 400;
   margin-left: 1rem;
   margin-bottom: 1rem;
+  cursor: pointer;
 `;
 
 const CheckIcon = styled.img`

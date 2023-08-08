@@ -71,7 +71,7 @@ const MenuPage = () => {
         onClick={() => {
           if (selected === 1) navigate("/destination");
           if (selected === 2) navigate("/themes2");
-          if (selected === 3) navigate("/가이드목록");
+          if (selected === 3) navigate("/guide-list");
         }}
         $color={selected === 0 ? "gray" : "black"}
       >

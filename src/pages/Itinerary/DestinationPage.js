@@ -14,6 +14,7 @@ const DestinationPage = () => {
   const [scrollAmount, setScrollAmount] = useState(0);
   const [showScrollDownButton, setShowScrollDownButton] = useState(false);
   const [showScrollUpButton, setShowScrollUpButton] = useState(false);
+  const [isContinue, setIsContinue] = useState(false);
 
   // 스크롤 다운
   const handleScrollDown = () => {
@@ -79,6 +80,8 @@ const DestinationPage = () => {
                 photo={region.photo}
                 setRegionId={setRegionId}
                 chosenId={regionId}
+                setIsContinue={setIsContinue}
+                isContinue={isContinue}
               />
             );
           })}
@@ -93,7 +96,7 @@ const DestinationPage = () => {
           )}
         </ScrollContainer>
       </Fixed>
-      <Button regionId={regionId} />
+      <Button regionId={regionId} isContinue={isContinue} />
     </>
   );
 };
@@ -114,10 +117,12 @@ const ScrollContainer = styled.div`
 const ScrollUp = styled.img`
   width: 3rem;
   margin-bottom: 1rem;
+  cursor: pointer;
 `;
 
 const ScrollDown = styled.img`
   width: 3rem;
+  cursor: pointer;
 `;
 
 const CardContainer = styled.div`

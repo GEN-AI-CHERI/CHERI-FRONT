@@ -7,6 +7,7 @@ import { styled } from "styled-components";
 
 const PartyPage = () => {
   const [party, setParty] = useState("");
+  const [isContinue, setIsContinue] = useState(false);
 
   const party_list1 = ["Alone", "Family"];
   const party_list2 = ["Friend", "Partner"];
@@ -24,6 +25,8 @@ const PartyPage = () => {
               setParty={setParty}
               selectedParty={party}
               item={item}
+              setIsContinue={setIsContinue}
+              isContinue={isContinue}
             />
           ))}
         </Row>
@@ -34,6 +37,8 @@ const PartyPage = () => {
               setParty={setParty}
               selectedParty={party}
               item={item}
+              setIsContinue={setIsContinue}
+              isContinue={isContinue}
             />
           ))}
         </Row>
@@ -44,11 +49,13 @@ const PartyPage = () => {
               setParty={setParty}
               selectedParty={party}
               item={item}
+              setIsContinue={setIsContinue}
+              isContinue={isContinue}
             />
           ))}
         </Row>
       </PartyContainer>
-      <Button party={party} />
+      <Button party={party} isContinue={isContinue} />
     </>
   );
 };
