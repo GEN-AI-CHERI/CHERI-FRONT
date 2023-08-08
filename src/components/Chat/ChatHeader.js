@@ -5,10 +5,6 @@ import { useNavigate } from "react-router-dom";
 const ChatHeader = () => {
   const navigate = useNavigate();
 
-  const hanldeNavigate = () => {
-    navigate("/");
-  };
-
   return (
     <Container>
       <BackIcon src={backIcon} onClick={() => navigate("/")} />
@@ -20,6 +16,7 @@ const BackIcon = styled.img`
   width: 2.5rem;
   margin-left: 1.5em;
   margin-top: 1.2rem;
+  cursor: pointer;
 `;
 
 const Container = styled.div`
