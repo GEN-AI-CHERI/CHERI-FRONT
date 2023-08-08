@@ -14,7 +14,7 @@ const Card = ({ item, region_id, guide_id }) => {
         <Column>
           <Name>{item.name}</Name>
           <HashTag>{item.tag}</HashTag>
-          <Description>{item.introduction}</Description>
+          <Description>{item.introduction.slice(0, 70)}</Description>
         </Column>
         <DetailIcon src={move} />
       </CardContainer>
@@ -50,9 +50,10 @@ const CardContainer = styled.div`
 `;
 
 const Photo = styled.img`
-  width: 7rem;
-  height: 7rem;
+  width: 90px;
+  height: 90px;
   margin-right: 1.5rem;
+  border-radius: 16px;
   align-self: flex-start;
 `;
 
