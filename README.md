@@ -1,6 +1,5 @@
 # 🍒 외국인 맞춤형 한국 관광 가이드, `CHERI`
 
-
 ![Frame 39](https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/2c79606f-9678-4cfc-81be-33346ac4f6b8)
 
 <br>
@@ -22,10 +21,50 @@
 
 ## 🖼️ 화면 구성
 
-<br>
-
-## 🗓 개발 기간
-2023.07.24 ~ 2023.08.09
+<table>
+	<th> 로그인</th>
+	<th> 메인</th>
+	<th> 마이페이지</th>
+	<th> 메뉴</th>
+  <th> 여행지 정보 조회</th>
+	<tr>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/4475fc89-4027-4116-9569-1b2dd93a8ec6"></td>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/11b8af5a-a9d8-4bee-ae79-501636509e20"></td>
+    <td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/76f89841-4fb2-49db-8ddb-b7393b52bf8e"></td>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/7ffe64ec-c6e7-4a8a-8c08-104ef49d2af9"></td>
+    <td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/2ef3b154-39eb-48fa-ba6e-46206a69df98"></td>
+	</tr>
+</table>
+<br/>
+<table>
+	<th>희망 관광지 선택</th>
+	<th>여행 테마 선택</th>
+	<th>기간 및 연령대 선택</th>
+	<th>일행 유형 선택</th>
+	<th>결과 생성 로딩 페이지</th>
+	<tr>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/e40d4914-e070-40e5-b352-099ed71c321d"></td>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/437c81d1-2708-464f-ad63-2a6de91097de"></td>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/9aab60c7-354a-4889-9c23-91d8b92833c4"></td>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/d4550e9b-2b5f-4357-b970-a56bbf99d050"></td>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/75d2c25f-225c-4d8d-82ab-9b3db87d441e"></td>
+	</tr>
+</table>
+<table>
+	<th> 여행 코스 생성 결과</th>
+	<th> 여행지 추천 결과</th>
+	<th> 가이드 리스트</th>
+	<th> 가이드 상세</th>
+  <th> </th>
+	<tr>
+    <td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/a092351c-9d25-482b-ad10-b45067e51f20"></td>
+		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/6640e49e-8e4d-4463-9319-a87d250bcd173"></td>
+    <td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/76f89841-4fb2-49db-8ddb-b7393b52bf8e"></td>
+		<td><img width="200px" src=""></td>
+    <td><img width="200px" src=""></td>
+	</tr>
+</table>
+<br/>
 
 <br>
 
@@ -36,6 +75,11 @@
 |프론트|백엔드|디자인&프론트|
 |회원가입/로그인 <br> 메인페이지 <br> 마이페이지 등| api 서버 개발 <br> GPT 가스라이팅 등|여행 코스 생성 <br> 여행지 추천 <br>  가이드 추천 등|
 |[@Doozuu](https://github.com/Doozuu)|[@Doozuu](https://github.com/Doozuu)|[@Doozuu](https://github.com/Doozuu)|
+
+<br>
+
+## 🗓 개발 기간
+2023.07.24 ~ 2023.08.09
 
 <br>
 
