@@ -1,11 +1,19 @@
 import styled from "styled-components";
 import guide from "../../assets/Guide/ex.png";
 import move from "../../assets/Guide/move.png";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-const Card = ({ item }) => {
+const Card = ({ item, region_id, setRegionId }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setRegionId(item.region_id);
+  }, []);
+
   return (
     <>
-      <CardContainer>
+      <CardContainer onClick={() => navigate(`/guide/${region_id}`)}>
         <Photo src={guide} />
         <Column>
           <Name>{item.name}</Name>
@@ -44,6 +52,7 @@ const CardContainer = styled.div`
   width: 85%;
   align-items: center;
   margin-top: 1.5rem;
+  cursor: pointer;
 `;
 
 const Photo = styled.img`

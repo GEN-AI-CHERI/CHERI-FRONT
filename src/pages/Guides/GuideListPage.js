@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const GuideListPage = () => {
   const [list, setList] = useState([]);
+  const [regionId, setRegionId] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,20 +26,12 @@ const GuideListPage = () => {
       <Container>
         <Title>Guide List</Title>
         {list.map((item, idx) => (
-          <Card key={idx} item={item} />
-        ))}
-        {/* 임시 */}
-        {list.map((item, idx) => (
-          <Card key={idx} item={item} />
-        ))}
-        {list.map((item, idx) => (
-          <Card key={idx} item={item} />
-        ))}
-        {list.map((item, idx) => (
-          <Card key={idx} item={item} />
-        ))}
-        {list.map((item, idx) => (
-          <Card key={idx} item={item} />
+          <Card
+            key={idx}
+            item={item}
+            region_id={item.region_id}
+            setRegionId={setRegionId}
+          />
         ))}
       </Container>
     </>
