@@ -65,7 +65,7 @@ const settings = {
   variableWidth: true,
   draggable: false,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 2500,
   centerMode: true,
   centerPadding: "5px", //디폴트값
   pauseOnHover: true, // hover시 정지
