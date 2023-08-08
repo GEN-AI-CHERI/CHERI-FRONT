@@ -128,6 +128,7 @@ const Wrapper = styled.div`
     padding-left: 2.2rem;
   }
   .toSignup {
+    cursor: pointer;
     margin-top: 23px;
     color: #b7b7b7;
     text-align: center;
@@ -188,6 +189,7 @@ const Form = styled.form`
   }
 `;
 const Btn = styled.div`
+  cursor: pointer;
   margin-top: 232px;
   width: 229px;
   height: 58px;
