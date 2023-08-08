@@ -23,6 +23,7 @@ import MyChatPage from "./pages/User/MyChatPage";
 import LoadingSavedPage from "./pages/User/LoadingSavedPage";
 import SecureLockPage from "./pages/Common/SecureLockPage";
 import PrivateRoute from "./Router/PrivateRoute";
+import GuideListPage from "./pages/Guides/GuideListPage";
 
 import { Provider } from "react-redux";
 import store from "./Redux/store";
@@ -62,6 +63,7 @@ function App() {
         <Route path="/my-chat/:room_id" element={<MyChatPage />} />
         <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
         <Route path="/secure-lock" element={<SecureLockPage />} />
+        <Route path="/guide-list" element={<GuideListPage />} />
       </Routes>
     </Provider>
   );
