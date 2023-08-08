@@ -8,12 +8,13 @@ import { postRegion } from "../../api/regions";
 const Header = ({ photo, isScrap }) => {
   const navigate = useNavigate();
   const { region_id } = useParams();
-
+  const isLogin = !!localStorage.getItem("cheritoken");
   const scrapRegion = async () => {
     await postRegion(region_id);
   };
   const handleScrap = () => {
-    scrapRegion(region_id);
+    isLogin && scrapRegion(region_id);
+    !isLogin && navigate("/login");
   };
 
   return (
