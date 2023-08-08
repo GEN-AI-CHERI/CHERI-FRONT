@@ -42,7 +42,10 @@ function App() {
             path="/loading-saved/:room_id"
             element={<LoadingSavedPage />}
           />
-          <Route path="/my-destination" element={<MyDestPage />} />
+          <Route
+            path="/my-destination/:recommend_id"
+            element={<MyDestPage />}
+          />
           <Route path="/loading" element={<LoadingPage />} />
         </Route>
         <Route path="/signup" element={<SignUpPage />} />
