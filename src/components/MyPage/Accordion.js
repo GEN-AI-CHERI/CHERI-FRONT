@@ -10,7 +10,7 @@ import ScrapCarousel from "./ScrapCarousel";
 import Item from "./Item";
 const Accordion = ({ id, subject, list = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [tags, setTags] = useState([]);
+
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
