@@ -1,6 +1,5 @@
 import Header from "../../components/Result/Header";
 import Content from "../../components/Result/Content";
-import { be } from "date-fns/locale";
 
 const ResultPage = () => {
   const storedData = JSON.parse(localStorage.getItem("desRes"));

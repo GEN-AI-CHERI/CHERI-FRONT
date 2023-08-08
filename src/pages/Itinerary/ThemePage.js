@@ -3,7 +3,7 @@ import ShortHeader from "../../components/Destination/ShortHeader";
 import Title from "../../components/Destination/Title";
 import Option from "../../components/Theme/option";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ThemePage = () => {
   const theme_list = [
@@ -17,6 +17,11 @@ const ThemePage = () => {
     "activity",
   ];
   const [selected_list, setSelectedList] = useState([]); // 선택한 테마 리스트
+  const [isContinue, setIsContinue] = useState(false);
+
+  useEffect(() => {
+    selected_list.length > 0 ? setIsContinue(true) : setIsContinue(false);
+  }, [selected_list]);
 
   return (
     <>
@@ -35,7 +40,7 @@ const ThemePage = () => {
           ))}
         </OptionContainer>
       </Center>
-      <Button selected_list={selected_list} />
+      <Button selected_list={selected_list} isContinue={isContinue} />
     </>
   );
 };
