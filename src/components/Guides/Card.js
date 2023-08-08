@@ -4,23 +4,17 @@ import move from "../../assets/Guide/move.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-const Card = ({ item, region_id, setRegionId }) => {
+const Card = ({ item, region_id, guide_id }) => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setRegionId(item.region_id);
-  }, []);
 
   return (
     <>
-      <CardContainer onClick={() => navigate(`/guide/${region_id}`)}>
-        <Photo src={guide} />
+      <CardContainer onClick={() => navigate(`/guide/${guide_id}`)}>
+        <Photo src={item.photo} />
         <Column>
           <Name>{item.name}</Name>
           <HashTag>{item.tag}</HashTag>
-          <Description>
-            {item.introduction}ewerwerwerwewerwe rwe rwerwerwerwerwrw
-          </Description>
+          <Description>{item.introduction}</Description>
         </Column>
         <DetailIcon src={move} />
       </CardContainer>

@@ -65,7 +65,7 @@ function App() {
         <Route path="/loading-saved/:room_id" element={<LoadingSavedPage />} />
         <Route path="/secure-lock" element={<SecureLockPage />} />
         <Route path="/guide-list" element={<GuideListPage />} />
-        <Route path="/guide/:region_id" element={<GuideDetailPage />} />
+        <Route path="/guide/:guide_id" element={<GuideDetailPage />} />
       </Routes>
     </Provider>
   );
