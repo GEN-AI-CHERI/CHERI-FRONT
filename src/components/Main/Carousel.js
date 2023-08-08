@@ -16,6 +16,7 @@ const Carousel = () => {
     try {
       const data = await getRegions();
       setRegions(data.regions);
+      console.log(data.regions);
     } catch (err) {
       console.log(err);
     }
@@ -38,8 +39,10 @@ const Carousel = () => {
                   <div className="wrapper">
                     <img src={region.photo} alt="" />
                     <div className="filter" />
-                    <div className="content">{region.content}</div>
-                    <div className="title">{region.title}</div>
+                    <div className="text">
+                      {region.title}
+                      <div className="summary">{region.summary}</div>
+                    </div>
                   </div>
                 </Card>
               );
@@ -62,7 +65,7 @@ const settings = {
   variableWidth: true,
   draggable: false,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 2000,
   centerMode: true,
   centerPadding: "5px", //디폴트값
   pauseOnHover: true, // hover시 정지
@@ -87,6 +90,7 @@ const Wrapper = styled.div`
 
 const Card = styled.div`
   overflow: hidden;
+  cursor: pointer;
 
   .wrapper {
     position: relative;
@@ -96,8 +100,9 @@ const Card = styled.div`
       height: 100%;
       transform: translate(-25%, 0%);
     }
-    .title {
+    .text {
       display: flex;
+      flex-direction: column;
       background: none;
       position: absolute;
       top: 60%;
@@ -115,15 +120,15 @@ const Card = styled.div`
         font-size: 30px;
       }
     }
-    .content {
+    .summary {
+      width: 100%;
       display: flex;
       background: none;
-      position: absolute;
-      top: 60%;
-      left: 14px;
+      margin-top: 4px;
+      margin-left: 1px;
       color: #fcfcfc;
       font-family: Inter;
-      font-size: 10px;
+      font-size: 14px;
       font-weight: 300;
     }
     .filter {

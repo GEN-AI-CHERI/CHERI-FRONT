@@ -2,12 +2,16 @@ import backIcon from "../../assets/chat/backIcon.png";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const ChatHeader = () => {
+const ChatHeader = ({ isSaved = false }) => {
   const navigate = useNavigate();
+
+  const hanldeNavigate = () => {
+    isSaved ? navigate("/mypage") : navigate("/");
+  };
 
   return (
     <Container>
-      <BackIcon src={backIcon} onClick={() => navigate("/")} />
+      <BackIcon src={backIcon} onClick={hanldeNavigate} />
     </Container>
   );
 };

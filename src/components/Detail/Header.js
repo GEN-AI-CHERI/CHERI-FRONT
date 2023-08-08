@@ -5,17 +5,16 @@ import scrap from "../../assets/detail/scrap.png";
 import unscrap from "../../assets/detail/unscrap.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { postRegion } from "../../api/regions";
-const Header = ({ photo }) => {
+const Header = ({ photo, isScrap }) => {
   const navigate = useNavigate();
-  const [isScrap, setIsScrap] = useState(false);
   const { region_id } = useParams();
-
+  const isLogin = !!localStorage.getItem("cheritoken");
   const scrapRegion = async () => {
     await postRegion(region_id);
   };
   const handleScrap = () => {
-    !isScrap && scrapRegion(region_id);
-    setIsScrap(!isScrap);
+    isLogin && scrapRegion(region_id);
+    !isLogin && navigate("/login");
   };
 
   return (
@@ -23,7 +22,7 @@ const Header = ({ photo }) => {
       <div className="btns">
         <img className="back" alt="" src={back} onClick={() => navigate(-1)} />
         {isScrap ? (
-          <img className="scrap" alt="" src={scrap} onClick={handleScrap} />
+          <img className="scrap" alt="" src={scrap} />
         ) : (
           <img className="scrap" alt="" src={unscrap} onClick={handleScrap} />
         )}

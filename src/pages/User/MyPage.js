@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { styled } from "styled-components";
 import MyInfo from "../../components/MyPage/MyInfo";
-import ScrapCarousel from "../../components/MyPage/ScrapCarousel";
-import Item from "../../components/MyPage/Item";
-import { useNavigate } from "react-router-dom";
 import { getMyInfo } from "../../api/members";
 import Accordion from "../../components/MyPage/Accordion";
 const MyPage = () => {
@@ -12,15 +9,15 @@ const MyPage = () => {
   const [rooms, setRooms] = useState([]);
   const [scraps, setScraps] = useState([]);
   const [destinations, setDestinations] = useState([]);
-  const navigate = useNavigate();
 
   const getMyInfoData = async () => {
     try {
       const res = await getMyInfo();
+      console.log(res);
       setUserInfo(res.member);
       setRooms(res.room_list);
       setScraps(res.scrap_list);
-      setDestinations([]);
+      setDestinations(res.recommends_list);
     } catch (err) {}
   };
   useEffect(() => {

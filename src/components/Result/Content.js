@@ -2,26 +2,21 @@ import styled from "styled-components";
 import HashTag from "./HashTag";
 
 const Content = ({
-  title,
+  title = "",
   description,
-  begin_date,
-  end_date,
-  themes,
-  detail,
+  begin_date = "",
+  end_date = "",
+  themes = [],
+  detail = [],
 }) => {
-
   return (
     <Container>
       <Row>
         <Title>{title}</Title>
-        <Period>
-          {begin_date}~{end_date}
-        </Period>
+        <Period>{begin_date && end_date && `${begin_date}~${end_date}`}</Period>
       </Row>
-      {themes.map(item => <HashTag text={item} />)}
-      {detail.map((item) => (
-        <P>{item}</P>
-      ))}
+      {themes.length && themes.map((item) => <HashTag text={item} />)}
+      {detail.length && detail.map((item) => <P>{item}</P>)}
     </Container>
   );
 };

@@ -24,3 +24,14 @@ export const PostRecommend = async (
     throw err;
   }
 };
+
+//본인 정보 조회
+export const GetRecommend = async (recommend_id) => {
+  try {
+    const res = await client.get(`recommend/${recommend_id}`);
+
+    return res.data;
+  } catch (err) {
+    throw err;
+  }
+};

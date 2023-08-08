@@ -76,17 +76,17 @@ const Infos = () => {
         <Destinations>
           <div className="text">Guide Suggestions</div>
           <div className="list">
-            <div className="dest">
+            <div className="dest" onClick={() => navigate("/guide-list/12")}>
               <img src={seoul} alt=""></img>
               <div className="filter" />
               <div className="title">Seoul</div>
             </div>
-            <div className="dest">
+            <div className="dest" onClick={() => navigate("/guide-list/13")}>
               <img src={busan} alt=""></img>
               <div className="filter" />
               <div className="title">Busan</div>
             </div>
-            <div className="dest">
+            <div className="dest" onClick={() => navigate("/guide-list/16")}>
               <img src={jeju} alt=""></img>
               <div className="filter" />
               <div className="title">Jeju Island</div>
@@ -155,6 +155,7 @@ const Wrapper = styled.div`
     }
   }
   .startBtn {
+    cursor: pointer;
     margin-top: 30px;
     width: 11rem;
     height: 49px;
@@ -225,6 +226,7 @@ const Destinations = styled.div`
     padding-bottom: 70px;
   }
   .dest {
+    cursor: pointer;
     position: relative;
     overflow: hidden;
     @media (min-width: 768px) {

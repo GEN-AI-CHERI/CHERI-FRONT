@@ -1,11 +1,26 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const Info = ({ title, description }) => {
+const Info = ({ title, detail }) => {
+  const formatExplanation = (isLast, detail) => {
+    if (isLast) {
+      return detail.substr(11);
+    } else {
+      const index = detail.indexOf("Here");
+      return detail.substr(0, index);
+    }
+  };
   return (
     <Wrapper>
       <div className="title">{title}</div>
-      <div className="explanation">{description}</div>
+      {detail && (
+        <div className="explanation">
+          {formatExplanation(0, detail[0])}
+          <br />
+          <br />
+          {formatExplanation(1, detail[detail.length - 1])}
+        </div>
+      )}
     </Wrapper>
   );
 };
