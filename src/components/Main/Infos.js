@@ -226,6 +226,7 @@ const Destinations = styled.div`
     padding-bottom: 70px;
   }
   .dest {
+    cursor: pointer;
     position: relative;
     overflow: hidden;
     @media (min-width: 768px) {
