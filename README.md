@@ -105,11 +105,8 @@
 
 ## 🔗 웹사이트 배포 링크
 
-### https://cheritalk.site/
+> https://cheritalk.site/
 
-<br>
+## 🔗 피그마 링크
 
-## 📁 폴더 구조
-
-```javascript
-```
+> https://www.figma.com/file/uXv84VvbMAlOHV6UZk4574/%EA%B4%80%EA%B4%91%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%95%B4%EC%BB%A4%ED%86%A4?type=design&node-id=0-1&mode=design&t=AiYoDxLzGsDOPKMC-0
