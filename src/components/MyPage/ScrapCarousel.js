@@ -164,6 +164,7 @@ const StyledSlider = styled(Slider)`
     }
     div {
       //자식인 Card 컴포넌트
+      cursor: pointer;
       width: 93px;
       height: 93px;
       border-radius: 20px;

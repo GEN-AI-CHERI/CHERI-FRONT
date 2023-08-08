@@ -9,6 +9,7 @@ const Itinerary = ({
   place = "",
   tags = [],
   room_id = 0,
+  recommend_id = 0,
 }) => {
   const navigate = useNavigate();
   return subject === "Travel Itinerary" ? (
@@ -27,15 +28,16 @@ const Itinerary = ({
       </div>
     </Wrapper>
   ) : (
-    <Wrapper>
+    <Wrapper onClick={() => navigate(`/my-destination/${recommend_id}`)}>
       <div className="front">
         <img src={airplane} alt="" />
 
         <div className="place">{place}</div>
         <div className="tags">
-          {tags.map((tag) => {
-            return <div>#{tag}&nbsp;</div>;
-          })}
+          {tags.length &&
+            tags.map((tag) => {
+              return <div>#{tag}&nbsp;</div>;
+            })}
         </div>
       </div>
       <div className="btn">
@@ -47,6 +49,7 @@ const Itinerary = ({
 
 export default Itinerary;
 const Wrapper = styled.div`
+  cursor: pointer;
   width: 95%;
   height: 47px;
 

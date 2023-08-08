@@ -23,6 +23,8 @@ const LoginPage = () => {
         localStorage.setItem("cheritoken", data.access_token);
         navigate("/");
 
+        window.location.reload();
+
         setInputs({ email: "", password: "" });
       } catch (err) {
         showErrMsg();

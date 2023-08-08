@@ -3,11 +3,11 @@ import styled from "styled-components";
 import back from "../../assets/result/back.png";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ photo }) => {
+const Header = ({ photo, isSaved = false }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/");
+    isSaved ? navigate(-1) : navigate("/");
   };
 
   return (

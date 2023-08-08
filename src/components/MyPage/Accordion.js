@@ -10,20 +10,31 @@ import ScrapCarousel from "./ScrapCarousel";
 import Item from "./Item";
 const Accordion = ({ id, subject, list = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [tags, setTags] = useState([]);
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
 
+  const strToArr = (tagStr) => {
+    if (tagStr) {
+      const arr = tagStr.split(", ");
+      console.log(arr);
+
+      return arr;
+    } else return [];
+  };
   const icons = [scrap, travel, dest];
 
   const formatDate = (begin_date, end_date) => {
-    const beginMonth = begin_date.substr(5, 2);
-    const beginDate = begin_date.substr(8, 2);
+    if (begin_date && end_date) {
+      const beginMonth = begin_date.substr(5, 2);
+      const beginDate = begin_date.substr(8, 2);
 
-    const endMonth = end_date.substr(5, 2);
-    const endDate = end_date.substr(8, 2);
+      const endMonth = end_date.substr(5, 2);
+      const endDate = end_date.substr(8, 2);
 
-    return `${beginMonth}.${beginDate} ~ ${endMonth}.${endDate}`;
+      return `${beginMonth}.${beginDate} ~ ${endMonth}.${endDate}`;
+    } else return "";
   };
   return (
     <Container>
@@ -39,17 +50,18 @@ const Accordion = ({ id, subject, list = [] }) => {
 
       {isOpen && (
         <div className="contents">
-          {id === 0 && <ScrapCarousel scraps={list} />}
+          {id === 0 && list.length ? <ScrapCarousel scraps={list} /> : null}
           {id !== 0 &&
             list.map((item) => {
               return (
-                <div className="item" key={item.room_id}>
+                <div className="item" key={item.room_id || item.recommend_id}>
                   <Item
                     subject={subject}
                     period={formatDate(item.begin_date, item.end_date)}
                     place={item.region.title}
-                    tags={item.tags}
+                    tags={strToArr(item.tag)}
                     room_id={item.room_id}
+                    recommend_id={item.recommend_id}
                   />
                 </div>
               );
@@ -85,6 +97,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
+  cursor: pointer;
   height: 60px;
   display: flex;
   flex-direction: row;
