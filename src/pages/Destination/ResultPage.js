@@ -1,13 +1,14 @@
 import Header from "../../components/Result/Header";
 import Content from "../../components/Result/Content";
 import { styled } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const ResultPage = () => {
   const storedData = JSON.parse(localStorage.getItem("desRes"));
 
   console.log(storedData);
 
-  const region_id = storedData.recommend_id;
+  const recommend_id = storedData.recommend_id;
   const title = storedData.region.title;
   const description = storedData.region.description;
   const photo = storedData.region.photo;
@@ -15,12 +16,15 @@ const ResultPage = () => {
   const end_date = storedData.end_date;
   const themes = storedData.themes;
   const detail = storedData.region.detail;
+  const region_id = storedData.region.region_id;
+
+  const navigate = useNavigate();
 
   return (
     <>
       <Header photo={photo} />
       <Content
-        key={region_id}
+        key={recommend_id}
         title={title}
         description={description}
         begin_date={begin_date}
@@ -29,7 +33,9 @@ const ResultPage = () => {
         detail={detail}
       />
       <Container>
-        <Btn>Tour Guide Suggestions</Btn>
+        <Btn onClick={() => navigate(`/guide-list/${region_id}`)}>
+          Tour Guide Suggestions
+        </Btn>
       </Container>
     </>
   );
