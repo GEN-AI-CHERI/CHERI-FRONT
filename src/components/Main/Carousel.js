@@ -65,7 +65,7 @@ const settings = {
   variableWidth: true,
   draggable: false,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 2000,
   centerMode: true,
   centerPadding: "5px", //디폴트값
   pauseOnHover: true, // hover시 정지
@@ -121,6 +121,7 @@ const Card = styled.div`
       }
     }
     .summary {
+      width: 100%;
       display: flex;
       background: none;
       margin-top: 4px;
