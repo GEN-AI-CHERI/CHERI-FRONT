@@ -14,9 +14,9 @@ const Carousel = () => {
     <Wrapper>
       <div className="container">
         <StyledSlider {...settings}>
-          {scraps.map(() => {
+          {scraps.map((index) => {
             return (
-              <Card>
+              <Card key={index}>
                 <img src={exampleImg} alt="" />
                 <div className="info">
                   <div className="name">Activity</div>
