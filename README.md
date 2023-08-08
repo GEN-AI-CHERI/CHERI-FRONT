@@ -71,10 +71,10 @@
 ## 👥 팀원 소개
 |송지민|이선의|이주희|
 |---|---|---|
-|<img width="160px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/678ff507-7836-4c9c-ba4f-a58a2b9b9896">|<img style="width:160px" src="https://github.com/EduTechProjects/.github/assets/104717341/cda21e5d-5917-4b56-8c38-9418f5993cd6"/>|<img width="160px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/76e28349-f536-46bc-8341-c46f8d3dab37">|
+|<img width="160px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/678ff507-7836-4c9c-ba4f-a58a2b9b9896">|<img style="width:160px" src="https://avatars.githubusercontent.com/u/80109963?v=4"/>|<img width="160px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/76e28349-f536-46bc-8341-c46f8d3dab37">|
 |프론트|백엔드|프론트&디자인|
-|회원가입/로그인 <br> 메인페이지(캐러셀) <br> 마이페이지 <br> 마이페이지 결과 조회 <br> 기능 선택 메뉴 <br> 개별 관광지 조회| api 서버 개발 <br> GPT 가스라이팅 등| 여행 코스 생성 기능 <br> 여행지 추천 기능 <br> 가이드 전체/개별 리스트 <br> 채팅(챗봇) <br> 로그인 접근 제한 <br> UI/UX 디자인|
-|[@songing01](https://github.com/songing01)|[@Doozuu](https://github.com/Doozuu)|[@Doozuu](https://github.com/Doozuu)|
+|회원가입/로그인 <br> 메인페이지(캐러셀) <br> 마이페이지 <br> 마이페이지 결과 조회 <br> 기능 선택 메뉴 <br> 개별 관광지 조회| 데이터베이스 설계 <br> api 서버 개발 <br> OPEN API 가공 <br> GPT 활용 기능 개발 <br> DevOps(배포) | 여행 코스 생성 기능 <br> 여행지 추천 기능 <br> 가이드 전체/개별 리스트 <br> 채팅(챗봇) <br> 로그인 접근 제한 <br> UI/UX 디자인|
+|[@songing01](https://github.com/songing01)|[@sunnyineverywhere](https://github.com/sunnyineverywhere)|[@Doozuu](https://github.com/Doozuu)|
 
 <br>
 
