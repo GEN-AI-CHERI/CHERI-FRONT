@@ -55,14 +55,14 @@
 	<th> 여행지 추천 결과</th>
 	<th> 가이드 리스트</th>
 	<th> 가이드 상세</th>
-  <th> </th>
+  <th>로그인 전 접근 제한</th>
 	<tr>
-    <td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/a092351c-9d25-482b-ad10-b45067e51f20"></td>
-		<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/6640e49e-8e4d-4463-9319-a87d250bcd173"></td>
-    <td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/76f89841-4fb2-49db-8ddb-b7393b52bf8e"></td>
-		<td><img width="200px" src=""></td>
-    <td><img width="200px" src=""></td>
-	</tr>
+    	<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/a092351c-9d25-482b-ad10-b45067e51f20"></td>
+	<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/6640e49e-8e4d-4463-9319-a87d250bcd173"></td>
+	<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/8869724b-189e-43b7-b157-313b01940f9d"></td>
+    	<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/9a778f36-e2e9-405c-ab66-70643bbf81b1"></td>
+	<td><img width="200px" src="https://github.com/GEN-AI-CHERI/CHERI-FRONT/assets/104717341/92537b97-8f53-49c2-991c-5b01cd533f16"></td>
+ </tr>
 </table>
 <br/>
 
@@ -73,7 +73,7 @@
 |---|---|---|
 |<img width="150px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/678ff507-7836-4c9c-ba4f-a58a2b9b9896">|<img style="width:150px" src="https://github.com/EduTechProjects/.github/assets/104717341/cda21e5d-5917-4b56-8c38-9418f5993cd6"/>|<img width="150px" alt="스크린샷 2023-07-25 오전 12 45 37" src="https://github.com/EFUB-SURFERS/BagEasy-front/assets/104717341/76e28349-f536-46bc-8341-c46f8d3dab37">|
 |프론트|백엔드|디자인&프론트|
-|회원가입/로그인 <br> 메인페이지 <br> 마이페이지 등| api 서버 개발 <br> GPT 가스라이팅 등|여행 코스 생성 <br> 여행지 추천 <br>  가이드 추천 등|
+|회원가입/로그인 <br> 메인페이지 <br> 마이페이지 <br> 결과 조회 <br> 기능 선택 메뉴 <br> 개별 관광지 조회| api 서버 개발 <br> GPT 가스라이팅 등| 여행 코스 생성 기능 <br> 여행지 추천 기능 <br> 가이드 리스트 <br> 채팅(챗봇)  <br> 로그인 접근 제한 <br> UI/UX 디자인|
 |[@Doozuu](https://github.com/Doozuu)|[@Doozuu](https://github.com/Doozuu)|[@Doozuu](https://github.com/Doozuu)|
 
 <br>
