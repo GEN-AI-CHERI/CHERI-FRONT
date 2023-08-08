@@ -96,6 +96,7 @@ const InputField = styled.input`
 
 const Send = styled.img`
   width: 2.5rem;
+  cursor: pointer;
 `;
 
 const Container = styled.div`

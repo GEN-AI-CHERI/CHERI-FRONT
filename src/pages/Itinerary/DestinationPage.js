@@ -117,10 +117,12 @@ const ScrollContainer = styled.div`
 const ScrollUp = styled.img`
   width: 3rem;
   margin-bottom: 1rem;
+  cursor: pointer;
 `;
 
 const ScrollDown = styled.img`
   width: 3rem;
+  cursor: pointer;
 `;
 
 const CardContainer = styled.div`

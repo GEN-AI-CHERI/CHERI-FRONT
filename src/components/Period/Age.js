@@ -39,6 +39,7 @@ const Container = styled.div`
     props.disabled === "Selected" ? "#FFEFEF" : "white"};
   margin-left: 3.2rem;
   margin-right: 3.2rem;
+  cursor: pointer;
 `;
 
 const CheckIcon = styled.img`
