@@ -67,16 +67,18 @@ const MenuPage = () => {
           </Option>
         );
       })}
-      <Button
-        onClick={() => {
-          if (selected === 1) navigate("/destination");
-          if (selected === 2) navigate("/themes2");
-          if (selected === 3) navigate("/guide-list");
-        }}
-        $color={selected === 0 ? "gray" : "black"}
-      >
-        Next Step
-      </Button>
+      <div className="button">
+        <Button
+          onClick={() => {
+            if (selected === 1) navigate("/destination");
+            if (selected === 2) navigate("/themes2");
+            if (selected === 3) navigate("/guide-list");
+          }}
+          $color={selected === 0 ? "gray" : "black"}
+        >
+          Next Step
+        </Button>
+      </div>
     </Wrapper>
   );
 };
@@ -84,7 +86,8 @@ const MenuPage = () => {
 export default MenuPage;
 const Button = styled.div`
   cursor: pointer;
-  margin-top: 140px;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
   width: 194px;
   height: 58px;
   display: flex;
