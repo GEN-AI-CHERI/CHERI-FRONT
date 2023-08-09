@@ -20,8 +20,6 @@ const GuideDetailPage = () => {
         const res = await GetGuideDetail(guide_id);
         setData(res.guide);
         setInfo(res.guide_info);
-
-        console.log("info", res.guide_info);
       } catch (error) {
         console.log(error);
       }
