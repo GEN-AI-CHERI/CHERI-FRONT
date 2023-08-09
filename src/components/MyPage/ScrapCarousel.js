@@ -144,7 +144,6 @@ const StyledSlider = styled(Slider)`
   .slick-list {
     //화면에 보여지는 부분
 
-    margin: 0;
     width: 100%;
     height: 100px;
   }
