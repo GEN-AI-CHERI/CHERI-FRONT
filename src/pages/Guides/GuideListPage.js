@@ -12,7 +12,6 @@ const GuideListPage = () => {
       try {
         const data = await GetGuides();
         setList(data.guides);
-        console.log(list);
       } catch (error) {
         console.log(error);
       }

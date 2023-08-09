@@ -16,7 +16,6 @@ export const PostRecommend = async (
       begin_date: begin_date,
       end_date: end_date,
     });
-    console.log(res);
 
     return res.data;
   } catch (err) {

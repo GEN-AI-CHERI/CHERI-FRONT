@@ -13,7 +13,7 @@ const MyPage = () => {
   const getMyInfoData = async () => {
     try {
       const res = await getMyInfo();
-      console.log(res);
+
       setUserInfo(res.member);
       setRooms(res.room_list);
       setScraps(res.scrap_list);

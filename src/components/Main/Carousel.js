@@ -16,7 +16,6 @@ const Carousel = () => {
     try {
       const data = await getRegions();
       setRegions(data.regions);
-      console.log(data.regions);
     } catch (err) {
       console.log(err);
     }

@@ -26,8 +26,6 @@ export const postRegion = async (region_id) => {
     const res = await client.post(`/scrap`, {
       region_id: region_id,
     });
-
-    console.log(res);
   } catch (err) {
     console.log(err);
   }

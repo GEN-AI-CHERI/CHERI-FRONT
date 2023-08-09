@@ -13,7 +13,7 @@ const Card = ({ item, guide_id }) => {
         <Column>
           <Name>{item.name}</Name>
           <HashTag>{item.tag}</HashTag>
-          <Description>{item.introduction.slice(0, 70)}</Description>
+          <Description>{item.introduction.slice(0, 70)}...</Description>
         </Column>
         <DetailIcon src={move} />
       </CardContainer>
