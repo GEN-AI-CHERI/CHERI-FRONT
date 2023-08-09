@@ -84,8 +84,7 @@ const MenuPage = () => {
 export default MenuPage;
 const Button = styled.div`
   cursor: pointer;
-  position: absolute;
-  bottom: 5rem;
+  margin-top: 140px;
   width: 194px;
   height: 58px;
   display: flex;
