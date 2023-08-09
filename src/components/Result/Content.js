@@ -15,8 +15,9 @@ const Content = ({
         <Title>{title}</Title>
         <Period>{begin_date && end_date && `${begin_date}~${end_date}`}</Period>
       </Row>
-      {themes.length && themes.map((item) => <HashTag text={item} />)}
-      {detail.length && detail.map((item) => <P>{item}</P>)}
+      {themes.length &&
+        themes.map((item, index) => <HashTag key={index} text={item} />)}
+      {detail.length && detail.map((item, index) => <P key={index}>{item}</P>)}
     </Container>
   );
 };
