@@ -18,7 +18,6 @@ const Accordion = ({ id, subject, list = [] }) => {
   const strToArr = (tagStr) => {
     if (tagStr) {
       const arr = tagStr.split(", ");
-      console.log(arr);
 
       return arr;
     } else return [];
