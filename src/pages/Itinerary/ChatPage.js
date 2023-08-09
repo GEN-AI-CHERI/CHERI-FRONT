@@ -22,6 +22,7 @@ const ChatPage = () => {
   const title = storedData.message.plan;
   const itinerary = storedData.message.itinerary;
   const question = storedData.message.recommend_next_questions;
+  const region_id = storedData.guide[0].region_id;
 
   const handleUserSend = (text) => {
     setUserMessages([...userMessages, text]); // 새로운 사용자 메시지를 배열에 추가
@@ -41,7 +42,7 @@ const ChatPage = () => {
 
   return (
     <>
-      <ChatHeader />
+      <ChatHeader region_id={region_id} />
       <BG>
         <ChatContainer ref={chatContainerRef}>
           <CheriSpeech

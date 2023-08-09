@@ -2,9 +2,8 @@ import styled from "styled-components";
 import guide from "../../assets/Guide/ex.png";
 import move from "../../assets/Guide/move.png";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
-const Card = ({ item, region_id, guide_id }) => {
+const Card = ({ item, guide_id }) => {
   const navigate = useNavigate();
 
   return (
@@ -14,7 +13,7 @@ const Card = ({ item, region_id, guide_id }) => {
         <Column>
           <Name>{item.name}</Name>
           <HashTag>{item.tag}</HashTag>
-          <Description>{item.introduction}</Description>
+          <Description>{item.introduction.slice(0, 70)}</Description>
         </Column>
         <DetailIcon src={move} />
       </CardContainer>
@@ -50,9 +49,10 @@ const CardContainer = styled.div`
 `;
 
 const Photo = styled.img`
-  width: 7rem;
-  height: 7rem;
+  width: 90px;
+  height: 90px;
   margin-right: 1.5rem;
+  border-radius: 16px;
   align-self: flex-start;
 `;
 
