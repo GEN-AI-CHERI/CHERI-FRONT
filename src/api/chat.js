@@ -17,7 +17,6 @@ export const PostChatroomsStart = async (
       end_date: end_date,
       region_id: region_id,
     });
-    console.log(res.data);
 
     return res.data;
   } catch (err) {
@@ -33,7 +32,7 @@ export const PostChats = async (prompt, room_id) => {
       prompt: prompt,
       room_id: room_id,
     });
-    console.log(res.data);
+
     // 리턴 꼭 하기...^^
     return res.data;
   } catch (err) {

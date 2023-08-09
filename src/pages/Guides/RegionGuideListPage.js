@@ -14,7 +14,6 @@ const RegionGuideListPage = () => {
       try {
         const data = await GetGuidesByRegion(region_id);
         setList(data.guides);
-        console.log(list);
       } catch (error) {
         console.log(error);
       }

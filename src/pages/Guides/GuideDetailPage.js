@@ -13,7 +13,6 @@ const GuideDetailPage = () => {
       try {
         const res = await GetGuideDetail(guide_id);
         // setData(res.guides);
-        console.log("데이터", res);
       } catch (error) {
         console.log(error);
       }

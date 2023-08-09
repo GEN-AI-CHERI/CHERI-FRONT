@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 const ResultPage = () => {
   const storedData = JSON.parse(localStorage.getItem("desRes"));
 
-  console.log(storedData);
-
   const recommend_id = storedData.recommend_id;
   const title = storedData.region.title;
   const description = storedData.region.description;
