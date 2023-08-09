@@ -12,13 +12,28 @@ const Header = ({ photo, isSaved = false }) => {
 
   return (
     <>
-      <BackIcon src={back} onClick={handleNavigate} />
-      <HeaderImg src={photo} />
+      <Wrapper $background={photo}>
+        <BackIcon src={back} onClick={handleNavigate} />
+        <div className="image">
+          <HeaderImg src={photo} />
+        </div>
+      </Wrapper>
     </>
   );
 };
+const Wrapper = styled.div`
+  background: url(${(props) => props.$background}) lightgray 50% / cover
+    no-repeat;
 
+  .image {
+    height: 232px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(3.5px);
+  }
+`;
 const BackIcon = styled.img`
+  z-index: 1;
   width: 2.5rem;
   position: absolute;
   margin-left: 1.5em;
@@ -26,8 +41,6 @@ const BackIcon = styled.img`
   cursor: pointer;
 `;
 
-const HeaderImg = styled.img`
-  width: 100vw;
-`;
+const HeaderImg = styled.img``;
 
 export default Header;
