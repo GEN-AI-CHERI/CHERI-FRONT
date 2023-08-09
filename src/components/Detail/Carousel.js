@@ -48,7 +48,7 @@ const settings = {
   autoplay: false,
   autoplaySpeed: 3000,
   centerMode: true,
-  centerPadding: "50px", //디폴트값
+  centerPadding: "5px", //디폴트값
   pauseOnHover: true, // hover시 정지
   //화면 넓이에 따른 반응형 옵션
 };
