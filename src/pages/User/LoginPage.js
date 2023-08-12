@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { postSignIn } from "../../api/members";
+import CheriSpeech from "../../components/Chat/CheriSpeech";
 const LoginPage = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
@@ -20,7 +21,7 @@ const LoginPage = () => {
     if (email && password) {
       try {
         const data = await postSignIn(email, password);
-        localStorage.setItem("cheritoken", data.access_token);
+        sessionStorage.setItem("cheritoken", data.access_token);
         navigate("/");
 
         window.location.reload();
