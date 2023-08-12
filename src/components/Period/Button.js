@@ -29,7 +29,7 @@ const Button = ({ beginDate, endDate, age, isContinue }) => {
       alert("Please select an option");
     } else {
       // 로그인되지 않았을시 로그인 유도 페이지로 접속
-      if (!localStorage.getItem("cheritoken")) {
+      if (!sessionStorage.getItem("cheritoken")) {
         navigate("/secure-lock");
       } else {
         handleSetPeriodAndAge(beginDate, endDate, age);

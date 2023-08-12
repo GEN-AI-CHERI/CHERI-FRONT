@@ -45,7 +45,7 @@ const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
   const checkLogin = () => {
     if (matchMedia("screen and (min-width: 768px)").matches) {
-      setShowLogin(!localStorage.getItem("cheritoken"));
+      setShowLogin(!sessionStorage.getItem("cheritoken"));
     }
   };
   useEffect(() => {
